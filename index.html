@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arafat CP | Daily Practice</title>
+
+<style>
+/* =========================================================
+   ARafat CP - DAILY PRACTICE
+   Everything is inside this single HTML file.
+   No external CSS or JavaScript files are required.
+   ========================================================= */
+
+
+/* =========================
+   BASIC RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    line-height: 1.6;
+    transition: 0.3s ease;
+}
+
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+body.dark {
+    background: #0d1117;
+    color: #e6edf3;
+}
+
+body.dark .navbar {
+    background: #161b22;
+    border-bottom-color: #30363d;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #161b22, #111827);
+}
+
+body.dark .problem-card,
+body.dark .info-card,
+body.dark .problem-container,
+body.dark .example-box {
+    background: #161b22;
+    border-color: #30363d;
+}
+
+body.dark .problem-title,
+body.dark .section-title,
+body.dark .info-title {
+    color: #f0f6fc;
+}
+
+body.dark .problem-description,
+body.dark .problem-content {
+    color: #c9d1d9;
+}
+
+body.dark .code-box {
+    background: #0d1117;
+    border-color: #30363d;
+    color: #e6edf3;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding: 15px 25px;
+}
+
+.navbar-inner {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+
+    padding: 8px 13px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: #f3f4f6;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+   ========================= */
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    margin-top: 35px;
+    padding: 55px 35px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(135deg, #ffffff, #eef4ff);
+
+    border: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 50px;
+
+    background: #dbeafe;
+    color: #1d4ed8;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 55px);
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+
+    color: #64748b;
+    font-size: 16px;
+}
+
+
+/* =========================
+   STATS
+   ========================= */
+
+.stats {
+    margin-top: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.stat {
+    padding: 20px;
+
+    background: white;
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* =========================
+   PROBLEMS SECTION
+   ========================= */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+}
+
+.section-heading p {
+    color: #64748b;
+}
+
+
+/* =========================
+   PROBLEM CARDS
+   ========================= */
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.problem-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.problem-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.problem-letter {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 10px;
+
+    font-weight: 800;
+}
+
+.difficulty {
+    padding: 5px 10px;
+
+    border-radius: 50px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.problem-title {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.problem-description {
+    color: #64748b;
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+.tag {
+    padding: 4px 9px;
+
+    border-radius: 6px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.solve-btn {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #2563eb;
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.solve-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   HOW IT WORKS
+   ========================= */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.info-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 22px;
+}
+
+.info-number {
+    font-size: 13px;
+    font-weight: 800;
+
+    color: #2563eb;
+
+    margin-bottom: 8px;
+}
+
+.info-title {
+    font-weight: 800;
+
+    margin-bottom: 6px;
+}
+
+.info-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* =========================
+   PROBLEM PAGE
+   ========================= */
+
+.problem-page {
+    display: none;
+
+    margin-top: 35px;
+}
+
+.back-btn {
+    border: none;
+    background: none;
+
+    color: #2563eb;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+.problem-container {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+}
+
+.problem-header {
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 25px;
+
+    margin-bottom: 30px;
+}
+
+.problem-header-top {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.problem-header h1 {
+    font-size: 32px;
+}
+
+.problem-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.meta {
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   CONTENT
+   ========================= */
+
+.problem-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+.problem-content {
+    color: #374151;
+}
+
+
+/* =========================
+   EXAMPLES
+   ========================= */
+
+.example-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.example-box {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.example-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 9px 12px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.copy-btn {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    padding: 4px 8px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    background: #f1f5f9;
+}
+
+.copy-btn.copied {
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #86efac;
+}
+
+.copy-btn.failed {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+}
+
+.code-box {
+    padding: 15px;
+
+    background: #f8fafc;
+
+    font-family: Consolas, Monaco, monospace;
+
+    white-space: pre-wrap;
+
+    overflow-x: auto;
+
+    min-height: 60px;
+}
+
+
+/* =========================
+   GOOGLE FORM BUTTON
+   ========================= */
+
+.answer-box {
+    margin-top: 35px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #eff6ff, #f8fafc);
+
+    border: 1px solid #bfdbfe;
+
+    text-align: center;
+}
+
+.answer-box h3 {
+    margin-bottom: 6px;
+}
+
+.answer-box p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+.answer-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 12px 20px;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.answer-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.problem-navigation {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.navigation-btn {
+    padding: 10px 18px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+.navigation-btn:hover {
+    background: #f3f4f6;
+}
+
+.navigation-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   TOAST
+   ========================= */
+
+.toast {
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    background: #111827;
+    color: white;
+
+    padding: 12px 17px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    pointer-events: none;
+
+    transition: 0.25s;
+
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.toast.success {
+    background: #15803d;
+}
+
+.toast.error {
+    background: #dc2626;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    margin-top: 70px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer strong {
+    color: #2563eb;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .example-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .problem-container {
+        padding: 20px;
+    }
+
+    .problem-header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        padding: 12px 15px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="navbar-inner">
+
+        <div class="logo">
+            Arafat<span>CP</span>
+        </div>
+
+        <div class="nav-actions">
+
+            <button
+                class="nav-btn"
+                type="button"
+                onclick="showHome()">
+                Home
+            </button>
+
+            <button
+                class="nav-btn"
+                type="button"
+                onclick="toggleDarkMode()">
+                🌙
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="container">
+
+
+<!-- =========================================================
+     HOME PAGE
+     ========================================================= -->
+
+<section id="homePage">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            DAILY CP PRACTICE
+        </div>
+
+        <h1>
+            Today's <span>Challenge</span>
+        </h1>
+
+        <p>
+            Solve today's problems, submit your answers through
+            the provided form, and keep improving your competitive
+            programming skills.
+        </p>
+
+    </section>
+
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                2
+            </div>
+
+            <div class="stat-label">
+                Problems
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                250
+            </div>
+
+            <div class="stat-label">
+                Total Points
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                Daily
+            </div>
+
+            <div class="stat-label">
+                Practice Mode
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PROBLEMS -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Today's Problems
+            </h2>
+
+            <p>
+                Choose a problem and start solving.
+            </p>
+
+        </div>
+
+
+        <div
+            class="problem-grid"
+            id="problemCards">
+        </div>
+
+    </section>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                How It Works
+            </h2>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-number">
+                    STEP 01
+                </div>
+
+                <div class="info-title">
+                    Pick a Problem
+                </div>
+
+                <p>
+                    Choose any problem from today's challenge.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-number">
+                    STEP 02
+                </div>
+
+                <div class="info-title">
+                    Solve It
+                </div>
+
+                <p>
+                    Write your C++ solution and test it yourself.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-number">
+                    STEP 03
+                </div>
+
+                <div class="info-title">
+                    Submit Answer
+                </div>
+
+                <p>
+                    Submit your answer through the Google Form.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     PROBLEM PAGE
+     ========================================================= -->
+
+<section
+    id="problemPage"
+    class="problem-page">
+
+    <button
+        class="back-btn"
+        type="button"
+        onclick="showHome()">
+
+        ← Back to Problems
+
+    </button>
+
+
+    <div class="problem-container">
+
+
+        <!-- PROBLEM HEADER -->
+
+        <div class="problem-header">
+
+            <div class="problem-header-top">
+
+                <div
+                    class="problem-letter"
+                    id="problemLetter">
+                </div>
+
+                <h1 id="problemTitle">
+                </h1>
+
+            </div>
+
+
+            <div
+                class="problem-meta"
+                id="problemMeta">
+            </div>
+
+        </div>
+
+
+
+        <!-- STATEMENT -->
+
+        <section class="problem-section">
+
+            <h2 class="section-title">
+                Problem
+            </h2>
+
+            <div
+                class="problem-content"
+                id="problemStatement">
+            </div>
+
+        </section>
+
+
+
+        <!-- INPUT -->
+
+        <section class="problem-section">
+
+            <h2 class="section-title">
+                Input
+            </h2>
+
+            <div
+                class="problem-content"
+                id="problemInput">
+            </div>
+
+        </section>
+
+
+
+        <!-- OUTPUT -->
+
+        <section class="problem-section">
+
+            <h2 class="section-title">
+                Output
+            </h2>
+
+            <div
+                class="problem-content"
+                id="problemOutput">
+            </div>
+
+        </section>
+
+
+
+        <!-- CONSTRAINTS -->
+
+        <section class="problem-section">
+
+            <h2 class="section-title">
+                Constraints
+            </h2>
+
+            <div
+                class="problem-content"
+                id="problemConstraints">
+            </div>
+
+        </section>
+
+
+
+        <!-- EXAMPLES -->
+
+        <section class="problem-section">
+
+            <h2 class="section-title">
+                Examples
+            </h2>
+
+            <div id="examplesContainer">
+            </div>
+
+        </section>
+
+
+
+        <!-- GOOGLE FORM -->
+
+        <div class="answer-box">
+
+            <h3>
+                Ready to Submit?
+            </h3>
+
+            <p>
+                Submit your answer using the Google Form below.
+            </p>
+
+            <a
+                id="answerButton"
+                class="answer-btn"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                📝 Provide Your Answer
+
+            </a>
+
+        </div>
+
+
+
+        <!-- PREVIOUS / NEXT -->
+
+        <div class="problem-navigation">
+
+            <button
+                id="previousButton"
+                class="navigation-btn"
+                type="button"
+                onclick="previousProblem()">
+
+                ← Previous
+
+            </button>
+
+
+            <button
+                id="nextButton"
+                class="navigation-btn"
+                type="button"
+                onclick="nextProblem()">
+
+                Next →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer">
+
+    <p>
+        Built for daily practice by
+        <strong>Arafat CP</strong>.
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================================
+     COPY SUCCESS / ERROR TOAST
+     ========================================================= -->
+
+<div
+    id="toast"
+    class="toast">
+
+    Copied successfully!
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   GOOGLE FORM LINK
+   ---------------------------------------------------------
+   CHANGE ONLY THIS LINK WHEN YOU CREATE YOUR REAL FORM.
+   ========================================================= */
+
+const GOOGLE_FORM_LINK =
+    "https://forms.google.com/";
+
+
+
+/* =========================================================
+   DAILY PROBLEMS
+   ---------------------------------------------------------
+   Every day you can replace these two problems.
+   ========================================================= */
+
+const problems = [
+
+    {
+        letter: "A",
+
+        title: "Arafat and the Mysterious Number",
+
+        difficulty: "Easy",
+
+        points: 100,
+
+        tags: [
+            "Math",
+            "Implementation"
+        ],
+
+        statement: `
+            <p>
+                Arafat has a mysterious number <b>N</b>.
+                Your task is to calculate twice the value of N.
+            </p>
+
+            <p>
+                In other words, print <b>2 × N</b>.
+            </p>
+        `,
+
+        input: `
+            <p>
+                The first line contains an integer <b>N</b>.
+            </p>
+        `,
+
+        output: `
+            <p>
+                Print <b>2 × N</b>.
+            </p>
+        `,
+
+        constraints: `
+            <p>
+                <b>1 ≤ N ≤ 1000</b>
+            </p>
+        `,
+
+        examples: [
+
+            {
+                input: "10",
+                output: "20"
+            },
+
+            {
+                input: "25",
+                output: "50"
+            }
+
+        ]
+    },
+
+
+    {
+        letter: "B",
+
+        title: "Arafat's Pattern",
+
+        difficulty: "Easy",
+
+        points: 150,
+
+        tags: [
+            "Loops",
+            "Pattern"
+        ],
+
+        statement: `
+            <p>
+                Arafat wants to print a simple star pattern.
+            </p>
+
+            <p>
+                Given an integer <b>N</b>, print N lines.
+                The first line contains one star, the second
+                contains two stars, and so on.
+            </p>
+        `,
+
+        input: `
+            <p>
+                The input contains an integer <b>N</b>.
+            </p>
+        `,
+
+        output: `
+            <p>
+                Print the required star pattern.
+            </p>
+        `,
+
+        constraints: `
+            <p>
+                <b>1 ≤ N ≤ 50</b>
+            </p>
+        `,
+
+        examples: [
+
+            {
+                input: "4",
+
+                output:
+`*
+**
+***
+****`
+            },
+
+            {
+                input: "3",
+
+                output:
+`*
+**
+***`
+            }
+
+        ]
+    }
+
+];
+
+
+
+/* =========================================================
+   CURRENT PROBLEM
+   ========================================================= */
+
+let currentProblem = 0;
+
+
+
+/* =========================================================
+   LOAD PROBLEM CARDS
+   ========================================================= */
+
+function loadProblemCards() {
+
+    const container =
+        document.getElementById("problemCards");
+
+    container.innerHTML = "";
+
+
+    problems.forEach(function(problem, index) {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "problem-card";
+
+
+        card.innerHTML = `
+
+            <div class="problem-top">
+
+                <div class="problem-letter">
+                    ${problem.letter}
+                </div>
+
+                <div class="difficulty">
+                    ${problem.difficulty}
+                </div>
+
+            </div>
+
+
+            <h3 class="problem-title">
+                ${problem.title}
+            </h3>
+
+
+            <p class="problem-description">
+                ${getShortDescription(problem)}
+            </p>
+
+
+            <div class="tags">
+
+                ${problem.tags.map(function(tag) {
+
+                    return `
+                        <span class="tag">
+                            ${tag}
+                        </span>
+                    `;
+
+                }).join("")}
+
+            </div>
+
+
+            <button
+                class="solve-btn"
+                type="button">
+
+                Solve Problem →
+
+            </button>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            function() {
+
+                openProblem(index);
+
+            }
+        );
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =========================================================
+   SHORT DESCRIPTION
+   ========================================================= */
+
+function getShortDescription(problem) {
+
+    if (problem.letter === "A") {
+
+        return "Solve the mysterious number challenge.";
+
+    }
+
+    if (problem.letter === "B") {
+
+        return "Practice loops by printing a star pattern.";
+
+    }
+
+    return "A daily competitive programming challenge.";
+
+}
+
+
+
+/* =========================================================
+   OPEN PROBLEM
+   ========================================================= */
+
+function openProblem(index) {
+
+    currentProblem = index;
+
+    const problem =
+        problems[index];
+
+
+    document.getElementById("homePage")
+        .style.display = "none";
+
+
+    document.getElementById("problemPage")
+        .style.display = "block";
+
+
+    document.getElementById("problemLetter")
+        .textContent = problem.letter;
+
+
+    document.getElementById("problemTitle")
+        .textContent = problem.title;
+
+
+    document.getElementById("problemMeta")
+        .innerHTML = `
+
+            <span class="meta">
+                ${problem.difficulty}
+            </span>
+
+            <span class="meta">
+                ${problem.points} Points
+            </span>
+
+            ${problem.tags.map(function(tag) {
+
+                return `
+                    <span class="meta">
+                        ${tag}
+                    </span>
+                `;
+
+            }).join("")}
+
+        `;
+
+
+    document.getElementById("problemStatement")
+        .innerHTML = problem.statement;
+
+
+    document.getElementById("problemInput")
+        .innerHTML = problem.input;
+
+
+    document.getElementById("problemOutput")
+        .innerHTML = problem.output;
+
+
+    document.getElementById("problemConstraints")
+        .innerHTML = problem.constraints;
+
+
+    document.getElementById("answerButton")
+        .href = GOOGLE_FORM_LINK;
+
+
+    createExamples(problem.examples);
+
+
+    updateNavigation();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+
+/* =========================================================
+   CREATE EXAMPLES
+   ---------------------------------------------------------
+   IMPORTANT:
+   Copy buttons use event listeners instead of inline
+   onclick attributes. This makes multiline examples safe.
+   ========================================================= */
+
+function createExamples(examples) {
+
+    const container =
+        document.getElementById("examplesContainer");
+
+    container.innerHTML = "";
+
+
+    examples.forEach(function(example) {
+
+        const wrapper =
+            document.createElement("div");
+
+        wrapper.className = "example-grid";
+
+
+        /* =========================
+           INPUT BOX
+           ========================= */
+
+        const inputBox =
+            document.createElement("div");
+
+        inputBox.className =
+            "example-box";
+
+
+        inputBox.innerHTML = `
+
+            <div class="example-header">
+
+                <span>
+                    Input
+                </span>
+
+                <button
+                    class="copy-btn"
+                    type="button">
+
+                    COPY
+
+                </button>
+
+            </div>
+
+
+            <div class="code-box">
+                ${escapeHTML(example.input)}
+            </div>
+
+        `;
+
+
+        const inputCopyButton =
+            inputBox.querySelector(".copy-btn");
+
+
+        inputCopyButton.addEventListener(
+            "click",
+            function() {
+
+                copyText(
+                    example.input,
+                    inputCopyButton
+                );
+
+            }
+        );
+
+
+
+        /* =========================
+           OUTPUT BOX
+           ========================= */
+
+        const outputBox =
+            document.createElement("div");
+
+        outputBox.className =
+            "example-box";
+
+
+        outputBox.innerHTML = `
+
+            <div class="example-header">
+
+                <span>
+                    Output
+                </span>
+
+                <button
+                    class="copy-btn"
+                    type="button">
+
+                    COPY
+
+                </button>
+
+            </div>
+
+
+            <div class="code-box">
+                ${escapeHTML(example.output)}
+            </div>
+
+        `;
+
+
+        const outputCopyButton =
+            outputBox.querySelector(".copy-btn");
+
+
+        outputCopyButton.addEventListener(
+            "click",
+            function() {
+
+                copyText(
+                    example.output,
+                    outputCopyButton
+                );
+
+            }
+        );
+
+
+
+        wrapper.appendChild(inputBox);
+
+        wrapper.appendChild(outputBox);
+
+        container.appendChild(wrapper);
+
+    });
+
+}
+
+
+
+/* =========================================================
+   COPY TEXT
+   ========================================================= */
+
+function copyText(text, button) {
+
+    /*
+       First try the modern Clipboard API.
+    */
+
+    if (
+        navigator.clipboard &&
+        window.isSecureContext
+    ) {
+
+        navigator.clipboard
+            .writeText(text)
+
+            .then(function() {
+
+                showCopySuccess(button);
+
+            })
+
+            .catch(function() {
+
+                fallbackCopy(text, button);
+
+            });
+
+        return;
+    }
+
+
+    /*
+       If the browser doesn't allow Clipboard API,
+       use the fallback method.
+    */
+
+    fallbackCopy(text, button);
+
+}
+
+
+
+/* =========================================================
+   FALLBACK COPY
+   ---------------------------------------------------------
+   This helps when the HTML is opened directly from
+   your computer using file://
+   ========================================================= */
+
+function fallbackCopy(text, button) {
+
+    const textarea =
+        document.createElement("textarea");
+
+
+    textarea.value = text;
+
+
+    textarea.style.position = "fixed";
+
+    textarea.style.left = "-9999px";
+
+    textarea.style.top = "0";
+
+    textarea.style.opacity = "0";
+
+
+    document.body.appendChild(textarea);
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try {
+
+        const successful =
+            document.execCommand("copy");
+
+
+        if (successful) {
+
+            showCopySuccess(button);
+
+        } else {
+
+            showCopyFailed(button);
+
+        }
+
+    }
+
+    catch (error) {
+
+        showCopyFailed(button);
+
+    }
+
+
+    document.body.removeChild(textarea);
+
+}
+
+
+
+/* =========================================================
+   COPY SUCCESS
+   ---------------------------------------------------------
+   Button becomes:
+   
+       ✓ COPIED
+   
+   Then returns to:
+   
+       COPY
+   
+   ========================================================= */
+
+function showCopySuccess(button) {
+
+    const originalText =
+        button.dataset.originalText || "COPY";
+
+
+    button.dataset.originalText =
+        originalText;
+
+
+    button.textContent =
+        "✓ COPIED";
+
+
+    button.classList.remove("failed");
+
+    button.classList.add("copied");
+
+
+    showToast(
+        "✓ Copied successfully!",
+        "success"
+    );
+
+
+    clearTimeout(
+        button.copyResetTimer
+    );
+
+
+    button.copyResetTimer =
+        setTimeout(function() {
+
+            button.textContent =
+                originalText;
+
+            button.classList.remove(
+                "copied"
+            );
+
+        }, 2000);
+
+}
+
+
+
+/* =========================================================
+   COPY FAILED
+   ========================================================= */
+
+function showCopyFailed(button) {
+
+    const originalText =
+        button.dataset.originalText || "COPY";
+
+
+    button.dataset.originalText =
+        originalText;
+
+
+    button.textContent =
+        "✕ FAILED";
+
+
+    button.classList.remove("copied");
+
+    button.classList.add("failed");
+
+
+    showToast(
+        "✕ Copy failed. Please try again.",
+        "error"
+    );
+
+
+    clearTimeout(
+        button.copyResetTimer
+    );
+
+
+    button.copyResetTimer =
+        setTimeout(function() {
+
+            button.textContent =
+                originalText;
+
+            button.classList.remove(
+                "failed"
+            );
+
+        }, 2000);
+
+}
+
+
+
+/* =========================================================
+   ESCAPE HTML
+   ---------------------------------------------------------
+   Prevents example text from accidentally being treated
+   as HTML.
+   ========================================================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+
+function showToast(message, type) {
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.remove(
+        "success",
+        "error"
+    );
+
+
+    if (type === "success") {
+
+        toast.classList.add(
+            "success"
+        );
+
+    }
+
+
+    if (type === "error") {
+
+        toast.classList.add(
+            "error"
+        );
+
+    }
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(function() {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        }, 2200);
+
+}
+
+
+
+/* =========================================================
+   SHOW HOME
+   ========================================================= */
+
+function showHome() {
+
+    document.getElementById("problemPage")
+        .style.display = "none";
+
+
+    document.getElementById("homePage")
+        .style.display = "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+
+/* =========================================================
+   NEXT PROBLEM
+   ========================================================= */
+
+function nextProblem() {
+
+    if (
+        currentProblem <
+        problems.length - 1
+    ) {
+
+        openProblem(
+            currentProblem + 1
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   PREVIOUS PROBLEM
+   ========================================================= */
+
+function previousProblem() {
+
+    if (currentProblem > 0) {
+
+        openProblem(
+            currentProblem - 1
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   UPDATE PREVIOUS / NEXT BUTTONS
+   ========================================================= */
+
+function updateNavigation() {
+
+    const previousButton =
+        document.getElementById(
+            "previousButton"
+        );
+
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    previousButton.disabled =
+        currentProblem === 0;
+
+
+    nextButton.disabled =
+        currentProblem ===
+        problems.length - 1;
+
+}
+
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle(
+        "dark"
+    );
+
+
+    const isDark =
+        document.body.classList.contains(
+            "dark"
+        );
+
+
+    localStorage.setItem(
+        "darkMode",
+        isDark
+    );
+
+}
+
+
+
+/* =========================================================
+   LOAD SAVED DARK MODE
+   ========================================================= */
+
+const savedDarkMode =
+    localStorage.getItem(
+        "darkMode"
+    );
+
+
+if (savedDarkMode === "true") {
+
+    document.body.classList.add(
+        "dark"
+    );
+
+}
+
+
+
+/* =========================================================
+   INITIALIZE WEBSITE
+   ========================================================= */
+
+loadProblemCards();
+
+</script>
+
+</body>
+</html>
