@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Arafat | Daily Practice</title>
 
 <style>
-/* =========================================================
-   ARAFAT CP — DAILY PRACTICE
-   Improved contrast, dark mode and mobile responsiveness.
-   Everything remains inside this single HTML file.
-   ========================================================= */
 
 :root {
     --bg: #f5f7fb;
@@ -86,6 +85,7 @@ a {
     background: rgba(37, 99, 235, 0.22);
 }
 
+
 /* =========================
    NAVBAR
    ========================= */
@@ -150,6 +150,7 @@ body.dark .navbar {
     border-color: var(--primary);
 }
 
+
 /* =========================
    MAIN CONTAINER
    ========================= */
@@ -158,6 +159,7 @@ body.dark .navbar {
     width: min(1150px, 92%);
     margin: auto;
 }
+
 
 /* =========================
    HERO
@@ -205,6 +207,59 @@ body.dark .navbar {
     font-size: 16px;
 }
 
+
+/* =========================
+   LAST UPDATE ANNOUNCEMENT
+   ========================= */
+
+.announcement {
+    margin-top: 18px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.announcement-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 17px;
+}
+
+.announcement-content {
+    min-width: 0;
+}
+
+.announcement-title {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 1px;
+}
+
+.announcement-text {
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+.announcement-text strong {
+    color: var(--text);
+}
+
+
 /* =========================
    STATS
    ========================= */
@@ -235,6 +290,7 @@ body.dark .navbar {
     font-size: 13px;
 }
 
+
 /* =========================
    SECTIONS
    ========================= */
@@ -256,6 +312,7 @@ body.dark .navbar {
 .section-heading p {
     color: var(--text-soft);
 }
+
 
 /* =========================
    PROBLEM CARDS
@@ -361,6 +418,7 @@ body.dark .navbar {
     background: var(--primary-hover);
 }
 
+
 /* =========================
    HOW IT WORKS
    ========================= */
@@ -396,6 +454,7 @@ body.dark .navbar {
     color: var(--text-soft);
     font-size: 14px;
 }
+
 
 /* =========================
    PROBLEM PAGE
@@ -465,6 +524,7 @@ body.dark .navbar {
     font-size: 12px;
 }
 
+
 /* =========================
    CONTENT
    ========================= */
@@ -503,6 +563,7 @@ body.dark .navbar {
 .problem-content strong {
     color: var(--text);
 }
+
 
 /* =========================
    EXAMPLES
@@ -575,6 +636,7 @@ body.dark .navbar {
     overflow-wrap: anywhere;
 }
 
+
 /* =========================
    GOOGLE FORM BUTTON
    ========================= */
@@ -617,6 +679,7 @@ body.dark .navbar {
     background: var(--primary-hover);
 }
 
+
 /* =========================
    NAVIGATION
    ========================= */
@@ -648,6 +711,7 @@ body.dark .navbar {
     opacity: 0.4;
     cursor: not-allowed;
 }
+
 
 /* =========================
    TOAST
@@ -684,6 +748,7 @@ body.dark .navbar {
     background: #dc2626;
 }
 
+
 /* =========================
    FOOTER
    ========================= */
@@ -718,11 +783,13 @@ body.dark .navbar {
     color: var(--primary);
 }
 
+
 /* =========================
    RESPONSIVE
    ========================= */
 
 @media (max-width: 820px) {
+
     .stats,
     .info-grid {
         grid-template-columns: 1fr;
@@ -732,9 +799,11 @@ body.dark .navbar {
     .example-grid {
         grid-template-columns: 1fr;
     }
+
 }
 
 @media (max-width: 600px) {
+
     .navbar {
         padding: 10px 13px;
     }
@@ -774,6 +843,22 @@ body.dark .navbar {
 
     .hero p {
         font-size: 15px;
+    }
+
+    .announcement {
+        padding: 13px 14px;
+        gap: 9px;
+        text-align: left;
+    }
+
+    .announcement-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .announcement-title,
+    .announcement-text {
+        font-size: 12px;
     }
 
     .section {
@@ -835,9 +920,11 @@ body.dark .navbar {
         bottom: 15px;
         text-align: center;
     }
+
 }
 
 @media (max-width: 380px) {
+
     .logo {
         font-size: 18px;
     }
@@ -854,9 +941,11 @@ body.dark .navbar {
     .problem-container {
         padding-inline: 15px;
     }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     html {
         scroll-behavior: auto;
     }
@@ -864,8 +953,11 @@ body.dark .navbar {
     *, *::before, *::after {
         transition-duration: 0.01ms !important;
     }
+
 }
+
 </style>
+
 </head>
 
 
@@ -910,7 +1002,6 @@ body.dark .navbar {
 </nav>
 
 
-
 <!-- =========================================================
      MAIN
      ========================================================= -->
@@ -945,6 +1036,29 @@ body.dark .navbar {
 
     </section>
 
+
+    <!-- LAST UPDATE ANNOUNCEMENT -->
+
+    <div class="announcement">
+
+        <div class="announcement-icon">
+            📢
+        </div>
+
+        <div class="announcement-content">
+
+            <div class="announcement-title">
+                Latest Problem Update
+            </div>
+
+            <div class="announcement-text">
+                Last time problems were updated:
+                <strong>6/9/2026 at 9:30 AM</strong>
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!-- STATS -->
@@ -992,7 +1106,6 @@ body.dark .navbar {
     </section>
 
 
-
     <!-- PROBLEMS -->
 
     <section class="section">
@@ -1009,14 +1122,12 @@ body.dark .navbar {
 
         </div>
 
-
         <div
             class="problem-grid"
             id="problemCards">
         </div>
 
     </section>
-
 
 
     <!-- HOW IT WORKS -->
@@ -1030,7 +1141,6 @@ body.dark .navbar {
             </h2>
 
         </div>
-
 
         <div class="info-grid">
 
@@ -1094,7 +1204,6 @@ body.dark .navbar {
 </section>
 
 
-
 <!-- =========================================================
      PROBLEM PAGE
      ========================================================= -->
@@ -1141,7 +1250,6 @@ body.dark .navbar {
         </div>
 
 
-
         <!-- STATEMENT -->
 
         <section class="problem-section">
@@ -1156,7 +1264,6 @@ body.dark .navbar {
             </div>
 
         </section>
-
 
 
         <!-- INPUT -->
@@ -1175,7 +1282,6 @@ body.dark .navbar {
         </section>
 
 
-
         <!-- OUTPUT -->
 
         <section class="problem-section">
@@ -1192,7 +1298,6 @@ body.dark .navbar {
         </section>
 
 
-
         <!-- CONSTRAINTS -->
 
         <section class="problem-section">
@@ -1200,7 +1305,9 @@ body.dark .navbar {
             <h2
                 class="section-title"
                 id="extraSectionTitle">
+
                 Constraints
+
             </h2>
 
             <div
@@ -1209,7 +1316,6 @@ body.dark .navbar {
             </div>
 
         </section>
-
 
 
         <!-- EXAMPLES -->
@@ -1224,7 +1330,6 @@ body.dark .navbar {
             </div>
 
         </section>
-
 
 
         <!-- GOOGLE FORM -->
@@ -1251,7 +1356,6 @@ body.dark .navbar {
             </a>
 
         </div>
-
 
 
         <!-- PREVIOUS / NEXT -->
@@ -1290,7 +1394,6 @@ body.dark .navbar {
 </main>
 
 
-
 <!-- =========================================================
      FOOTER
      ========================================================= -->
@@ -1306,16 +1409,28 @@ body.dark .navbar {
     </p>
 
     <div class="footer-links">
-        <a href="https://github.com/arafatahmed067/arafat-cp-daily" target="_blank" rel="noopener noreferrer">
+
+        <a
+            href="https://github.com/arafatahmed067/arafat-cp-daily"
+            target="_blank"
+            rel="noopener noreferrer">
+
             GitHub Repository
+
         </a>
-        <a href="https://github.com/arafatahmed067" target="_blank" rel="noopener noreferrer">
+
+        <a
+            href="https://github.com/arafatahmed067"
+            target="_blank"
+            rel="noopener noreferrer">
+
             GitHub Profile
+
         </a>
+
     </div>
 
 </footer>
-
 
 
 <!-- =========================================================
@@ -1331,18 +1446,15 @@ body.dark .navbar {
 </div>
 
 
-
 <script>
+
 
 /* =========================================================
    GOOGLE FORM LINK
-   ---------------------------------------------------------
-   CHANGE ONLY THIS LINK WHEN YOU CREATE YOUR REAL FORM.
    ========================================================= */
 
 const GOOGLE_FORM_LINK =
-    "https://docs.google.com/forms/d/e/1FAIpQLSeE1IwUNIXLVz2G7678ALgy-yl3wntikzhp_spHfj7jiWFqZA/viewform?usp=dialog";
-
+    "https://docs.google.com/forms/d/e/1FAIpQLSfnJx6lR0ODrDtC7XtOx22L1Sr81_iW9D_Kh2RJEtjlPsNaFg/viewform?usp=publish-editor";
 
 
 /* =========================================================
@@ -1352,204 +1464,10 @@ const GOOGLE_FORM_LINK =
 const problems = [
 
     {
+
         letter: "A",
 
-        title: "Ustader Mair Sesh Raite ……",
-
-        difficulty: "Easy",
-
-        points: 120,
-
-        tags: [
-            "String",
-            "Implementation",
-            "Scoring"
-        ],
-
-        statement: `
-            <p>
-                So, in a competitive programming contest,
-                <b>3 humans from planet Earth</b> take part.
-                Their mission is simple:
-                <b>who will smash Ara067 100 hands beneath the ground?</b>
-                The issue is that only one of them will be the champion.
-            </p>
-
-            <p>
-                So, they join the contest to determine who will start
-                gaining <b>strength points</b> and become powerful enough
-                to <b>smash Ara067 beneath the ground</b>.
-            </p>
-
-            <p>
-                Our contestants are <b>Pr072</b>, <b>Na059</b>, and
-                <b>Su051</b>.
-            </p>
-
-            <p>
-                As a fair contest to determine the champion who truly
-                deserves to win, the contest has a few rules.
-            </p>
-
-            <h3>Rules:</h3>
-
-            <p>
-                <b>1.</b> There are a total of <b>6 sets of questions</b>,
-                and each question holds <b>20 points</b>.
-            </p>
-
-            <p>
-                <b>2.</b> All participants must try to submit a solution
-                for each problem. Even if a participant does not know the
-                answer, they must still submit something and will receive
-                a wrong submission.
-            </p>
-
-            <p>
-                <b>3.</b> For each wrong submission, a participant gets a
-                <b>-10 point penalty</b> and an additional
-                <b>-2 point penalty</b> for failing to achieve the
-                expected result.
-            </p>
-
-            <p>
-                Your task is to <b>calculate the total points of each
-                participant and determine the winner</b>.
-                If all three participants get equal points, print
-                <b>Draw</b>.
-            </p>
-
-            <p>
-                You will be given <b>three uppercase-letter strings</b>,
-                each representing the results of the 6 problems.
-                Each character will be either <b>R</b> or <b>W</b>.
-            </p>
-
-            <ul>
-                <li>
-                    <b>R</b> means the problem was successfully solved.
-                </li>
-
-                <li>
-                    <b>W</b> means the problem was solved incorrectly.
-                </li>
-            </ul>
-
-            <p>
-                <b>
-                    The given strings are only used to calculate the
-                    scores. Do not print the strings.
-                </b>
-            </p>
-        `,
-
-        input: `
-            <p>
-                You will be given <b>3 strings</b> <b>a</b>, <b>b</b>,
-                and <b>c</b>.
-            </p>
-
-            <p>
-                Each string has a length of <b>6</b>.
-            </p>
-
-            <ul>
-                <li>
-                    <b>a</b> represents <b>Pr072</b>
-                </li>
-
-                <li>
-                    <b>b</b> represents <b>Na059</b>
-                </li>
-
-                <li>
-                    <b>c</b> represents <b>Su051</b>
-                </li>
-            </ul>
-        `,
-
-        output: `
-            <p>
-                Determine the winner.
-            </p>
-
-            <p>
-                Print the <b>contestant's name</b> who wins,
-                followed by the message:
-            </p>
-
-            <p>
-                <b>
-                    he he your time is over dump Ara067, I am coming ..
-                </b>
-            </p>
-
-            <p>
-                If all three contestants have the same score, print:
-                <b>Draw</b>
-            </p>
-        `,
-
-        constraints: `
-            <ul>
-                <li>
-                    <b>Each string has exactly 6 characters.</b>
-                </li>
-
-                <li>
-                    <b>Each character is either R or W.</b>
-                </li>
-
-                <li>
-                    <b>R = successfully solved.</b>
-                </li>
-
-                <li>
-                    <b>W = incorrectly solved.</b>
-                </li>
-            </ul>
-        `,
-
-        examples: [
-
-            {
-                input:
-`RRRRRR
-RWRWRW
-WWWWWW`,
-
-                output:
-`Pr072: he he your time is over dump Ara067, I am coming ..`
-            },
-
-            {
-                input:
-`WRWWRW
-RWRWRR
-WWRRWW`,
-
-                output:
-`Na059: he he your time is over dump Ara067, I am coming ..`
-            },
-
-            {
-                input:
-`RWRWRW
-WWRWWW
-RRRRRR`,
-
-                output:
-`Su051: he he your time is over dump Ara067, I am coming ..`
-            }
-
-        ]
-    },
-
-
-    {
-        letter: "B",
-
-        title: "Triangle or Not?",
+        title: "Senku the Genius",
 
         difficulty: "Easy",
 
@@ -1557,67 +1475,234 @@ RRRRRR`,
 
         tags: [
             "Math",
-            "Implementation"
+            "Implementation",
+            "Formula"
         ],
 
         statement: `
+
             <p>
-                Triangle or Not?
+                Senku is a student in Bangladesh studying in Class 9. Recently, he studied the <b>Motion</b> chapter from his textbook.
             </p>
 
             <p>
-                You are given 3 unequal side lengths of a triangle. Determine whether these three sides can actually form a triangle.
+                From this chapter, he learned about motion, different formulas, and many other interesting concepts. After discovering how powerful these formulas are, he started thinking of himself as a genius.
             </p>
+
+            <p>
+                To test his knowledge, Senku's father gives him several questions and some data to determine how well he understands the chapter.
+            </p>
+
+            <p>
+                To make things easier for him, his father decides to test him on only <b>one formula</b> — the formula used to determine <b>velocity</b>.
+            </p>
+
+            <p>
+                You are given three integers: <b>u</b>, <b>a</b>, and <b>t</b>, representing the initial velocity, acceleration, and time respectively. Your task is to determine the final velocity <b>v</b>.
+            </p>
+
+            <p>
+                <b>v = u + at</b>
+            </p>
+
         `,
 
         input: `
+
             <p>
-                The input contains three unequal integers a, b, and c, representing the lengths of the three sides.
+                The input contains three integers <b>u</b>, <b>a</b>, and <b>t</b>.
             </p>
+
+            <ul>
+
+                <li>
+                    <b>u</b> — initial velocity
+                </li>
+
+                <li>
+                    <b>a</b> — acceleration
+                </li>
+
+                <li>
+                    <b>t</b> — time
+                </li>
+
+            </ul>
+
         `,
 
         output: `
+
             <p>
-                Print YES if the three sides can form a triangle. Otherwise, print NO.
+                Print a single integer <b>v</b>, the final velocity calculated using the formula:
             </p>
+
+            <p>
+                <b>v = u + at</b>
+            </p>
+
         `,
 
         constraints: `
-            <h3>Hint</h3>
 
             <p>
-                A valid triangle can be formed if:
+                No additional constraints are given.
             </p>
 
-            <p>
-                smallest side +middle side &gt;largest side
-                
-            </p>
         `,
 
         examples: [
 
             {
                 input:
-`3 4 5`,
+`10 5 4`,
 
                 output:
-`YES`
+`30`
             },
 
             {
                 input:
-`2 3 6`,
+`20 3 7`,
 
                 output:
-`NO`
+`41`
             }
 
         ]
+
+    },
+
+
+    {
+
+        letter: "B",
+
+        title: "Senku’s Formula",
+
+        difficulty: "Easy",
+
+        points: 0,
+
+        tags: [
+            "String",
+            "Implementation",
+            "Mapping"
+        ],
+
+        statement: `
+
+            <p>
+                Senku recently learned that every element contains atoms inside it. He also learned that different elements can combine together to form different types of matter.
+            </p>
+
+            <p>
+                For example, <b>Water</b> is made from <b>Hydrogen and Oxygen</b>, while <b>Sugar</b> is made from <b>Carbon, Hydrogen, and Oxygen</b>.
+            </p>
+
+            <p>
+                Senku becomes very interested in how different matters are formed. To test his knowledge, his father gives him the name of a matter and asks him to determine which elements are used to form it.
+            </p>
+
+            <p>
+                For this problem, there are <b>5 possible matters</b> that Senku needs to know:
+            </p>
+
+            <ul>
+
+                <li>
+                    <b>Water</b> → Hydrogen, Oxygen
+                </li>
+
+                <li>
+                    <b>Sugar</b> → Carbon, Hydrogen, Oxygen
+                </li>
+
+                <li>
+                    <b>Carbon Dioxide</b> → Carbon, Oxygen
+                </li>
+
+                <li>
+                    <b>Ammonia</b> → Nitrogen, Hydrogen
+                </li>
+
+                <li>
+                    <b>Methane</b> → Carbon, Hydrogen
+                </li>
+
+            </ul>
+
+            <p>
+                You are given the name of one matter. Your task is to print the elements that form that matter.
+            </p>
+
+        `,
+
+        input: `
+
+            <p>
+                The input contains a single string representing the name of a matter.
+            </p>
+
+            <p>
+                The input will be one of the following:
+            </p>
+
+            <ul>
+
+                <li>Water</li>
+                <li>Sugar</li>
+                <li>CarbonDioxide</li>
+                <li>Ammonia</li>
+                <li>Methane</li>
+
+            </ul>
+
+        `,
+
+        output: `
+
+            <p>
+                Print the elements that form the given matter, separated by a space.
+            </p>
+
+            <p>
+                The elements should be printed in the order given in the table above.
+            </p>
+
+        `,
+
+        constraints: `
+
+            <p>
+                The input will always be one of the five matter names given in the problem statement.
+            </p>
+
+        `,
+
+        examples: [
+
+            {
+                input:
+`Water`,
+
+                output:
+`Hydrogen Oxygen`
+            },
+
+            {
+                input:
+`Sugar`,
+
+                output:
+`Carbon Hydrogen Oxygen`
+            }
+
+        ]
+
     }
 
 ];
-
 
 
 /* =========================================================
@@ -1625,7 +1710,6 @@ RRRRRR`,
    ========================================================= */
 
 let currentProblem = 0;
-
 
 
 /* =========================================================
@@ -1639,14 +1723,12 @@ function loadProblemCards() {
 
     container.innerHTML = "";
 
-
     problems.forEach(function(problem, index) {
 
         const card =
             document.createElement("div");
 
         card.className = "problem-card";
-
 
         card.innerHTML = `
 
@@ -1662,16 +1744,13 @@ function loadProblemCards() {
 
             </div>
 
-
             <h3 class="problem-title">
                 ${problem.title}
             </h3>
 
-
             <p class="problem-description">
                 ${getShortDescription(problem)}
             </p>
-
 
             <div class="tags">
 
@@ -1687,7 +1766,6 @@ function loadProblemCards() {
 
             </div>
 
-
             <button
                 class="solve-btn"
                 type="button">
@@ -1698,7 +1776,6 @@ function loadProblemCards() {
 
         `;
 
-
         card.addEventListener(
             "click",
             function() {
@@ -1708,13 +1785,11 @@ function loadProblemCards() {
             }
         );
 
-
         container.appendChild(card);
 
     });
 
 }
-
 
 
 /* =========================================================
@@ -1725,20 +1800,19 @@ function getShortDescription(problem) {
 
     if (problem.letter === "A") {
 
-        return "Calculate the scores and determine who will smash Ara067.";
+        return "Calculate the final velocity using the motion formula.";
 
     }
 
     if (problem.letter === "B") {
 
-        return "Determine whether three side lengths can form a triangle.";
+        return "Determine which elements are used to form a given matter.";
 
     }
 
     return "A daily competitive programming challenge.";
 
 }
-
 
 
 /* =========================================================
@@ -1752,22 +1826,17 @@ function openProblem(index) {
     const problem =
         problems[index];
 
-
     document.getElementById("homePage")
         .style.display = "none";
-
 
     document.getElementById("problemPage")
         .style.display = "block";
 
-
     document.getElementById("problemLetter")
         .textContent = problem.letter;
 
-
     document.getElementById("problemTitle")
         .textContent = problem.title;
-
 
     document.getElementById("problemMeta")
         .innerHTML = `
@@ -1792,39 +1861,27 @@ function openProblem(index) {
 
         `;
 
-
     document.getElementById("problemStatement")
         .innerHTML = problem.statement;
-
 
     document.getElementById("problemInput")
         .innerHTML = problem.input;
 
-
     document.getElementById("problemOutput")
         .innerHTML = problem.output;
-
 
     document.getElementById("problemConstraints")
         .innerHTML = problem.constraints;
 
-
     document.getElementById("extraSectionTitle")
-        .textContent =
-            problem.letter === "B"
-                ? "Hint"
-                : "Constraints";
-
+        .textContent = "Constraints";
 
     document.getElementById("answerButton")
         .href = GOOGLE_FORM_LINK;
 
-
     createExamples(problem.examples);
 
-
     updateNavigation();
-
 
     window.scrollTo({
         top: 0,
@@ -1832,7 +1889,6 @@ function openProblem(index) {
     });
 
 }
-
 
 
 /* =========================================================
@@ -1846,7 +1902,6 @@ function createExamples(examples) {
 
     container.innerHTML = "";
 
-
     examples.forEach(function(example, index) {
 
         const wrapper =
@@ -1855,16 +1910,11 @@ function createExamples(examples) {
         wrapper.className = "example-grid";
 
 
-        /* =========================
-           INPUT BOX
-           ========================= */
-
         const inputBox =
             document.createElement("div");
 
         inputBox.className =
             "example-box";
-
 
         inputBox.innerHTML = `
 
@@ -1884,17 +1934,14 @@ function createExamples(examples) {
 
             </div>
 
-
             <div class="code-box">
                 ${escapeHTML(example.input)}
             </div>
 
         `;
 
-
         const inputCopyButton =
             inputBox.querySelector(".copy-btn");
-
 
         inputCopyButton.addEventListener(
             "click",
@@ -1909,17 +1956,11 @@ function createExamples(examples) {
         );
 
 
-
-        /* =========================
-           OUTPUT BOX
-           ========================= */
-
         const outputBox =
             document.createElement("div");
 
         outputBox.className =
             "example-box";
-
 
         outputBox.innerHTML = `
 
@@ -1939,17 +1980,14 @@ function createExamples(examples) {
 
             </div>
 
-
             <div class="code-box">
                 ${escapeHTML(example.output)}
             </div>
 
         `;
 
-
         const outputCopyButton =
             outputBox.querySelector(".copy-btn");
-
 
         outputCopyButton.addEventListener(
             "click",
@@ -1963,18 +2001,13 @@ function createExamples(examples) {
             }
         );
 
-
-
         wrapper.appendChild(inputBox);
-
         wrapper.appendChild(outputBox);
-
         container.appendChild(wrapper);
 
     });
 
 }
-
 
 
 /* =========================================================
@@ -2006,11 +2039,9 @@ function copyText(text, button) {
         return;
     }
 
-
     fallbackCopy(text, button);
 
 }
-
 
 
 /* =========================================================
@@ -2022,32 +2053,22 @@ function fallbackCopy(text, button) {
     const textarea =
         document.createElement("textarea");
 
-
     textarea.value = text;
 
-
     textarea.style.position = "fixed";
-
     textarea.style.left = "-9999px";
-
     textarea.style.top = "0";
-
     textarea.style.opacity = "0";
-
 
     document.body.appendChild(textarea);
 
-
     textarea.focus();
-
     textarea.select();
-
 
     try {
 
         const successful =
             document.execCommand("copy");
-
 
         if (successful) {
 
@@ -2067,11 +2088,9 @@ function fallbackCopy(text, button) {
 
     }
 
-
     document.body.removeChild(textarea);
 
 }
-
 
 
 /* =========================================================
@@ -2083,30 +2102,23 @@ function showCopySuccess(button) {
     const originalText =
         button.dataset.originalText || "COPY";
 
-
     button.dataset.originalText =
         originalText;
-
 
     button.textContent =
         "✓ COPIED";
 
-
     button.classList.remove("failed");
-
     button.classList.add("copied");
-
 
     showToast(
         "✓ Copied successfully!",
         "success"
     );
 
-
     clearTimeout(
         button.copyResetTimer
     );
-
 
     button.copyResetTimer =
         setTimeout(function() {
@@ -2123,7 +2135,6 @@ function showCopySuccess(button) {
 }
 
 
-
 /* =========================================================
    COPY FAILED
    ========================================================= */
@@ -2133,30 +2144,23 @@ function showCopyFailed(button) {
     const originalText =
         button.dataset.originalText || "COPY";
 
-
     button.dataset.originalText =
         originalText;
-
 
     button.textContent =
         "✕ FAILED";
 
-
     button.classList.remove("copied");
-
     button.classList.add("failed");
-
 
     showToast(
         "✕ Copy failed. Please try again.",
         "error"
     );
 
-
     clearTimeout(
         button.copyResetTimer
     );
-
 
     button.copyResetTimer =
         setTimeout(function() {
@@ -2173,7 +2177,6 @@ function showCopyFailed(button) {
 }
 
 
-
 /* =========================================================
    ESCAPE HTML
    ========================================================= */
@@ -2183,17 +2186,12 @@ function escapeHTML(text) {
     return String(text)
 
         .replace(/&/g, "&amp;")
-
         .replace(/</g, "&lt;")
-
         .replace(/>/g, "&gt;")
-
         .replace(/"/g, "&quot;")
-
         .replace(/'/g, "&#039;");
 
 }
-
 
 
 /* =========================================================
@@ -2202,22 +2200,18 @@ function escapeHTML(text) {
 
 let toastTimer;
 
-
 function showToast(message, type) {
 
     const toast =
         document.getElementById("toast");
 
-
     toast.textContent =
         message;
-
 
     toast.classList.remove(
         "success",
         "error"
     );
-
 
     if (type === "success") {
 
@@ -2227,7 +2221,6 @@ function showToast(message, type) {
 
     }
 
-
     if (type === "error") {
 
         toast.classList.add(
@@ -2236,12 +2229,9 @@ function showToast(message, type) {
 
     }
 
-
     toast.classList.add("show");
 
-
     clearTimeout(toastTimer);
-
 
     toastTimer =
         setTimeout(function() {
@@ -2255,7 +2245,6 @@ function showToast(message, type) {
 }
 
 
-
 /* =========================================================
    SHOW HOME
    ========================================================= */
@@ -2265,10 +2254,8 @@ function showHome() {
     document.getElementById("problemPage")
         .style.display = "none";
 
-
     document.getElementById("homePage")
         .style.display = "block";
-
 
     window.scrollTo({
         top: 0,
@@ -2276,7 +2263,6 @@ function showHome() {
     });
 
 }
-
 
 
 /* =========================================================
@@ -2299,7 +2285,6 @@ function nextProblem() {
 }
 
 
-
 /* =========================================================
    PREVIOUS PROBLEM
    ========================================================= */
@@ -2317,7 +2302,6 @@ function previousProblem() {
 }
 
 
-
 /* =========================================================
    UPDATE PREVIOUS / NEXT BUTTONS
    ========================================================= */
@@ -2329,16 +2313,13 @@ function updateNavigation() {
             "previousButton"
         );
 
-
     const nextButton =
         document.getElementById(
             "nextButton"
         );
 
-
     previousButton.disabled =
         currentProblem === 0;
-
 
     nextButton.disabled =
         currentProblem ===
@@ -2347,27 +2328,36 @@ function updateNavigation() {
 }
 
 
-
 /* =========================================================
    DARK MODE
    ========================================================= */
 
 function updateThemeButton() {
 
-    const button = document.getElementById("themeToggle");
+    const button =
+        document.getElementById("themeToggle");
 
     if (!button) return;
 
-    const isDark = document.body.classList.contains("dark");
+    const isDark =
+        document.body.classList.contains("dark");
 
-    button.textContent = isDark ? "☀️" : "🌙";
+    button.textContent =
+        isDark ? "☀️" : "🌙";
+
     button.setAttribute(
         "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
+        isDark
+            ? "Switch to light mode"
+            : "Switch to dark mode"
     );
-    button.title = isDark ? "Switch to light mode" : "Switch to dark mode";
-}
 
+    button.title =
+        isDark
+            ? "Switch to light mode"
+            : "Switch to dark mode";
+
+}
 
 
 function toggleDarkMode() {
@@ -2376,12 +2366,10 @@ function toggleDarkMode() {
         "dark"
     );
 
-
     const isDark =
         document.body.classList.contains(
             "dark"
         );
-
 
     localStorage.setItem(
         "darkMode",
@@ -2393,7 +2381,6 @@ function toggleDarkMode() {
 }
 
 
-
 /* =========================================================
    LOAD SAVED DARK MODE
    ========================================================= */
@@ -2402,7 +2389,6 @@ const savedDarkMode =
     localStorage.getItem(
         "darkMode"
     );
-
 
 if (savedDarkMode === "true") {
 
@@ -2414,12 +2400,16 @@ if (savedDarkMode === "true") {
 
 updateThemeButton();
 
-const currentYearElement = document.getElementById("currentYear");
+
+const currentYearElement =
+    document.getElementById("currentYear");
 
 if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear();
-}
 
+    currentYearElement.textContent =
+        new Date().getFullYear();
+
+}
 
 
 /* =========================================================
@@ -2430,5 +2420,7 @@ loadProblemCards();
 
 </script>
 
+
 </body>
+
 </html>
