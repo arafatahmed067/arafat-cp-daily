@@ -1053,7 +1053,7 @@ body.dark .navbar {
 
             <div class="announcement-text">
                 Last time problems were updated:
-                <strong>6/9/2026 at 9:30 AM</strong>
+                <strong>7/9/2026 at 10:20 AM</strong>
             </div>
 
         </div>
@@ -1454,7 +1454,7 @@ body.dark .navbar {
    ========================================================= */
 
 const GOOGLE_FORM_LINK =
-    "https://docs.google.com/forms/d/e/1FAIpQLSfnJx6lR0ODrDtC7XtOx22L1Sr81_iW9D_Kh2RJEtjlPsNaFg/viewform?usp=publish-editor";
+    "https://docs.google.com/forms/d/e/1FAIpQLSdltWzBBP6k5jdVekIRQxuqHNftvnUcaJ41C5Ctv2ZmFYYjvA/viewform?usp=dialog";
 
 
 /* =========================================================
@@ -1467,42 +1467,82 @@ const problems = [
 
         letter: "A",
 
-        title: "Senku the Genius",
+        title: "Naruto vs Sasuke",
 
-        difficulty: "Easy",
+        difficulty: "Medium",
 
         points: 0,
 
         tags: [
-            "Math",
-            "Implementation",
-            "Formula"
+            "String",
+            "Binary",
+            "Implementation"
         ],
 
         statement: `
 
             <p>
-                Senku is a student in Bangladesh studying in Class 9. Recently, he studied the <b>Motion</b> chapter from his textbook.
+                Naruto and Sasuke are close friends and rivals. One day, they participate in the <b>Chunin Exam</b>, an exam used to determine a ninja's current rank.
             </p>
 
             <p>
-                From this chapter, he learned about motion, different formulas, and many other interesting concepts. After discovering how powerful these formulas are, he started thinking of himself as a genius.
+                As part of the exam, Naruto and Sasuke face each other in a <b>6-round duel</b>.
             </p>
 
             <p>
-                To test his knowledge, Senku's father gives him several questions and some data to determine how well he understands the chapter.
+                For every round:
+            </p>
+
+            <ul>
+
+                <li>
+                    If Naruto wins the round, Naruto gets <b>1 point</b> and Sasuke gets <b>0</b>.
+                </li>
+
+                <li>
+                    If Sasuke wins the round, Sasuke gets <b>1 point</b> and Naruto gets <b>0</b>.
+                </li>
+
+            </ul>
+
+            <p>
+                The results of all 6 rounds are represented using two binary strings:
+            </p>
+
+            <ul>
+
+                <li>
+                    <b>n</b> represents Naruto's results.
+                </li>
+
+                <li>
+                    <b>s</b> represents Sasuke's results.
+                </li>
+
+            </ul>
+
+            <p>
+                For each string, <b>1</b> means that the player won that round, while <b>0</b> means that the player lost that round.
             </p>
 
             <p>
-                To make things easier for him, his father decides to test him on only <b>one formula</b> — the formula used to determine <b>velocity</b>.
+                Your task is to determine the overall winner by comparing their total points.
             </p>
 
             <p>
-                You are given three integers: <b>u</b>, <b>a</b>, and <b>t</b>, representing the initial velocity, acceleration, and time respectively. Your task is to determine the final velocity <b>v</b>.
+                If Naruto has more points, print:
             </p>
 
             <p>
-                <b>v = u + at</b>
+                <b>I will become the greatest hokagee of all time</b>
+            </p>
+
+            <p>
+                Otherwise, print:
+            </p>
+
+            <p>
+                <b>such a losser...</b>
             </p>
 
         `,
@@ -1510,21 +1550,21 @@ const problems = [
         input: `
 
             <p>
-                The input contains three integers <b>u</b>, <b>a</b>, and <b>t</b>.
+                The first line contains two strings <b>n</b> and <b>s</b>, each of length 6.
             </p>
 
             <ul>
 
                 <li>
-                    <b>u</b> — initial velocity
+                    <b>n</b> contains Naruto's results.
                 </li>
 
                 <li>
-                    <b>a</b> — acceleration
+                    <b>s</b> contains Sasuke's results.
                 </li>
 
                 <li>
-                    <b>t</b> — time
+                    Each string contains only <b>0</b> and <b>1</b>.
                 </li>
 
             </ul>
@@ -1534,20 +1574,44 @@ const problems = [
         output: `
 
             <p>
-                Print a single integer <b>v</b>, the final velocity calculated using the formula:
+                Print:
             </p>
 
-            <p>
-                <b>v = u + at</b>
-            </p>
+            <ul>
+
+                <li>
+                    <b>I will become the greatest hokagee of all time</b> if Naruto has more points.
+                </li>
+
+                <li>
+                    <b>such a losser...</b> if Sasuke has more points.
+                </li>
+
+            </ul>
 
         `,
 
         constraints: `
 
-            <p>
-                No additional constraints are given.
-            </p>
+            <ul>
+
+                <li>
+                    <b>|n| = |s| = 6</b>
+                </li>
+
+                <li>
+                    <b>n[i] ∈ {0,1}</b>
+                </li>
+
+                <li>
+                    <b>s[i] ∈ {0,1}</b>
+                </li>
+
+                <li>
+                    The overall result will not be a draw.
+                </li>
+
+            </ul>
 
         `,
 
@@ -1555,18 +1619,18 @@ const problems = [
 
             {
                 input:
-`10 5 4`,
+`111010 001101`,
 
                 output:
-`30`
+`I will become the greatest hokagee of all time`
             },
 
             {
                 input:
-`20 3 7`,
+`100101 011110`,
 
                 output:
-`41`
+`such a losser...`
             }
 
         ]
@@ -1578,62 +1642,62 @@ const problems = [
 
         letter: "B",
 
-        title: "Senku’s Formula",
+        title: "Zoro's Final Training",
 
-        difficulty: "Easy",
+        difficulty: "Medium",
 
         points: 0,
 
         tags: [
             "String",
             "Implementation",
-            "Mapping"
+            "Condition"
         ],
 
         statement: `
 
             <p>
-                Senku recently learned that every element contains atoms inside it. He also learned that different elements can combine together to form different types of matter.
+                Zoro is one of the greatest swordsmen in the One Piece anime. He is usually calm, but that calmness can be more frightening than anger itself. When someone pushes him too far, he may not give them a second chance—his sword can be drawn before his opponent even realizes the danger.
             </p>
 
             <p>
-                For example, <b>Water</b> is made from <b>Hydrogen and Oxygen</b>, while <b>Sugar</b> is made from <b>Carbon, Hydrogen, and Oxygen</b>.
+                However, there is always someone stronger than the strongest. In the current pirate era, <b>Dracule Mihawk</b> is known as the World's Strongest Swordsman.
             </p>
 
             <p>
-                Senku becomes very interested in how different matters are formed. To test his knowledge, his father gives him the name of a matter and asks him to determine which elements are used to form it.
+                Zoro considers Mihawk his idol and dreams of making him his rival one day. To achieve this goal, Zoro has started training hard and improving his skills day by day.
             </p>
 
             <p>
-                For this problem, there are <b>5 possible matters</b> that Senku needs to know:
+                However, there is one problem with Zoro: he needs to train consistently to maintain the level he has achieved and become stronger.
+            </p>
+
+            <p>
+                There are exactly <b>10 days</b> left before Zoro faces Mihawk in battle.
+            </p>
+
+            <p>
+                For each of these 10 days:
             </p>
 
             <ul>
 
                 <li>
-                    <b>Water</b> → Hydrogen, Oxygen
+                    <b>T</b> means Zoro trained on that day.
                 </li>
 
                 <li>
-                    <b>Sugar</b> → Carbon, Hydrogen, Oxygen
-                </li>
-
-                <li>
-                    <b>Carbon_Dioxide</b> → Carbon, Oxygen
-                </li>
-
-                <li>
-                    <b>Ammonia</b> → Nitrogen, Hydrogen
-                </li>
-
-                <li>
-                    <b>Methane</b> → Carbon, Hydrogen
+                    <b>N</b> means Zoro skipped training on that day.
                 </li>
 
             </ul>
 
             <p>
-                You are given the name of one matter. Your task is to print the elements that form that matter.
+                Zoro can defeat Mihawk only if he trains on <b>all 10 days</b>.
+            </p>
+
+            <p>
+                Determine whether Zoro is ready to face Mihawk.
             </p>
 
         `,
@@ -1641,20 +1705,18 @@ const problems = [
         input: `
 
             <p>
-                The input contains a single string representing the name of a matter.
-            </p>
-
-            <p>
-                The input will be one of the following:
+                The input contains a string of length <b>10</b>, consisting only of the characters <b>T</b> and <b>N</b>.
             </p>
 
             <ul>
 
-                <li>Water</li>
-                <li>Sugar</li>
-                <li>CarbonDioxide</li>
-                <li>Ammonia</li>
-                <li>Methane</li>
+                <li>
+                    <b>T</b> represents a training day.
+                </li>
+
+                <li>
+                    <b>N</b> represents a day when Zoro skipped training.
+                </li>
 
             </ul>
 
@@ -1663,20 +1725,40 @@ const problems = [
         output: `
 
             <p>
-                Print the elements that form the given matter, separated by a space.
+                If Zoro trains on all 10 days, print:
             </p>
 
             <p>
-                The elements should be printed in the order given in the table above.
+                <b>Zoro become the greatest sworsman</b>
+            </p>
+
+            <p>
+                Otherwise, print:
+            </p>
+
+            <p>
+                <b>Zoro needs more training before facing Mihawk...</b>
             </p>
 
         `,
 
         constraints: `
 
-            <p>
-                The input will always be one of the five matter names given in the problem statement.
-            </p>
+            <ul>
+
+                <li>
+                    <b>|S| = 10</b>
+                </li>
+
+                <li>
+                    <b>S[i]</b> is either <b>T</b> or <b>N</b>.
+                </li>
+
+                <li>
+                    Zoro must train on all 10 days to defeat Mihawk.
+                </li>
+
+            </ul>
 
         `,
 
@@ -1684,18 +1766,18 @@ const problems = [
 
             {
                 input:
-`Water`,
+`TTTTTTTTTT`,
 
                 output:
-`Hydrogen Oxygen`
+`Zoro become the greatest sworsman`
             },
 
             {
                 input:
-`Sugar`,
+`TTTTNTTTTT`,
 
                 output:
-`Carbon Hydrogen Oxygen`
+`Zoro needs more training before facing Mihawk...`
             }
 
         ]
@@ -1800,13 +1882,13 @@ function getShortDescription(problem) {
 
     if (problem.letter === "A") {
 
-        return "Calculate the final velocity using the motion formula.";
+        return "Compare Naruto and Sasuke's scores across six rounds.";
 
     }
 
     if (problem.letter === "B") {
 
-        return "Determine which elements are used to form a given matter.";
+        return "Determine whether Zoro trained consistently for all ten days.";
 
     }
 
