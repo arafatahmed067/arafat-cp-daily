@@ -1454,7 +1454,7 @@ body.dark .navbar {
    ========================================================= */
 
 const GOOGLE_FORM_LINK =
-    "https://docs.google.com/forms/d/e/1FAIpQLSdltWzBBP6k5jdVekIRQxuqHNftvnUcaJ41C5Ctv2ZmFYYjvA/viewform?usp=dialog";
+    "https://docs.google.com/forms/d/e/1FAIpQLSdJtJBo1Uyg8a_-puxfIcB5TtgDT3kaMeRIJkLuhSD2udA9Tw/viewform?usp=publish-editor";
 
 
 /* =========================================================
@@ -1462,329 +1462,81 @@ const GOOGLE_FORM_LINK =
    ========================================================= */
 
 const problems = [
-
     {
-
         letter: "A",
-
-        title: "Naruto vs Sasuke",
-
-        difficulty: "Medium",
-
+        title: "Flash Step Velocity",
+        difficulty: "Difficult",
         points: 0,
-
-        tags: [
-            "String",
-            "Binary",
-            "Implementation"
-        ],
-
+        tags: ["String", "Parsing", "Implementation"],
         statement: `
-
-            <p>
-                Naruto and Sasuke are close friends and rivals. One day, they participate in the <b>Chunin Exam</b>, an exam used to determine a ninja's current rank.
-            </p>
-
-            <p>
-                As part of the exam, Naruto and Sasuke face each other in a <b>6-round duel</b>.
-            </p>
-
-            <p>
-                For every round:
-            </p>
-
+            <p>Ichigo has entered the world of <b>Soul Reapers</b> and is training to master <b>Flash Step</b>.</p>
+            <p>During training, his movement data is given in a special format:</p>
+            <p><b>u22a33t04</b></p>
             <ul>
-
-                <li>
-                    If Naruto wins the round, Naruto gets <b>1 point</b> and Sasuke gets <b>0</b>.
-                </li>
-
-                <li>
-                    If Sasuke wins the round, Sasuke gets <b>1 point</b> and Naruto gets <b>0</b>.
-                </li>
-
+                <li><b>u22</b> → Initial velocity <b>u = 22</b></li>
+                <li><b>a33</b> → Acceleration <b>a = 33</b></li>
+                <li><b>t04</b> → Time <b>t = 4</b></li>
             </ul>
-
-            <p>
-                The results of all 6 rounds are represented using two binary strings:
-            </p>
-
-            <ul>
-
-                <li>
-                    <b>n</b> represents Naruto's results.
-                </li>
-
-                <li>
-                    <b>s</b> represents Sasuke's results.
-                </li>
-
-            </ul>
-
-            <p>
-                For each string, <b>1</b> means that the player won that round, while <b>0</b> means that the player lost that round.
-            </p>
-
-            <p>
-                Your task is to determine the overall winner by comparing their total points.
-            </p>
-
-            <p>
-                If Naruto has more points, print:
-            </p>
-
-            <p>
-                <b>I will become the greatest hokagee of all time</b>
-            </p>
-
-            <p>
-                Otherwise, print:
-            </p>
-
-            <p>
-                <b>such a losser...</b>
-            </p>
-
+            <p>To determine how fast Ichigo is moving after the training period, calculate the <b>final velocity</b> using:</p>
+            <p><b>v = u + at</b></p>
+            <p>Your task is to extract <b>u</b>, <b>a</b>, and <b>t</b> from the given string and calculate the final velocity.</p>
+            <h3>Beginner Hint</h3>
+            <p>Since the format is <b>fixed</b>, you don't need complicated string parsing.</p>
         `,
-
         input: `
-
-            <p>
-                The first line contains two strings <b>n</b> and <b>s</b>, each of length 6.
-            </p>
-
+            <p>The input consists of a single string in the following format:</p>
+            <p><b>uXXaYYtZZ</b></p>
+            <p>where:</p>
             <ul>
-
-                <li>
-                    <b>n</b> contains Naruto's results.
-                </li>
-
-                <li>
-                    <b>s</b> contains Sasuke's results.
-                </li>
-
-                <li>
-                    Each string contains only <b>0</b> and <b>1</b>.
-                </li>
-
+                <li><b>XX</b> represents the initial velocity <b>u</b>.</li>
+                <li><b>YY</b> represents the acceleration <b>a</b>.</li>
+                <li><b>ZZ</b> represents the time <b>t</b>.</li>
+                <li>All three values are integers.</li>
             </ul>
-
         `,
-
-        output: `
-
-            <p>
-                Print:
-            </p>
-
-            <ul>
-
-                <li>
-                    <b>I will become the greatest hokagee of all time</b> if Naruto has more points.
-                </li>
-
-                <li>
-                    <b>such a losser...</b> if Sasuke has more points.
-                </li>
-
-            </ul>
-
-        `,
-
+        output: `<p>Print a single integer — the <b>final velocity</b> after applying Flash Step.</p>`,
         constraints: `
-
             <ul>
-
-                <li>
-                    <b>|n| = |s| = 6</b>
-                </li>
-
-                <li>
-                    <b>n[i] ∈ {0,1}</b>
-                </li>
-
-                <li>
-                    <b>s[i] ∈ {0,1}</b>
-                </li>
-
-                <li>
-                    The overall result will not be a draw.
-                </li>
-
+                <li><b>10 ≤ u ≤ 99</b></li>
+                <li><b>10 ≤ a ≤ 99</b></li>
+                <li><b>01 ≤ t ≤ 99</b></li>
             </ul>
-
         `,
-
         examples: [
-
-            {
-                input:
-`111010 001101`,
-
-                output:
-`I will become the greatest hokagee of all time`
-            },
-
-            {
-                input:
-`100101 011110`,
-
-                output:
-`such a losser...`
-            }
-
+            { input: `u22a33t04`, output: `154` },
+            { input: `u15a20t05`, output: `115` }
         ]
-
     },
-
-
     {
-
         letter: "B",
-
-        title: "Zoro's Final Training",
-
-        difficulty: "Medium",
-
+        title: "Zoro and Sanji Conflict",
+        difficulty: "Easy",
         points: 0,
-
-        tags: [
-            "String",
-            "Implementation",
-            "Condition"
-        ],
-
+        tags: ["Math", "Formula", "Implementation"],
         statement: `
-
-            <p>
-                Zoro is one of the greatest swordsmen in the One Piece anime. He is usually calm, but that calmness can be more frightening than anger itself. When someone pushes him too far, he may not give them a second chance—his sword can be drawn before his opponent even realizes the danger.
-            </p>
-
-            <p>
-                However, there is always someone stronger than the strongest. In the current pirate era, <b>Dracule Mihawk</b> is known as the World's Strongest Swordsman.
-            </p>
-
-            <p>
-                Zoro considers Mihawk his idol and dreams of making him his rival one day. To achieve this goal, Zoro has started training hard and improving his skills day by day.
-            </p>
-
-            <p>
-                However, there is one problem with Zoro: he needs to train consistently to maintain the level he has achieved and become stronger.
-            </p>
-
-            <p>
-                There are exactly <b>10 days</b> left before Zoro faces Mihawk in battle.
-            </p>
-
-            <p>
-                For each of these 10 days:
-            </p>
-
-            <ul>
-
-                <li>
-                    <b>T</b> means Zoro trained on that day.
-                </li>
-
-                <li>
-                    <b>N</b> means Zoro skipped training on that day.
-                </li>
-
-            </ul>
-
-            <p>
-                Zoro can defeat Mihawk only if he trains on <b>all 10 days</b>.
-            </p>
-
-            <p>
-                Determine whether Zoro is ready to face Mihawk.
-            </p>
-
+            <p>As you all know, <b>Zoro is the greatest swordsman in the One Piece universe</b>, while <b>Sanji is the greatest chef</b> in the same universe. They are both extremely strong in hand-to-hand combat.</p>
+            <p>But Zoro doesn't have as much mathematical knowledge as Sanji.</p>
+            <p>One day, just to <b>ragebait Zoro</b>, Sanji came up with a plan.</p>
+            <p>He asked Zoro to calculate the <b>area of a circle</b>. Sanji will give Zoro the value of the radius <b>r</b>, and Zoro needs to calculate the area.</p>
+            <p>Help Zoro defeat Sanji's mathematical challenge!</p>
+            <p>Use the formula:</p>
+            <p><b>Area = π × r²</b></p>
+            <p>For this problem, use <b>π = 3.1416</b>.</p>
         `,
-
-        input: `
-
-            <p>
-                The input contains a string of length <b>10</b>, consisting only of the characters <b>T</b> and <b>N</b>.
-            </p>
-
-            <ul>
-
-                <li>
-                    <b>T</b> represents a training day.
-                </li>
-
-                <li>
-                    <b>N</b> represents a day when Zoro skipped training.
-                </li>
-
-            </ul>
-
-        `,
-
+        input: `<p>The input consists of a single integer <b>r</b>, representing the radius of the circle.</p>`,
         output: `
-
-            <p>
-                If Zoro trains on all 10 days, print:
-            </p>
-
-            <p>
-                <b>Zoro become the greatest sworsman</b>
-            </p>
-
-            <p>
-                Otherwise, print:
-            </p>
-
-            <p>
-                <b>Zoro needs more training before facing Mihawk...</b>
-            </p>
-
+            <p>Print the area of the circle in the following format:</p>
+            <p><b>Area : X</b></p>
+            <p>where <b>X</b> is the calculated area.</p>
         `,
-
-        constraints: `
-
-            <ul>
-
-                <li>
-                    <b>|S| = 10</b>
-                </li>
-
-                <li>
-                    <b>S[i]</b> is either <b>T</b> or <b>N</b>.
-                </li>
-
-                <li>
-                    Zoro must train on all 10 days to defeat Mihawk.
-                </li>
-
-            </ul>
-
-        `,
-
+        constraints: `<ul><li><b>1 ≤ r ≤ 100</b></li></ul>`,
         examples: [
-
-            {
-                input:
-`TTTTTTTTTT`,
-
-                output:
-`Zoro become the greatest sworsman`
-            },
-
-            {
-                input:
-`TTTTNTTTTT`,
-
-                output:
-`Zoro needs more training before facing Mihawk...`
-            }
-
+            { input: `5`, output: `Area : 78.54` },
+            { input: `10`, output: `Area : 314.16` }
         ]
-
     }
-
 ];
+
 
 
 /* =========================================================
@@ -1882,13 +1634,13 @@ function getShortDescription(problem) {
 
     if (problem.letter === "A") {
 
-        return "Compare Naruto and Sasuke's scores across six rounds.";
+        return "Extract velocity data and calculate Ichigo's final velocity.";
 
     }
 
     if (problem.letter === "B") {
 
-        return "Determine whether Zoro trained consistently for all ten days.";
+        return "Calculate the area of a circle using the given radius.";
 
     }
 
