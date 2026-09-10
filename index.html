@@ -1,54 +1,22 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Arafat | Daily Practice</title>
 
 <style>
+/* =========================================================
+   ARAFAT CP — DAILY PRACTICE + ARCHIVE
+   Single-file HTML
+   No external CSS
+   No external JavaScript
+   ========================================================= */
 
-:root {
-    --bg: #f5f7fb;
-    --surface: #ffffff;
-    --surface-soft: #f8fafc;
-    --surface-blue: #eff6ff;
-    --text: #172033;
-    --text-soft: #64748b;
-    --text-muted: #475569;
-    --border: #e5e7eb;
-    --border-strong: #d1d5db;
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --primary-soft: #dbeafe;
-    --success-bg: #dcfce7;
-    --success-text: #15803d;
-    --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-    --shadow-hover: 0 15px 35px rgba(15, 23, 42, 0.10);
-}
-
-body.dark {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface-soft: #0f141b;
-    --surface-blue: #111c2f;
-    --text: #f0f6fc;
-    --text-soft: #b8c3d0;
-    --text-muted: #d0d7de;
-    --border: #30363d;
-    --border-strong: #484f58;
-    --primary: #3b82f6;
-    --primary-hover: #60a5fa;
-    --primary-soft: #172554;
-    --success-bg: #12351d;
-    --success-text: #86efac;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.35);
-}
+/* =========================
+   BASIC RESET
+   ========================= */
 
 * {
     margin: 0;
@@ -61,30 +29,100 @@ html {
 }
 
 body {
-    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: #f5f7fb;
+    color: #172033;
     line-height: 1.6;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-button, a, input, textarea, select {
+button,
+input,
+select {
     font: inherit;
 }
 
-button, a {
-    -webkit-tap-highlight-color: transparent;
+/* =========================
+   DARK MODE
+   ========================= */
+
+body.dark {
+    background: #0d1117;
+    color: #e6edf3;
 }
 
-a {
-    color: inherit;
+body.dark .navbar {
+    background: rgba(22, 27, 34, 0.95);
+    border-bottom-color: #30363d;
 }
 
-::selection {
-    background: rgba(37, 99, 235, 0.22);
+body.dark .hero {
+    background: linear-gradient(135deg, #161b22, #111827);
+    border-color: #30363d;
 }
 
+body.dark .problem-card,
+body.dark .info-card,
+body.dark .problem-container,
+body.dark .example-box,
+body.dark .archive-day,
+body.dark .stat,
+body.dark .archive-toolbar,
+body.dark .archive-stat {
+    background: #161b22;
+    border-color: #30363d;
+}
+
+body.dark .problem-title,
+body.dark .section-title,
+body.dark .info-title,
+body.dark .archive-day-title,
+body.dark .archive-problem-title {
+    color: #f0f6fc;
+}
+
+body.dark .problem-description,
+body.dark .problem-content,
+body.dark .archive-day-meta,
+body.dark .archive-problem-description,
+body.dark .section-heading p {
+    color: #c9d1d9;
+}
+
+body.dark .code-box {
+    background: #0d1117;
+    border-color: #30363d;
+    color: #e6edf3;
+}
+
+body.dark .nav-btn,
+body.dark .navigation-btn,
+body.dark .copy-btn,
+body.dark .filter-select,
+body.dark .search-input {
+    background: #0d1117;
+    color: #e6edf3;
+    border-color: #30363d;
+}
+
+body.dark .example-header {
+    background: #111827;
+    border-bottom-color: #30363d;
+}
+
+body.dark .meta {
+    background: #21262d;
+    color: #c9d1d9;
+}
+
+body.dark .answer-box {
+    background: linear-gradient(135deg, #111827, #161b22);
+    border-color: #1d4ed8;
+}
+
+body.dark .footer {
+    border-top-color: #30363d;
+}
 
 /* =========================
    NAVBAR
@@ -94,23 +132,23 @@ a {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 25px;
-    transition: background-color 0.25s ease, border-color 0.25s ease;
-}
 
-body.dark .navbar {
-    background: rgba(22, 27, 34, 0.94);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding: 14px 20px;
 }
 
 .navbar-inner {
     max-width: 1200px;
     margin: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     gap: 15px;
 }
 
@@ -118,38 +156,42 @@ body.dark .navbar {
     font-size: 21px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    white-space: nowrap;
-    cursor: pointer;
 }
 
 .logo span {
-    color: var(--primary);
+    color: #2563eb;
 }
 
 .nav-actions {
     display: flex;
-    gap: 9px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .nav-btn {
-    min-height: 38px;
-    border: 1px solid var(--border-strong);
-    background: var(--surface);
-    color: var(--text-muted);
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+
     padding: 8px 13px;
     border-radius: 8px;
+
     cursor: pointer;
     font-size: 14px;
-    font-weight: 600;
-    transition: 0.2s ease;
+    font-weight: 700;
+
+    transition: 0.2s;
 }
 
 .nav-btn:hover {
-    background: var(--surface-soft);
-    color: var(--text);
-    border-color: var(--primary);
+    background: #f3f4f6;
 }
 
+.nav-btn.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
 
 /* =========================
    MAIN CONTAINER
@@ -160,143 +202,128 @@ body.dark .navbar {
     margin: auto;
 }
 
-
 /* =========================
    HERO
    ========================= */
 
 .hero {
     margin-top: 35px;
-    padding: 58px 35px;
-    text-align: center;
-    border: 1px solid var(--border);
-    border-radius: 20px;
+    padding: 55px 35px;
+
+    border-radius: 22px;
+
     background:
-        radial-gradient(circle at 80% 10%, rgba(37, 99, 235, 0.10), transparent 27%),
-        linear-gradient(135deg, var(--surface), var(--surface-blue));
-    box-shadow: var(--shadow);
+        linear-gradient(135deg, #ffffff, #eef4ff);
+
+    border: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
 }
 
 .hero-badge {
     display: inline-block;
-    margin-bottom: 15px;
+
     padding: 6px 12px;
-    border-radius: 999px;
-    background: var(--primary-soft);
-    color: var(--primary);
-    font-size: 12px;
-    font-weight: 800;
+
+    border-radius: 50px;
+
+    background: #dbeafe;
+    color: #1d4ed8;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
 }
 
 .hero h1 {
-    color: var(--text);
-    font-size: clamp(36px, 5vw, 54px);
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-    margin-bottom: 18px;
+    font-size: clamp(32px, 5vw, 55px);
+    margin-bottom: 10px;
 }
 
 .hero h1 span {
-    color: var(--primary);
+    color: #2563eb;
 }
 
 .hero p {
-    max-width: 700px;
+    max-width: 680px;
     margin: auto;
-    color: var(--text-soft);
+
+    color: #64748b;
     font-size: 16px;
 }
 
-
 /* =========================
-   LAST UPDATE ANNOUNCEMENT
+   TODAY META
    ========================= */
 
-.announcement {
+.today-meta {
     margin-top: 18px;
-    padding: 15px 20px;
+
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 12px;
-    text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--primary);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.announcement-icon {
-    width: 34px;
-    height: 34px;
-    flex: 0 0 auto;
-    display: grid;
-    place-items: center;
-    border-radius: 9px;
-    background: var(--primary-soft);
-    color: var(--primary);
-    font-size: 17px;
-}
+.today-badge {
+    padding: 6px 11px;
 
-.announcement-content {
-    min-width: 0;
-}
+    border-radius: 50px;
 
-.announcement-title {
-    color: var(--text);
-    font-size: 13px;
+    background: #eff6ff;
+    color: #2563eb;
+
+    border: 1px solid #bfdbfe;
+
+    font-size: 12px;
     font-weight: 800;
-    margin-bottom: 1px;
 }
-
-.announcement-text {
-    color: var(--text-soft);
-    font-size: 13px;
-}
-
-.announcement-text strong {
-    color: var(--text);
-}
-
 
 /* =========================
    STATS
    ========================= */
 
 .stats {
-    margin-top: 24px;
+    margin-top: 25px;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     gap: 15px;
 }
 
 .stat {
-    padding: 22px 16px;
+    padding: 20px;
+
+    background: white;
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
     text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
 }
 
 .stat-number {
-    color: var(--text);
     font-size: 25px;
     font-weight: 800;
 }
 
 .stat-label {
-    color: var(--text-soft);
+    color: #64748b;
     font-size: 13px;
 }
-
 
 /* =========================
    SECTIONS
    ========================= */
 
 .section {
-    margin-top: 46px;
+    margin-top: 45px;
 }
 
 .section-heading {
@@ -304,15 +331,12 @@ body.dark .navbar {
 }
 
 .section-heading h2 {
-    color: var(--text);
     font-size: 27px;
-    line-height: 1.25;
 }
 
 .section-heading p {
-    color: var(--text-soft);
+    color: #64748b;
 }
-
 
 /* =========================
    PROBLEM CARDS
@@ -320,141 +344,407 @@ body.dark .navbar {
 
 .problem-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .problem-card {
-    min-width: 0;
-    padding: 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 17px;
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    transition: 0.25s;
+
     cursor: pointer;
-    transition: 0.22s ease;
 }
 
 .problem-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--primary);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 .problem-top {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    align-items: center;
+
     margin-bottom: 18px;
 }
 
 .problem-letter {
-    width: 40px;
-    height: 40px;
-    flex: 0 0 auto;
-    display: grid;
-    place-items: center;
-    background: var(--primary);
-    color: #fff;
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #2563eb;
+    color: white;
+
     border-radius: 10px;
+
     font-weight: 800;
 }
 
 .difficulty {
     padding: 5px 10px;
-    border-radius: 999px;
-    background: var(--success-bg);
-    color: var(--success-text);
+
+    border-radius: 50px;
+
+    background: #dcfce7;
+    color: #15803d;
+
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 700;
+}
+
+.difficulty.medium {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.difficulty.difficult {
+    background: #fee2e2;
+    color: #dc2626;
 }
 
 .problem-title {
-    color: var(--text);
     font-size: 21px;
-    line-height: 1.3;
     margin-bottom: 8px;
-    overflow-wrap: anywhere;
 }
 
 .problem-description {
-    min-height: 44px;
-    color: var(--text-soft);
+    color: #64748b;
     font-size: 14px;
-    margin-bottom: 17px;
+
+    margin-bottom: 18px;
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
+
     margin-bottom: 20px;
 }
 
 .tag {
     padding: 4px 9px;
+
     border-radius: 6px;
-    background: var(--surface-blue);
-    color: var(--primary);
-    border: 1px solid rgba(37, 99, 235, 0.15);
+
+    background: #eff6ff;
+    color: #2563eb;
+
     font-size: 11px;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .solve-btn {
     width: 100%;
-    min-height: 42px;
-    padding: 10px 15px;
-    border: 0;
+
+    padding: 11px;
+
+    border: none;
     border-radius: 9px;
-    background: var(--primary);
-    color: #fff;
-    font-weight: 800;
+
+    background: #2563eb;
+    color: white;
+
+    font-weight: 700;
+
     cursor: pointer;
-    transition: 0.2s ease;
+
+    transition: 0.2s;
 }
 
 .solve-btn:hover {
-    background: var(--primary-hover);
+    background: #1d4ed8;
 }
-
 
 /* =========================
-   HOW IT WORKS
+   ARCHIVE PAGE
    ========================= */
 
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+.archive-page {
+    display: none;
+    margin-top: 35px;
 }
 
-.info-card {
-    min-width: 0;
-    padding: 22px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
+.archive-hero {
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(135deg, #ffffff, #eef4ff);
+
+    border: 1px solid #e5e7eb;
+
+    margin-bottom: 25px;
 }
 
-.info-number {
+.archive-hero h1 {
+    font-size: 35px;
     margin-bottom: 7px;
-    color: var(--primary);
+}
+
+.archive-hero h1 span {
+    color: #2563eb;
+}
+
+.archive-hero p {
+    color: #64748b;
+}
+
+/* =========================
+   ARCHIVE STATS
+   ========================= */
+
+.archive-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.archive-stat {
+    background: white;
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    text-align: center;
+}
+
+.archive-stat-number {
+    font-size: 23px;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.archive-stat-label {
     font-size: 12px;
+    color: #64748b;
+}
+
+/* =========================
+   ARCHIVE TOOLBAR
+   ========================= */
+
+.archive-toolbar {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-bottom: 25px;
+}
+
+.archive-controls {
+    display: grid;
+    grid-template-columns: 1fr 180px 180px;
+    gap: 10px;
+}
+
+.search-input,
+.filter-select {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    background: white;
+    color: #172033;
+
+    outline: none;
+}
+
+.search-input:focus,
+.filter-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   ARCHIVE DAY
+   ========================= */
+
+.archive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.archive-day {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+.archive-day-header {
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.archive-day-left {
+    min-width: 0;
+}
+
+.archive-day-title {
+    font-size: 22px;
     font-weight: 800;
 }
 
-.info-title {
-    color: var(--text);
+.archive-day-meta {
+    color: #64748b;
+    font-size: 13px;
+
+    margin-top: 4px;
+}
+
+.latest-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 50px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.archived-badge {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 50px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.archive-problems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.archive-problem {
+    padding: 20px 22px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.archive-problem + .archive-problem {
+    border-left: 1px solid #e5e7eb;
+}
+
+.archive-problem:hover {
+    background: #f8fafc;
+}
+
+.archive-problem-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.archive-letter {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.archive-problem-title {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.archive-problem-description {
+    color: #64748b;
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+.archive-problem-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.archive-empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #64748b;
+}
+
+.archive-empty strong {
+    display: block;
+
+    color: #172033;
+
+    font-size: 18px;
+
     margin-bottom: 5px;
-    font-weight: 800;
 }
 
-.info-card p {
-    color: var(--text-soft);
-    font-size: 14px;
+body.dark .archive-empty strong {
+    color: #f0f6fc;
 }
-
 
 /* =========================
    PROBLEM PAGE
@@ -466,64 +756,93 @@ body.dark .navbar {
 }
 
 .back-btn {
-    margin-bottom: 18px;
-    padding: 4px 0;
-    border: 0;
-    background: transparent;
-    color: var(--primary);
-    font-weight: 800;
-    cursor: pointer;
-}
+    border: none;
+    background: none;
 
-.back-btn:hover {
-    text-decoration: underline;
+    color: #2563eb;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
 }
 
 .problem-container {
-    padding: 30px;
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
     border-radius: 18px;
-    box-shadow: var(--shadow);
+
+    padding: 30px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
 }
 
 .problem-header {
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 25px;
+
     margin-bottom: 30px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
 }
 
 .problem-header-top {
     display: flex;
-    align-items: center;
     gap: 12px;
-    min-width: 0;
-    margin-bottom: 13px;
+    align-items: center;
+
+    margin-bottom: 12px;
 }
 
 .problem-header h1 {
-    min-width: 0;
-    color: var(--text);
-    font-size: 34px;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
+    font-size: 32px;
 }
 
 .problem-meta {
     display: flex;
     flex-wrap: wrap;
+
     gap: 8px;
 }
 
 .meta {
     padding: 5px 9px;
-    border: 1px solid var(--border);
+
     border-radius: 6px;
-    background: var(--surface-soft);
-    color: var(--text-muted);
+
+    background: #f1f5f9;
+
+    color: #475569;
+
     font-size: 12px;
 }
 
+/* =========================
+   ARCHIVE INFO IN PROBLEM
+   ========================= */
+
+.problem-publication {
+    margin-top: 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.publication-meta {
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 700;
+}
 
 /* =========================
    CONTENT
@@ -534,36 +853,26 @@ body.dark .navbar {
 }
 
 .section-title {
-    margin-bottom: 10px;
-    color: var(--text);
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .problem-content {
-    color: var(--text-muted);
-    overflow-wrap: anywhere;
+    color: #374151;
 }
 
-.problem-content p + p {
-    margin-top: 12px;
+.problem-content p {
+    margin-bottom: 15px;
 }
 
 .problem-content h3 {
-    margin-top: 18px;
-    margin-bottom: 8px;
-    color: var(--text);
+    margin-bottom: 10px;
 }
 
 .problem-content ul {
-    margin-top: 9px;
-    padding-left: 24px;
+    margin-left: 25px;
+    margin-bottom: 15px;
 }
-
-.problem-content b,
-.problem-content strong {
-    color: var(--text);
-}
-
 
 /* =========================
    EXAMPLES
@@ -571,114 +880,137 @@ body.dark .navbar {
 
 .example-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
+
     gap: 15px;
-    margin-bottom: 15px;
+
+    margin-bottom: 18px;
 }
 
 .example-box {
-    min-width: 0;
-    overflow: hidden;
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
     border-radius: 10px;
+
+    overflow: hidden;
 }
 
 .example-header {
     display: flex;
-    align-items: center;
+
     justify-content: space-between;
-    gap: 10px;
+    align-items: center;
+
     padding: 9px 12px;
-    background: var(--surface-soft);
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #e5e7eb;
+
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .copy-btn {
-    flex: 0 0 auto;
+    border: 1px solid #d1d5db;
+
+    background: white;
+
     padding: 4px 8px;
-    border: 1px solid var(--border-strong);
+
     border-radius: 5px;
-    background: var(--surface);
-    color: var(--text-muted);
+
     font-size: 10px;
+
     font-weight: 800;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .copy-btn:hover {
-    border-color: var(--primary);
-    color: var(--text);
+    background: #f1f5f9;
 }
 
 .copy-btn.copied {
-    background: var(--success-bg);
-    color: var(--success-text);
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #86efac;
 }
 
 .copy-btn.failed {
     background: #fee2e2;
     color: #dc2626;
+    border-color: #fca5a5;
 }
 
 .code-box {
-    min-height: 60px;
     padding: 15px;
-    overflow-x: auto;
-    background: var(--surface-soft);
-    color: var(--text);
-    font-family: Consolas, Monaco, "Courier New", monospace;
-    font-size: 14px;
+
+    background: #f8fafc;
+
+    font-family: Consolas, Monaco, monospace;
+
     white-space: pre-wrap;
-    overflow-wrap: anywhere;
+
+    overflow-x: auto;
+
+    min-height: 60px;
 }
 
-
 /* =========================
-   GOOGLE FORM BUTTON
+   GOOGLE FORM
    ========================= */
 
 .answer-box {
-    margin-top: 36px;
+    margin-top: 35px;
+
     padding: 25px;
-    text-align: center;
-    background: linear-gradient(135deg, var(--surface-blue), var(--surface-soft));
-    border: 1px solid var(--border);
+
     border-radius: 15px;
+
+    background: linear-gradient(135deg, #eff6ff, #f8fafc);
+
+    border: 1px solid #bfdbfe;
+
+    text-align: center;
 }
 
 .answer-box h3 {
-    color: var(--text);
     margin-bottom: 6px;
 }
 
 .answer-box p {
-    margin-bottom: 15px;
-    color: var(--text-soft);
+    color: #64748b;
+
     font-size: 14px;
+
+    margin-bottom: 15px;
 }
 
 .answer-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 11px 20px;
-    border-radius: 9px;
-    background: var(--primary);
-    color: #fff;
+    display: inline-block;
+
     text-decoration: none;
-    font-weight: 800;
-    transition: 0.2s ease;
+
+    padding: 12px 20px;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
 }
 
 .answer-btn:hover {
-    background: var(--primary-hover);
+    background: #1d4ed8;
 }
-
 
 /* =========================
    NAVIGATION
@@ -686,25 +1018,30 @@ body.dark .navbar {
 
 .problem-navigation {
     display: flex;
+
     justify-content: space-between;
+
     gap: 10px;
+
     margin-top: 25px;
 }
 
 .navigation-btn {
-    min-height: 42px;
     padding: 10px 18px;
-    border: 1px solid var(--border-strong);
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
     border-radius: 8px;
-    background: var(--surface);
-    color: var(--text-muted);
-    font-weight: 800;
+
     cursor: pointer;
+
+    font-weight: 700;
 }
 
 .navigation-btn:hover:not(:disabled) {
-    border-color: var(--primary);
-    color: var(--text);
+    background: #f3f4f6;
 }
 
 .navigation-btn:disabled {
@@ -712,27 +1049,35 @@ body.dark .navbar {
     cursor: not-allowed;
 }
 
-
 /* =========================
    TOAST
    ========================= */
 
 .toast {
     position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 9999;
-    max-width: calc(100vw - 30px);
-    padding: 12px 17px;
-    border-radius: 9px;
+
+    bottom: 25px;
+    right: 25px;
+
     background: #111827;
-    color: #fff;
+    color: white;
+
+    padding: 12px 17px;
+
+    border-radius: 9px;
+
     font-size: 14px;
     font-weight: 700;
+
     opacity: 0;
+
     transform: translateY(20px);
+
     pointer-events: none;
+
     transition: 0.25s;
+
+    z-index: 9999;
 }
 
 .toast.show {
@@ -748,158 +1093,117 @@ body.dark .navbar {
     background: #dc2626;
 }
 
-
 /* =========================
    FOOTER
    ========================= */
 
 .footer {
     margin-top: 70px;
-    padding: 30px 15px 35px;
+
+    padding: 30px;
+
     text-align: center;
-    color: var(--text-soft);
-    border-top: 1px solid var(--border);
+
+    color: #64748b;
+
+    border-top: 1px solid #e5e7eb;
 }
 
 .footer strong {
-    color: var(--primary);
+    color: #2563eb;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 8px;
-}
-
-.footer-links a {
-    color: var(--text-soft);
+.footer a {
+    color: #2563eb;
     text-decoration: none;
     font-weight: 700;
 }
-
-.footer-links a:hover {
-    color: var(--primary);
-}
-
 
 /* =========================
    RESPONSIVE
    ========================= */
 
-@media (max-width: 820px) {
+@media (max-width: 850px) {
 
-    .stats,
-    .info-grid {
+    .archive-controls {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .archive-controls .search-input {
+        grid-column: 1 / -1;
+    }
+
+    .archive-problems {
         grid-template-columns: 1fr;
     }
 
-    .problem-grid,
+    .archive-problem + .archive-problem {
+        border-left: none;
+        border-top: 1px solid #e5e7eb;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+
     .example-grid {
         grid-template-columns: 1fr;
     }
 
-}
-
-@media (max-width: 600px) {
-
-    .navbar {
-        padding: 10px 13px;
-    }
-
-    .navbar-inner {
-        gap: 9px;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    .nav-actions {
-        gap: 7px;
-    }
-
-    .nav-btn {
-        min-height: 36px;
-        padding: 7px 10px;
-        font-size: 13px;
-    }
-
-    .container {
-        width: 94%;
-    }
-
     .hero {
-        margin-top: 20px;
-        padding: 36px 18px;
-        border-radius: 16px;
+        padding: 40px 20px;
     }
 
-    .hero h1 {
-        font-size: 35px;
-        letter-spacing: -1px;
+    .archive-hero {
+        padding: 25px 20px;
     }
 
-    .hero p {
-        font-size: 15px;
-    }
-
-    .announcement {
-        padding: 13px 14px;
-        gap: 9px;
-        text-align: left;
-    }
-
-    .announcement-icon {
-        width: 32px;
-        height: 32px;
-    }
-
-    .announcement-title,
-    .announcement-text {
-        font-size: 12px;
-    }
-
-    .section {
-        margin-top: 36px;
-    }
-
-    .problem-card {
-        padding: 20px;
-    }
-
-    .problem-page {
-        margin-top: 22px;
+    .archive-hero h1 {
+        font-size: 29px;
     }
 
     .problem-container {
-        padding: 18px;
-        border-radius: 14px;
-    }
-
-    .problem-header-top {
-        align-items: flex-start;
+        padding: 20px;
     }
 
     .problem-header h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
-    .problem-content {
-        font-size: 15px;
+    .navbar {
+        padding: 12px 15px;
     }
 
-    .problem-content ul {
-        padding-left: 20px;
+    .navbar-inner {
+        align-items: flex-start;
     }
 
-    .answer-box {
-        padding: 20px 15px;
+    .nav-actions {
+        justify-content: flex-end;
     }
 
-    .answer-btn {
-        width: 100%;
+    .archive-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-controls .search-input {
+        grid-column: auto;
+    }
+
+    .archive-day-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .problem-navigation {
@@ -910,59 +1214,17 @@ body.dark .navbar {
         width: 100%;
     }
 
-    .footer {
-        margin-top: 50px;
-    }
-
     .toast {
-        left: 15px;
         right: 15px;
+        left: 15px;
         bottom: 15px;
         text-align: center;
     }
-
 }
-
-@media (max-width: 380px) {
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .hero {
-        padding-inline: 14px;
-    }
-
-    .hero h1 {
-        font-size: 31px;
-    }
-
-    .problem-card,
-    .problem-container {
-        padding-inline: 15px;
-    }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *, *::before, *::after {
-        transition-duration: 0.01ms !important;
-    }
-
-}
-
 </style>
-
 </head>
 
-
 <body>
-
 
 <!-- =========================================================
      NAVBAR
@@ -979,18 +1241,25 @@ body.dark .navbar {
         <div class="nav-actions">
 
             <button
-                class="nav-btn"
+                class="nav-btn active"
+                id="homeNavButton"
                 type="button"
                 onclick="showHome()">
                 Home
             </button>
 
             <button
-                id="themeToggle"
+                class="nav-btn"
+                id="archiveNavButton"
+                type="button"
+                onclick="showArchive()">
+                Archive
+            </button>
+
+            <button
                 class="nav-btn"
                 type="button"
                 onclick="toggleDarkMode()"
-                aria-label="Toggle dark mode"
                 title="Toggle dark mode">
                 🌙
             </button>
@@ -1015,7 +1284,6 @@ body.dark .navbar {
 
 <section id="homePage">
 
-
     <!-- HERO -->
 
     <section class="hero">
@@ -1034,31 +1302,9 @@ body.dark .navbar {
             programming skills.
         </p>
 
+        <div class="today-meta" id="todayMeta"></div>
+
     </section>
-
-
-    <!-- LAST UPDATE ANNOUNCEMENT -->
-
-    <div class="announcement">
-
-        <div class="announcement-icon">
-            📢
-        </div>
-
-        <div class="announcement-content">
-
-            <div class="announcement-title">
-                Latest Problem Update
-            </div>
-
-            <div class="announcement-text">
-                Last time problems were updated:
-               10 September 2026 • 1:10 PM
-            </div>
-
-        </div>
-
-    </div>
 
 
     <!-- STATS -->
@@ -1067,8 +1313,10 @@ body.dark .navbar {
 
         <div class="stat">
 
-            <div class="stat-number">
-                2
+            <div
+                class="stat-number"
+                id="todayProblemCount">
+                0
             </div>
 
             <div class="stat-label">
@@ -1080,7 +1328,9 @@ body.dark .navbar {
 
         <div class="stat">
 
-            <div class="stat-number">
+            <div
+                class="stat-number"
+                id="todayTotalPoints">
                 0
             </div>
 
@@ -1093,12 +1343,14 @@ body.dark .navbar {
 
         <div class="stat">
 
-            <div class="stat-number">
-                Daily
+            <div
+                class="stat-number"
+                id="todayDayNumber">
+                -
             </div>
 
             <div class="stat-label">
-                Practice Mode
+                Practice Day
             </div>
 
         </div>
@@ -1106,7 +1358,7 @@ body.dark .navbar {
     </section>
 
 
-    <!-- PROBLEMS -->
+    <!-- TODAY'S PROBLEMS -->
 
     <section class="section">
 
@@ -1143,7 +1395,6 @@ body.dark .navbar {
         </div>
 
         <div class="info-grid">
-
 
             <div class="info-card">
 
@@ -1195,11 +1446,144 @@ body.dark .navbar {
 
             </div>
 
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =========================================================
+     ARCHIVE PAGE
+     ========================================================= -->
+
+<section
+    id="archivePage"
+    class="archive-page">
+
+    <section class="archive-hero">
+
+        <h1>
+            Practice <span>Archive</span>
+        </h1>
+
+        <p>
+            Every daily challenge is permanently organized here.
+            Browse previous days, problems, difficulties and topics.
+        </p>
+
+    </section>
+
+
+    <!-- ARCHIVE STATS -->
+
+    <section class="archive-stats">
+
+        <div class="archive-stat">
+
+            <div
+                class="archive-stat-number"
+                id="archiveProblemCount">
+                0
+            </div>
+
+            <div class="archive-stat-label">
+                Total Problems
+            </div>
+
+        </div>
+
+
+        <div class="archive-stat">
+
+            <div
+                class="archive-stat-number"
+                id="archiveDayCount">
+                0
+            </div>
+
+            <div class="archive-stat-label">
+                Practice Days
+            </div>
+
+        </div>
+
+
+        <div class="archive-stat">
+
+            <div
+                class="archive-stat-number"
+                id="archiveLatestDay">
+                -
+            </div>
+
+            <div class="archive-stat-label">
+                Latest Day
+            </div>
 
         </div>
 
     </section>
 
+
+    <!-- SEARCH / FILTER -->
+
+    <section class="archive-toolbar">
+
+        <div class="archive-controls">
+
+            <input
+                type="search"
+                id="archiveSearch"
+                class="search-input"
+                placeholder="Search title, day, tag or problem ID..."
+                oninput="renderArchive()"
+            >
+
+            <select
+                id="difficultyFilter"
+                class="filter-select"
+                onchange="renderArchive()">
+
+                <option value="all">
+                    All Difficulties
+                </option>
+
+                <option value="Easy">
+                    Easy
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Difficult">
+                    Difficult
+                </option>
+
+            </select>
+
+
+            <select
+                id="dayFilter"
+                class="filter-select"
+                onchange="renderArchive()">
+
+                <option value="all">
+                    All Days
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARCHIVE LIST -->
+
+    <section id="archiveList" class="archive-list">
+    </section>
 
 </section>
 
@@ -1215,9 +1599,9 @@ body.dark .navbar {
     <button
         class="back-btn"
         type="button"
-        onclick="showHome()">
+        onclick="goBackFromProblem()">
 
-        ← Back to Problems
+        ← Back
 
     </button>
 
@@ -1245,6 +1629,12 @@ body.dark .navbar {
             <div
                 class="problem-meta"
                 id="problemMeta">
+            </div>
+
+
+            <div
+                class="problem-publication"
+                id="problemPublication">
             </div>
 
         </div>
@@ -1298,16 +1688,14 @@ body.dark .navbar {
         </section>
 
 
-        <!-- CONSTRAINTS -->
+        <!-- CONSTRAINTS / HINT -->
 
         <section class="problem-section">
 
             <h2
                 class="section-title"
                 id="extraSectionTitle">
-
                 Constraints
-
             </h2>
 
             <div
@@ -1341,7 +1729,8 @@ body.dark .navbar {
             </h3>
 
             <p>
-                Submit your answer using the Google Form below.
+                Submit your answer using the Google Form for this
+                practice day.
             </p>
 
             <a
@@ -1401,230 +1790,1367 @@ body.dark .navbar {
 <footer class="footer">
 
     <p>
-        © <span id="currentYear"></span> <strong>ArafatCP</strong>. All rights reserved.
+        Built for daily practice by
+        <strong>Arafat</strong>.
     </p>
 
-    <p>
-        Built for daily competitive programming practice by <strong>Arafat</strong>.
-    </p>
-
-    <div class="footer-links">
+    <p style="margin-top:8px;font-size:12px;">
 
         <a
             href="https://github.com/arafatahmed067/arafat-cp-daily"
             target="_blank"
             rel="noopener noreferrer">
-
-            GitHub Repository
-
+            GitHub
         </a>
+
+        &nbsp;•&nbsp;
 
         <a
             href="https://github.com/arafatahmed067"
             target="_blank"
             rel="noopener noreferrer">
-
-            GitHub Profile
-
+            Arafat
         </a>
 
-    </div>
+    </p>
 
 </footer>
 
 
 <!-- =========================================================
-     COPY SUCCESS / ERROR TOAST
+     TOAST
      ========================================================= -->
 
 <div
     id="toast"
     class="toast">
-
-    Copied successfully!
-
 </div>
 
 
 <script>
 
-
 /* =========================================================
-   GOOGLE FORM LINK
+   IMPORTANT ARCHIVE STRUCTURE
+
+   NEWEST DAY MUST ALWAYS BE AT INDEX 0.
+
+   Do NOT use localStorage for this data.
+
+   Later:
+   - Day 1–4 will be inserted from PDFs.
+   - Day 6–7 are included when their verified sources are supplied.
+   - Existing historical days must not be changed.
    ========================================================= */
 
-const GOOGLE_FORM_LINK =
-    "https://docs.google.com/forms/d/e/1FAIpQLScc43L35OdvoyrwbSGdi8-cr7xMHUieTt1PTRR3roBOI9AFcw/viewform?usp=publish-editor";
-
 
 /* =========================================================
-   DAILY PROBLEMS
+   ARCHIVE DATA
    ========================================================= */
 
-const problems = [
+const ARCHIVE = [
+
+        /* =====================================================
+       DAY 10
+       ===================================================== */
+
     {
-        letter: "A",
-        title: "The Five Elders",
-        difficulty: "Easy",
-        points: 0,
-        tags: ["Array", "Math", "Implementation"],
-        statement: `
-            <p>In the world of <i>One Piece</i>, five mysterious rulers stand above the World Government. They hide their true strength behind authority, while secretly working to crush anyone who threatens their control.</p>
-            <p>Luffy is getting stronger, and the Elders know that if his power continues to grow, their rule could eventually fall.</p>
-            <p>Each of the five Elders has a different power level. Given their five power levels, determine the <b>highest</b> and <b>lowest</b> power level among them.</p>
-        `,
-        input: `
-            <p>You are given an array of size <b>5</b>, containing the power levels of the five Elders.</p>
-        `,
-        output: `
-            <p>Print two values:</p>
-            <ul>
-                <li>The <b>highest</b> power level.</li>
-                <li>The <b>lowest</b> power level.</li>
-            </ul>
-        `,
-        constraints: `
-            <ul>
-                <li>The array contains exactly <b>5</b> integers.</li>
-                <li>All five values are different.</li>
-                <li><b>1 ≤ power level ≤ 10<sup>9</sup></b></li>
-            </ul>
-        `,
-        examples: [
-            { input: `85 42 97 63 71`, output: `97 42` },
-            { input: `120 55 89 143 76`, output: `143 55` }
+        day: 10,
+        date: "10 September 2026",
+        time: "1:10 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLScc43L35OdvoyrwbSGdi8-cr7xMHUieTt1PTRR3roBOI9AFcw/viewform?usp=publish-editor",
+
+        problems: [
+
+            {
+                id: "D10-A",
+                letter: "A",
+                title: "The Five Elders",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Array", "Math", "Implementation"],
+
+                statement: `
+                    <p>
+                        In <b>One Piece</b>, the Five Elders are five mysterious rulers who stand above the World Government. Each Elder has a different power level.
+                    </p>
+                    <p>
+                        You are given the power levels of all five Elders. Determine the <b>highest</b> and <b>lowest</b> power level.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains exactly five integers representing the power levels of the Five Elders.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the <b>highest</b> power level first and the <b>lowest</b> power level second, separated by a space.
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li>Exactly 5 integers are given.</li>
+                        <li>All power levels are different.</li>
+                        <li><b>1 ≤ power level ≤ 10<sup>9</sup></b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    { input: "85 42 97 63 71", output: "97 42" },
+                    { input: "120 55 89 143 76", output: "143 55" }
+                ]
+            },
+
+            {
+                id: "D10-B",
+                letter: "B",
+                title: "Senku's Calculation",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Math", "Functions", "Implementation"],
+
+                statement: `
+                    <p>
+                        Senku is given two integers <b>a</b> and <b>b</b>, along with a floating-point number <b>x</b>.
+                    </p>
+                    <p>
+                        First, find the absolute difference between <b>a</b> and <b>b</b>. Then determine the <b>floor</b>, <b>ceil</b>, and <b>round</b> values of <b>x</b>.
+                    </p>
+                    <p>
+                        Use the appropriate built-in functions: <b>abs()</b>, <b>floor()</b>, <b>ceil()</b>, and <b>round()</b>.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains two integers <b>a</b>, <b>b</b>, and one floating-point number <b>x</b>.</p>
+                `,
+
+                output: `
+                    <p>Print four lines in the following order:</p>
+                    <ul>
+                        <li>Abs of a-b</li>
+                        <li>Floor of x</li>
+                        <li>Ceil of x</li>
+                        <li>Round of x</li>
+                    </ul>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>-1000 ≤ a, b ≤ 1000</b></li>
+                        <li><b>0 ≤ x ≤ 1000</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    { input: "25 40 7.6", output: "15\n7\n8\n8" },
+                    { input: "90 35 12.3", output: "55\n12\n13\n12" }
+                ]
+            }
         ]
     },
+
+
+    /* =====================================================
+       DAY 9
+       ===================================================== */
+
     {
-        letter: "B",
-        title: "Senku's Calculation",
-        difficulty: "Easy",
-        points: 0,
-        tags: ["Math", "Functions", "Implementation"],
-        statement: `
-            <p><b>Senku</b> wants to test his friends with some basic mathematical operations.</p>
-            <p>You are given two integers <b>a</b> and <b>b</b>, and one floating-point number <b>x</b>.</p>
-            <p>First, find the absolute difference between <b>a</b> and <b>b</b>.</p>
-            <p>Then, perform four different operations on <b>x</b>.</p>
-        `,
-        input: `
-            <p>The input contains three values:</p>
-            <p><b>a b x</b></p>
-        `,
-        output: `
-            <p>Print the following four values, each on a separate line:</p>
-            <ul>
-                <li><b>Abs of</b> a - b</li>
-                <li><b>Floor of</b> x</li>
-                <li><b>Ceil of</b> x</li>
-                <li><b>Round of</b> x</li>
-            </ul>
-        `,
-        constraints: `
-            <ul>
-                <li><b>-1000 ≤ a, b ≤ 1000</b></li>
-                <li><b>0 ≤ x ≤ 1000</b></li>
-            </ul>
-            <h3>Functions to Use</h3>
-            <ul>
-                <li>Absolute value → <b>abs(a - b)</b></li>
-                <li>Floor value → <b>floor(x)</b></li>
-                <li>Ceiling value → <b>ceil(x)</b></li>
-                <li>Rounded value → <b>round(x)</b></li>
-            </ul>
-        `,
-        examples: [
-            { input: `25 40 7.6`, output: `15\n7\n8\n8` },
-            { input: `90 35 12.3`, output: `55\n12\n13\n12` }
+        day: 9,
+        date: "09 September 2026",
+        time: "2:20 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSeBxNEXaCQveDOYXCkFGnrWWil_XMNXsYUS5dZUZarSSs5nSg/viewform?usp=publish-editor",
+
+        problems: [
+
+            {
+                id: "D9-A",
+                letter: "A",
+
+                title: "Shikamaru Time Difference",
+
+                difficulty: "Easy",
+                points: 0,
+
+                tags: [
+                    "String",
+                    "Time",
+                    "Implementation"
+                ],
+
+                statement: `
+                    <p>
+                        Shikamaru is a lazy but chill guy. Ninja Academy
+                        class starts exactly at <b>12:00 PM</b>.
+                    </p>
+
+                    <p>
+                        You are given Shikamaru's wake-up time before
+                        12 PM. Determine how many minutes remain before
+                        the class starts.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        You are given one string <b>S</b> in the format
+                        <b>HH:MM-AM</b>.
+                    </p>
+
+                    <p>
+                        The given time is always before
+                        <b>12:00 PM</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print a single integer representing the number
+                        of minutes before the class starts.
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li>S has the format <b>HH:MM-AM</b>.</li>
+                        <li><b>01:00-AM ≤ S &lt; 12:00-PM</b></li>
+                        <li><b>0 ≤ MM ≤ 59</b></li>
+                    </ul>
+                `,
+
+                examples: [
+
+                    {
+                        input: "08:00-AM",
+                        output: "240"
+                    },
+
+                    {
+                        input: "09:12-AM",
+                        output: "168"
+                    }
+
+                ]
+            },
+
+
+            {
+                id: "D9-B",
+                letter: "B",
+
+                title: "Senku's Triplet Challenge",
+
+                difficulty: "Difficult",
+                points: 0,
+
+                tags: [
+                    "Math",
+                    "GCD",
+                    "LCM",
+                    "Implementation"
+                ],
+
+                statement: `
+                    <p>
+                        Senku is the greatest scientist in
+                        <b>Dr. Stone</b>. His friend decides to test
+                        his mathematical logic.
+                    </p>
+
+                    <p>
+                        You are given three positive integers
+                        <b>A, B, C</b>.
+                    </p>
+
+                    <p>
+                        Calculate:
+                    </p>
+
+                    <ol>
+                        <li>GCD(A, B)</li>
+                        <li>LCM(A, B)</li>
+                        <li>GCD(A, B, C)</li>
+                        <li>LCM(A, B, C)</li>
+                        <li>
+                            GCD(A, B) × GCD(A, B, C)
+                            +
+                            LCM(A, B) × LCM(A, B, C)
+                        </li>
+                    </ol>
+
+                    <p>
+                        <b>GCD</b> means Greatest Common Divisor.
+                        <br>
+                        <b>LCM</b> means Least Common Multiple.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains three positive integers
+                        <b>A, B, C</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the five calculated values, each on a
+                        separate line, in the required order.
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ A, B, C ≤ 10<sup>6</sup></b></li>
+                    </ul>
+                `,
+
+                examples: [
+
+                    {
+                        input: "12 18 24",
+                        output:
+`6
+36
+6
+72
+2628`
+                    },
+
+                    {
+                        input: "8 12 20",
+                        output:
+`4
+24
+4
+120
+2896`
+                    }
+
+                ]
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       DAY 8
+       ===================================================== */
+
+    {
+        day: 8,
+        date: "07 September 2026",
+        time: "10:20 AM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSdJtJBo1Uyg8a_-puxfIcB5TtgDT3kaMeRIJkLuhSD2udA9Tw/viewform?usp=publish-editor",
+
+        problems: [
+
+            {
+                id: "D8-A",
+                letter: "A",
+
+                title: "Flash Step Velocity",
+
+                difficulty: "Difficult",
+                points: 0,
+
+                tags: [
+                    "String",
+                    "Parsing",
+                    "Implementation"
+                ],
+
+                statement: `
+                    <p>
+                        Ichigo is training his <b>Flash Step</b>.
+                        During his training, his movement data is written
+                        in a fixed format such as:
+                    </p>
+
+                    <p>
+                        <b>u22a33t04</b>
+                    </p>
+
+                    <p>
+                        Here:
+                    </p>
+
+                    <ul>
+                        <li><b>u22</b> means initial velocity u = 22</li>
+                        <li><b>a33</b> means acceleration a = 33</li>
+                        <li><b>t04</b> means time t = 4</li>
+                    </ul>
+
+                    <p>
+                        Calculate the final velocity using:
+                        <b>v = u + at</b>.
+                    </p>
+
+                    <p>
+                        Extract <b>u</b>, <b>a</b>, and <b>t</b> from
+                        the given string.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        You are given one string in the fixed format
+                        <b>uXXaYYtZZ</b>.
+                    </p>
+
+                    <p>
+                        XX represents initial velocity,
+                        YY represents acceleration,
+                        and ZZ represents time.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the final velocity as a single integer.
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>10 ≤ u ≤ 99</b></li>
+                        <li><b>10 ≤ a ≤ 99</b></li>
+                        <li><b>01 ≤ t ≤ 99</b></li>
+                    </ul>
+                `,
+
+                examples: [
+
+                    {
+                        input: "u22a33t04",
+                        output: "154"
+                    },
+
+                    {
+                        input: "u15a20t05",
+                        output: "115"
+                    }
+
+                ]
+            },
+
+
+            {
+                id: "D8-B",
+                letter: "B",
+
+                title: "Zoro and Sanji Conflict",
+
+                difficulty: "Easy",
+                points: 0,
+
+                tags: [
+                    "Math",
+                    "Formula",
+                    "Implementation"
+                ],
+
+                statement: `
+                    <p>
+                        Zoro wants to become the greatest swordsman,
+                        while Sanji wants to become the greatest chef.
+                    </p>
+
+                    <p>
+                        One day, Sanji ragebaits Zoro by giving him a
+                        circle-area challenge.
+                    </p>
+
+                    <p>
+                        Given the radius <b>r</b>, calculate the area
+                        of the circle using:
+                    </p>
+
+                    <p>
+                        <b>Area = π × r²</b>
+                    </p>
+
+                    <p>
+                        Use <b>π = 3.1416</b>.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains one integer <b>r</b>,
+                        representing the radius of the circle.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the area in the following format:
+                    </p>
+
+                    <p>
+                        <b>Area : X</b>
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ r ≤ 100</b></li>
+                    </ul>
+                `,
+
+                examples: [
+
+                    {
+                        input: "5",
+                        output: "Area : 78.54"
+                    },
+
+                    {
+                        input: "10",
+                        output: "Area : 314.16"
+                    }
+
+                ]
+            }
+
+        ]
+    },
+
+
+        /* =====================================================
+       DAY 7
+       ===================================================== */
+
+    {
+        day: 7,
+        date: "07 September 2026",
+        time: "10:20 AM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSdltWzBBP6k5jdVekIRQxuqHNftvnUcaJ41C5Ctv2ZmFYYjvA/viewform?usp=dialog",
+
+        problems: [
+
+            {
+                id: "D7-A",
+                letter: "A",
+                title: "Naruto vs Sasuke",
+                difficulty: "Medium",
+                points: 0,
+                tags: ["String", "Binary", "Implementation"],
+
+                statement: `
+                    <p>
+                        Naruto and Sasuke are fighting in a <b>6-round</b> Chunin Exam duel. For each round, <b>1</b> means a win and <b>0</b> means a loss.
+                    </p>
+                    <p>
+                        Given their two binary strings, compare their total number of wins. If Naruto has more wins, print the required Naruto message; otherwise, print the required Sasuke message.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains two binary strings <b>n</b> and <b>s</b>, each of length 6.</p>
+                `,
+
+                output: `
+                    <p>
+                        If Naruto has more wins, print exactly:<br><b>I will become the greatest hokagee of all time</b>
+                    </p>
+                    <p>
+                        Otherwise, print exactly:<br><b>such a losser...</b>
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>|n| = |s| = 6</b></li>
+                        <li>Each character is either <b>0</b> or <b>1</b>.</li>
+                        <li>There is no draw.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    { input: "111010 001101", output: "I will become the greatest hokagee of all time" },
+                    { input: "100101 011110", output: "such a losser..." }
+                ]
+            },
+
+            {
+                id: "D7-B",
+                letter: "B",
+                title: "Zoro's Final Training",
+                difficulty: "Medium",
+                points: 0,
+                tags: ["String", "Implementation", "Condition"],
+
+                statement: `
+                    <p>
+                        Zoro has only <b>10 days</b> left before facing Mihawk. For each day, <b>T</b> means Zoro trained and <b>N</b> means he skipped training.
+                    </p>
+                    <p>
+                        Zoro must train on <b>all 10 days</b> to be ready to face Mihawk. Determine whether he is ready.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains a string <b>S</b> of length 10 consisting only of <b>T</b> and <b>N</b>.</p>
+                `,
+
+                output: `
+                    <p>
+                        If all 10 characters are <b>T</b>, print:</p>
+                    <p><b>Zoro become the greatest sworsman</b></p>
+                    <p>Otherwise, print:</p>
+                    <p><b>Zoro needs more training before facing Mihawk...</b></p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>|S| = 10</b></li>
+                        <li>Each character is either <b>T</b> or <b>N</b>.</li>
+                        <li>All 10 days of training are required.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    { input: "TTTTTTTTTT", output: "Zoro become the greatest sworsman" },
+                    { input: "TTTTNTTTTT", output: "Zoro needs more training before facing Mihawk..." }
+                ]
+            }
+        ]
+    },
+
+
+        /* =====================================================
+       DAY 6
+       ===================================================== */
+
+    {
+        day: 6,
+        date: "06 September 2026",
+        time: "9:30 AM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSfnJx6lR0ODrDtC7XtOx22L1Sr81_iW9D_Kh2RJEtjlPsNaFg/viewform?usp=publish-editor",
+
+        problems: [
+
+            {
+                id: "D6-A",
+                letter: "A",
+                title: "Senku the Genius",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Math", "Implementation", "Formula"],
+
+                statement: `
+                    <p>
+                        Senku is a student in Bangladesh studying in Class 9. Recently, he studied the <b>Motion</b> chapter from his textbook.
+                    </p>
+                    <p>
+                        From this chapter, he learned about motion, different formulas, and many other interesting concepts. After discovering how powerful these formulas are, he started thinking of himself as a genius.
+                    </p>
+                    <p>
+                        To test his knowledge, Senku's father gives him several questions and some data to determine how well he understands the chapter.
+                    </p>
+                    <p>
+                        To make things easier for him, his father decides to test him on only <b>one formula</b> — the formula used to determine <b>velocity</b>.
+                    </p>
+                    <p>
+                        You are given three integers: <b>u</b>, <b>a</b>, and <b>t</b>, representing the initial velocity, acceleration, and time respectively. Your task is to determine the final velocity <b>v</b>.
+                    </p>
+                    <p><b>v = u + at</b></p>
+                `,
+
+                input: `
+                    <p>The input contains three integers <b>u</b>, <b>a</b>, and <b>t</b>.</p>
+                    <ul>
+                        <li><b>u</b> — initial velocity</li>
+                        <li><b>a</b> — acceleration</li>
+                        <li><b>t</b> — time</li>
+                    </ul>
+                `,
+
+                output: `
+                    <p>Print a single integer <b>v</b>, the final velocity calculated using the formula:</p>
+                    <p><b>v = u + at</b></p>
+                `,
+
+                constraints: `<p>No additional constraints are given.</p>`,
+
+                examples: [
+                    { input: "10 5 4", output: "30" },
+                    { input: "20 3 7", output: "41" }
+                ]
+            },
+
+            {
+                id: "D6-B",
+                letter: "B",
+                title: "Senku’s Formula",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["String", "Implementation", "Mapping"],
+
+                statement: `
+                    <p>
+                        Senku recently learned that every element contains atoms inside it. He also learned that different elements can combine together to form different types of matter.
+                    </p>
+                    <p>
+                        For example, <b>Water</b> is made from <b>Hydrogen and Oxygen</b>, while <b>Sugar</b> is made from <b>Carbon, Hydrogen, and Oxygen</b>.
+                    </p>
+                    <p>
+                        Senku becomes very interested in how different matters are formed. To test his knowledge, his father gives him the name of a matter and asks him to determine which elements are used to form it.
+                    </p>
+                    <p>For this problem, there are <b>5 possible matters</b> that Senku needs to know:</p>
+                    <ul>
+                        <li><b>Water</b> → Hydrogen, Oxygen</li>
+                        <li><b>Sugar</b> → Carbon, Hydrogen, Oxygen</li>
+                        <li><b>Carbon_Dioxide</b> → Carbon, Oxygen</li>
+                        <li><b>Ammonia</b> → Nitrogen, Hydrogen</li>
+                        <li><b>Methane</b> → Carbon, Hydrogen</li>
+                    </ul>
+                    <p>You are given the name of one matter. Your task is to print the elements that form that matter.</p>
+                `,
+
+                input: `
+                    <p>The input contains a single string representing the name of a matter.</p>
+                    <p>The input will be one of the following:</p>
+                    <ul>
+                        <li>Water</li>
+                        <li>Sugar</li>
+                        <li>CarbonDioxide</li>
+                        <li>Ammonia</li>
+                        <li>Methane</li>
+                    </ul>
+                `,
+
+                output: `
+                    <p>Print the elements that form the given matter, separated by a space.</p>
+                    <p>The elements should be printed in the order given in the table above.</p>
+                `,
+
+                constraints: `<p>The input will always be one of the five matter names given in the problem statement.</p>`,
+
+                examples: [
+                    { input: "Water", output: "Hydrogen Oxygen" },
+                    { input: "Sugar", output: "Carbon Hydrogen Oxygen" }
+                ]
+            }
+        ]
+    },
+
+
+    /* =====================================================
+       DAY 5
+       EXACT HISTORICAL SOURCE DATA
+       ===================================================== */
+
+    {
+        day: 5,
+        date: "Not specified",
+        time: "Not specified",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSeE1IwUNIXLVz2G7678ALgy-yl3wntikzhp_spHfj7jiWFqZA/viewform?usp=dialog",
+
+        problems: [
+
+            {
+                id: "D5-A",
+                letter: "A",
+
+                title: "Ustader Mair Sesh Raite ……",
+
+                difficulty: "Easy",
+                points: 120,
+
+                tags: [
+                    "String",
+                    "Implementation",
+                    "Scoring"
+                ],
+
+                statement: `
+                    <p>
+                        So, in a competitive programming contest,
+                        <b>3 humans from planet Earth</b> take part.
+                        Their mission is simple:
+                        <b>who will smash Ara067 100 hands beneath the ground?</b>
+                        The issue is that only one of them will be the champion.
+                    </p>
+
+                    <p>
+                        So, they join the contest to determine who will start
+                        gaining <b>strength points</b> and become powerful enough
+                        to <b>smash Ara067 beneath the ground</b>.
+                    </p>
+
+                    <p>
+                        Our contestants are <b>Pr072</b>, <b>Na059</b>, and
+                        <b>Su051</b>.
+                    </p>
+
+                    <p>
+                        As a fair contest to determine the champion who truly
+                        deserves to win, the contest has a few rules.
+                    </p>
+
+                    <h3>Rules:</h3>
+
+                    <p>
+                        <b>1.</b> There are a total of <b>6 sets of questions</b>,
+                        and each question holds <b>20 points</b>.
+                    </p>
+
+                    <p>
+                        <b>2.</b> All participants must try to submit a solution
+                        for each problem. Even if a participant does not know the
+                        answer, they must still submit something and will receive
+                        a wrong submission.
+                    </p>
+
+                    <p>
+                        <b>3.</b> For each wrong submission, a participant gets a
+                        <b>-10 point penalty</b> and an additional
+                        <b>-2 point penalty</b> for failing to achieve the
+                        expected result.
+                    </p>
+
+                    <p>
+                        Your task is to <b>calculate the total points of each
+                        participant and determine the winner</b>.
+                        If all three participants get equal points, print
+                        <b>Draw</b>.
+                    </p>
+
+                    <p>
+                        You will be given <b>three uppercase-letter strings</b>,
+                        each representing the results of the 6 problems.
+                        Each character will be either <b>R</b> or <b>W</b>.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <b>R</b> means the problem was successfully solved.
+                        </li>
+
+                        <li>
+                            <b>W</b> means the problem was solved incorrectly.
+                        </li>
+                    </ul>
+
+                    <p>
+                        <b>
+                            The given strings are only used to calculate the
+                            scores. Do not print the strings.
+                        </b>
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        You will be given <b>3 strings</b> <b>a</b>, <b>b</b>,
+                        and <b>c</b>.
+                    </p>
+
+                    <p>
+                        Each string has a length of <b>6</b>.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <b>a</b> represents <b>Pr072</b>
+                        </li>
+
+                        <li>
+                            <b>b</b> represents <b>Na059</b>
+                        </li>
+
+                        <li>
+                            <b>c</b> represents <b>Su051</b>
+                        </li>
+                    </ul>
+                `,
+
+                output: `
+                    <p>
+                        Determine the winner.
+                    </p>
+
+                    <p>
+                        Print the <b>contestant's name</b> who wins,
+                        followed by the message:
+                    </p>
+
+                    <p>
+                        <b>
+                            he he your time is over dump Ara067, I am coming ..
+                        </b>
+                    </p>
+
+                    <p>
+                        If all three contestants have the same score, print:
+                        <b>Draw</b>
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li>
+                            <b>Each string has exactly 6 characters.</b>
+                        </li>
+
+                        <li>
+                            <b>Each character is either R or W.</b>
+                        </li>
+
+                        <li>
+                            <b>R = successfully solved.</b>
+                        </li>
+
+                        <li>
+                            <b>W = incorrectly solved.</b>
+                        </li>
+                    </ul>
+                `,
+
+                examples: [
+
+                    {
+                        input:
+`RRRRRR
+RWRWRW
+WWWWWW`,
+
+                        output:
+`Pr072: he he your time is over dump Ara067, I am coming ..`
+                    },
+
+                    {
+                        input:
+`WRWWRW
+RWRWRR
+WWRRWW`,
+
+                        output:
+`Na059: he he your time is over dump Ara067, I am coming ..`
+                    },
+
+                    {
+                        input:
+`RWRWRW
+WWRWWW
+RRRRRR`,
+
+                        output:
+`Su051: he he your time is over dump Ara067, I am coming ..`
+                    }
+
+                ]
+            },
+
+
+            {
+                id: "D5-B",
+                letter: "B",
+
+                title: "Triangle or Not?",
+
+                difficulty: "Easy",
+                points: 0,
+
+                tags: [
+                    "Math",
+                    "Implementation"
+                ],
+
+                statement: `
+                    <p>
+                        Triangle or Not?
+                    </p>
+
+                    <p>
+                        You are given 3 unequal side lengths of a triangle.
+                        Determine whether these three sides can actually form
+                        a triangle.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains three unequal integers
+                        <b>a, b, and c</b>, representing the lengths of
+                        the three sides.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print <b>YES</b> if the three sides can form a triangle.
+                        Otherwise, print <b>NO</b>.
+                    </p>
+                `,
+
+                constraints: `
+                    <h3>Hint</h3>
+
+                    <p>
+                        A valid triangle can be formed if:
+                    </p>
+
+                    <p>
+                        <b>
+                            smallest side + middle side &gt; largest side
+                        </b>
+                    </p>
+                `,
+
+                examples: [
+
+                    {
+                        input: "3 4 5",
+                        output: "YES"
+                    },
+
+                    {
+                        input: "2 3 6",
+                        output: "NO"
+                    }
+
+                ]
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       DAY 4
+       PDF SOURCE WILL BE INSERTED LATER
+       ===================================================== */
+
+    {
+        day: 4,
+        date: "Pending",
+        time: "Pending",
+
+        formLink: "#",
+
+        problems: [
+
+            {
+                id: "D4-A",
+                letter: "A",
+                title: "Day 4 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 4 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            },
+
+            {
+                id: "D4-B",
+                letter: "B",
+                title: "Day 4 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 4 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       DAY 3
+       PDF SOURCE WILL BE INSERTED LATER
+       ===================================================== */
+
+    {
+        day: 3,
+        date: "Pending",
+        time: "Pending",
+
+        formLink: "#",
+
+        problems: [
+
+            {
+                id: "D3-A",
+                letter: "A",
+                title: "Day 3 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 3 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            },
+
+            {
+                id: "D3-B",
+                letter: "B",
+                title: "Day 3 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 3 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       DAY 2
+       PDF SOURCE WILL BE INSERTED LATER
+       ===================================================== */
+
+    {
+        day: 2,
+        date: "Pending",
+        time: "Pending",
+
+        formLink: "#",
+
+        problems: [
+
+            {
+                id: "D2-A",
+                letter: "A",
+                title: "Day 2 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 2 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            },
+
+            {
+                id: "D2-B",
+                letter: "B",
+                title: "Day 2 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 2 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       DAY 1
+       PDF SOURCE WILL BE INSERTED LATER
+       ===================================================== */
+
+    {
+        day: 1,
+        date: "Pending",
+        time: "Pending",
+
+        formLink: "#",
+
+        problems: [
+
+            {
+                id: "D1-A",
+                letter: "A",
+                title: "Day 1 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 1 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            },
+
+            {
+                id: "D1-B",
+                letter: "B",
+                title: "Day 1 — Source Pending",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pending"],
+
+                statement: `<p>Day 1 source will be inserted from the PDF.</p>`,
+                input: `<p>Pending original source.</p>`,
+                output: `<p>Pending original source.</p>`,
+                constraints: `<p>Pending original source.</p>`,
+
+                examples: [
+                    {
+                        input: "Pending",
+                        output: "Pending"
+                    }
+                ]
+            }
+
         ]
     }
+
 ];
 
 
 /* =========================================================
-   CURRENT PROBLEM
+   GLOBAL STATE
    ========================================================= */
 
-let currentProblem = 0;
+let currentDay = ARCHIVE[0];
+let currentProblemIndex = 0;
+
+let previousView = "home";
 
 
 /* =========================================================
-   LOAD PROBLEM CARDS
+   GET ALL PROBLEMS
    ========================================================= */
 
-function loadProblemCards() {
+function getAllProblems() {
 
-    const container =
-        document.getElementById("problemCards");
+    const all = [];
 
-    container.innerHTML = "";
+    ARCHIVE.forEach(function(day) {
 
-    problems.forEach(function(problem, index) {
+        day.problems.forEach(function(problem) {
 
-        const card =
-            document.createElement("div");
+            all.push({
+                day: day,
+                problem: problem
+            });
 
-        card.className = "problem-card";
-
-        card.innerHTML = `
-
-            <div class="problem-top">
-
-                <div class="problem-letter">
-                    ${problem.letter}
-                </div>
-
-                <div class="difficulty">
-                    ${problem.difficulty}
-                </div>
-
-            </div>
-
-            <h3 class="problem-title">
-                ${problem.title}
-            </h3>
-
-            <p class="problem-description">
-                ${getShortDescription(problem)}
-            </p>
-
-            <div class="tags">
-
-                ${problem.tags.map(function(tag) {
-
-                    return `
-                        <span class="tag">
-                            ${tag}
-                        </span>
-                    `;
-
-                }).join("")}
-
-            </div>
-
-            <button
-                class="solve-btn"
-                type="button">
-
-                Solve Problem →
-
-            </button>
-
-        `;
-
-        card.addEventListener(
-            "click",
-            function() {
-
-                openProblem(index);
-
-            }
-        );
-
-        container.appendChild(card);
+        });
 
     });
 
+    return all;
+}
+
+
+/* =========================================================
+   GET CURRENT DAY
+   ========================================================= */
+
+function getToday() {
+
+    return ARCHIVE[0];
+
+}
+
+
+/* =========================================================
+   DIFFICULTY CLASS
+   ========================================================= */
+
+function getDifficultyClass(difficulty) {
+
+    if (!difficulty) {
+        return "";
+    }
+
+    const value =
+        difficulty.toLowerCase();
+
+    if (value === "medium") {
+        return "medium";
+    }
+
+    if (
+        value === "difficult" ||
+        value === "hard"
+    ) {
+        return "difficult";
+    }
+
+    return "";
 }
 
 
@@ -1634,19 +3160,183 @@ function loadProblemCards() {
 
 function getShortDescription(problem) {
 
-    if (problem.letter === "A") {
+    const text =
+        String(problem.statement)
+            .replace(/<[^>]*>/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
 
-        return "Find the highest and lowest power levels among the five Elders.";
-
+    if (!text) {
+        return "A daily competitive programming challenge.";
     }
 
-    if (problem.letter === "B") {
-
-        return "Calculate the absolute difference and four mathematical values of x.";
-
+    if (text.length <= 145) {
+        return text;
     }
 
-    return "A daily competitive programming challenge.";
+    return text.substring(0, 142) + "...";
+
+}
+
+
+/* =========================================================
+   LOAD TODAY
+   ========================================================= */
+
+function loadToday() {
+
+    const today =
+        getToday();
+
+    currentDay =
+        today;
+
+    document.getElementById(
+        "todayProblemCount"
+    ).textContent =
+        today.problems.length;
+
+    document.getElementById(
+        "todayTotalPoints"
+    ).textContent =
+        today.problems.reduce(
+            function(total, problem) {
+                return total + Number(problem.points || 0);
+            },
+            0
+        );
+
+    document.getElementById(
+        "todayDayNumber"
+    ).textContent =
+        "Day " + today.day;
+
+
+    document.getElementById(
+        "todayMeta"
+    ).innerHTML = `
+
+        <span class="today-badge">
+            DAY ${today.day}
+        </span>
+
+        <span class="today-badge">
+            ${escapeHTML(today.date)}
+        </span>
+
+        <span class="today-badge">
+            ${escapeHTML(today.time)}
+        </span>
+
+    `;
+
+
+    loadProblemCards();
+
+}
+
+
+/* =========================================================
+   LOAD TODAY'S PROBLEM CARDS
+   ========================================================= */
+
+function loadProblemCards() {
+
+    const container =
+        document.getElementById("problemCards");
+
+    container.innerHTML = "";
+
+
+    currentDay.problems.forEach(
+        function(problem, index) {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "problem-card";
+
+
+            const difficultyClass =
+                getDifficultyClass(
+                    problem.difficulty
+                );
+
+
+            card.innerHTML = `
+
+                <div class="problem-top">
+
+                    <div class="problem-letter">
+                        ${escapeHTML(problem.letter)}
+                    </div>
+
+                    <div class="difficulty ${difficultyClass}">
+                        ${escapeHTML(problem.difficulty)}
+                    </div>
+
+                </div>
+
+
+                <h3 class="problem-title">
+                    ${escapeHTML(problem.title)}
+                </h3>
+
+
+                <p class="problem-description">
+                    ${escapeHTML(
+                        getShortDescription(problem)
+                    )}
+                </p>
+
+
+                <div class="tags">
+
+                    ${problem.tags.map(
+                        function(tag) {
+
+                            return `
+                                <span class="tag">
+                                    ${escapeHTML(tag)}
+                                </span>
+                            `;
+
+                        }
+                    ).join("")}
+
+                </div>
+
+
+                <button
+                    class="solve-btn"
+                    type="button">
+
+                    Solve Problem →
+
+                </button>
+
+            `;
+
+
+            card.addEventListener(
+                "click",
+                function() {
+
+                    openProblem(
+                        currentDay.day,
+                        index,
+                        "home"
+                    );
+
+                }
+            );
+
+
+            container.appendChild(card);
+
+        }
+    );
 
 }
 
@@ -1655,69 +3345,201 @@ function getShortDescription(problem) {
    OPEN PROBLEM
    ========================================================= */
 
-function openProblem(index) {
+function openProblem(
+    dayNumber,
+    problemIndex,
+    fromView
+) {
 
-    currentProblem = index;
+    const day =
+        ARCHIVE.find(
+            function(item) {
+                return item.day === dayNumber;
+            }
+        );
+
+
+    if (!day) {
+        return;
+    }
+
 
     const problem =
-        problems[index];
+        day.problems[problemIndex];
 
-    document.getElementById("homePage")
-        .style.display = "none";
 
-    document.getElementById("problemPage")
-        .style.display = "block";
+    if (!problem) {
+        return;
+    }
 
-    document.getElementById("problemLetter")
-        .textContent = problem.letter;
 
-    document.getElementById("problemTitle")
-        .textContent = problem.title;
+    previousView =
+        fromView || "home";
 
-    document.getElementById("problemMeta")
-        .innerHTML = `
 
-            <span class="meta">
-                ${problem.difficulty}
-            </span>
+    currentDay =
+        day;
 
-            <span class="meta">
-                ${problem.points} Points
-            </span>
+    currentProblemIndex =
+        problemIndex;
 
-            ${problem.tags.map(function(tag) {
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "archivePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "problemPage"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "homeNavButton"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "archiveNavButton"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "problemLetter"
+    ).textContent =
+        problem.letter;
+
+
+    document.getElementById(
+        "problemTitle"
+    ).textContent =
+        problem.title;
+
+
+    const difficultyClass =
+        getDifficultyClass(
+            problem.difficulty
+        );
+
+
+    document.getElementById(
+        "problemMeta"
+    ).innerHTML = `
+
+        <span class="meta">
+            ${escapeHTML(problem.difficulty)}
+        </span>
+
+        <span class="meta">
+            ${Number(problem.points || 0)} Points
+        </span>
+
+        ${problem.tags.map(
+            function(tag) {
 
                 return `
                     <span class="meta">
-                        ${tag}
+                        ${escapeHTML(tag)}
                     </span>
                 `;
 
-            }).join("")}
+            }
+        ).join("")}
 
-        `;
+    `;
 
-    document.getElementById("problemStatement")
-        .innerHTML = problem.statement;
 
-    document.getElementById("problemInput")
-        .innerHTML = problem.input;
+    document.getElementById(
+        "problemPublication"
+    ).innerHTML = `
 
-    document.getElementById("problemOutput")
-        .innerHTML = problem.output;
+        <span class="publication-meta">
+            Day ${day.day}
+        </span>
 
-    document.getElementById("problemConstraints")
-        .innerHTML = problem.constraints;
+        <span class="publication-meta">
+            ${escapeHTML(day.date)}
+        </span>
 
-    document.getElementById("extraSectionTitle")
-        .textContent = "Constraints";
+        <span class="publication-meta">
+            ${escapeHTML(day.time)}
+        </span>
 
-    document.getElementById("answerButton")
-        .href = GOOGLE_FORM_LINK;
+    `;
 
-    createExamples(problem.examples);
+
+    document.getElementById(
+        "problemStatement"
+    ).innerHTML =
+        problem.statement;
+
+
+    document.getElementById(
+        "problemInput"
+    ).innerHTML =
+        problem.input;
+
+
+    document.getElementById(
+        "problemOutput"
+    ).innerHTML =
+        problem.output;
+
+
+    document.getElementById(
+        "problemConstraints"
+    ).innerHTML =
+        problem.constraints;
+
+
+    document.getElementById(
+        "extraSectionTitle"
+    ).textContent =
+        problem.constraints &&
+        problem.constraints.toLowerCase().includes("<h3>hint</h3>")
+            ? "Hint"
+            : "Constraints";
+
+
+    const answerButton =
+        document.getElementById(
+            "answerButton"
+        );
+
+
+    if (
+        day.formLink &&
+        day.formLink !== "#"
+    ) {
+
+        answerButton.href =
+            day.formLink;
+
+        answerButton.style.display =
+            "inline-block";
+
+    } else {
+
+        answerButton.removeAttribute("href");
+
+        answerButton.style.display =
+            "none";
+
+    }
+
+
+    createExamples(
+        problem.examples || []
+    );
+
 
     updateNavigation();
+
 
     window.scrollTo({
         top: 0,
@@ -1734,114 +3556,768 @@ function openProblem(index) {
 function createExamples(examples) {
 
     const container =
-        document.getElementById("examplesContainer");
+        document.getElementById(
+            "examplesContainer"
+        );
 
     container.innerHTML = "";
 
-    examples.forEach(function(example, index) {
 
-        const wrapper =
-            document.createElement("div");
+    if (!examples.length) {
 
-        wrapper.className = "example-grid";
+        container.innerHTML =
+            "<p>No examples available.</p>";
+
+        return;
+    }
 
 
-        const inputBox =
-            document.createElement("div");
+    examples.forEach(
+        function(example) {
 
-        inputBox.className =
-            "example-box";
+            const wrapper =
+                document.createElement("div");
 
-        inputBox.innerHTML = `
+            wrapper.className =
+                "example-grid";
 
-            <div class="example-header">
 
-                <span>
-                    Input
-                </span>
+            /* INPUT */
 
-                <button
-                    class="copy-btn"
-                    type="button">
+            const inputBox =
+                document.createElement("div");
 
-                    COPY
+            inputBox.className =
+                "example-box";
 
-                </button>
 
-            </div>
+            inputBox.innerHTML = `
 
-            <div class="code-box">
-                ${escapeHTML(example.input)}
+                <div class="example-header">
+
+                    <span>
+                        Input
+                    </span>
+
+                    <button
+                        class="copy-btn"
+                        type="button">
+
+                        COPY
+
+                    </button>
+
+                </div>
+
+                <div class="code-box">
+                    ${escapeHTML(example.input)}
+                </div>
+
+            `;
+
+
+            const inputCopyButton =
+                inputBox.querySelector(
+                    ".copy-btn"
+                );
+
+
+            inputCopyButton.addEventListener(
+                "click",
+                function(event) {
+
+                    event.stopPropagation();
+
+                    copyText(
+                        example.input,
+                        inputCopyButton
+                    );
+
+                }
+            );
+
+
+            /* OUTPUT */
+
+            const outputBox =
+                document.createElement("div");
+
+            outputBox.className =
+                "example-box";
+
+
+            outputBox.innerHTML = `
+
+                <div class="example-header">
+
+                    <span>
+                        Output
+                    </span>
+
+                    <button
+                        class="copy-btn"
+                        type="button">
+
+                        COPY
+
+                    </button>
+
+                </div>
+
+                <div class="code-box">
+                    ${escapeHTML(example.output)}
+                </div>
+
+            `;
+
+
+            const outputCopyButton =
+                outputBox.querySelector(
+                    ".copy-btn"
+                );
+
+
+            outputCopyButton.addEventListener(
+                "click",
+                function(event) {
+
+                    event.stopPropagation();
+
+                    copyText(
+                        example.output,
+                        outputCopyButton
+                    );
+
+                }
+            );
+
+
+            wrapper.appendChild(
+                inputBox
+            );
+
+            wrapper.appendChild(
+                outputBox
+            );
+
+            container.appendChild(
+                wrapper
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ARCHIVE FILTER DAY OPTIONS
+   ========================================================= */
+
+function loadDayFilter() {
+
+    const select =
+        document.getElementById(
+            "dayFilter"
+        );
+
+
+    select.innerHTML = `
+        <option value="all">
+            All Days
+        </option>
+    `;
+
+
+    ARCHIVE.forEach(
+        function(day) {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                String(day.day);
+
+            option.textContent =
+                "Day " + day.day;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RENDER ARCHIVE
+   ========================================================= */
+
+function renderArchive() {
+
+    const container =
+        document.getElementById(
+            "archiveList"
+        );
+
+
+    const search =
+        document.getElementById(
+            "archiveSearch"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    const difficulty =
+        document.getElementById(
+            "difficultyFilter"
+        ).value;
+
+
+    const dayFilter =
+        document.getElementById(
+            "dayFilter"
+        ).value;
+
+
+    container.innerHTML = "";
+
+
+    let visibleDays = 0;
+
+
+    ARCHIVE.forEach(
+        function(day) {
+
+            if (
+                dayFilter !== "all" &&
+                String(day.day) !== dayFilter
+            ) {
+                return;
+            }
+
+
+            const matchingProblems =
+                day.problems.filter(
+                    function(problem) {
+
+                        const searchable =
+                            [
+                                problem.id,
+                                problem.title,
+                                problem.letter,
+                                problem.difficulty,
+                                ...problem.tags,
+                                "day " + day.day,
+                                day.date,
+                                day.time
+                            ]
+                            .join(" ")
+                            .toLowerCase();
+
+
+                        const matchesSearch =
+                            !search ||
+                            searchable.includes(
+                                search
+                            );
+
+
+                        const matchesDifficulty =
+                            difficulty === "all" ||
+                            problem.difficulty ===
+                                difficulty;
+
+
+                        return (
+                            matchesSearch &&
+                            matchesDifficulty
+                        );
+
+                    }
+                );
+
+
+            if (!matchingProblems.length) {
+                return;
+            }
+
+
+            visibleDays++;
+
+
+            const dayElement =
+                document.createElement("div");
+
+            dayElement.className =
+                "archive-day";
+
+
+            const isLatest =
+                ARCHIVE[0].day === day.day;
+
+
+            dayElement.innerHTML = `
+
+                <div class="archive-day-header">
+
+                    <div class="archive-day-left">
+
+                        <div class="archive-day-title">
+                            Day ${day.day}
+                        </div>
+
+                        <div class="archive-day-meta">
+                            ${escapeHTML(day.date)}
+                            •
+                            ${escapeHTML(day.time)}
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        ${
+                            isLatest
+                                ? `
+                                    <span class="latest-badge">
+                                        LATEST
+                                    </span>
+                                `
+                                : `
+                                    <span class="archived-badge">
+                                        ARCHIVED
+                                    </span>
+                                `
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="archive-problems">
+
+                    ${matchingProblems.map(
+                        function(problem) {
+
+                            const originalIndex =
+                                day.problems.indexOf(
+                                    problem
+                                );
+
+
+                            return `
+
+                                <div
+                                    class="archive-problem"
+                                    onclick="
+                                        openProblem(
+                                            ${day.day},
+                                            ${originalIndex},
+                                            'archive'
+                                        )
+                                    ">
+
+                                    <div
+                                        class="archive-problem-top">
+
+                                        <div
+                                            class="archive-letter">
+
+                                            ${escapeHTML(
+                                                problem.letter
+                                            )}
+
+                                        </div>
+
+                                        <div
+                                            class="archive-problem-title">
+
+                                            ${escapeHTML(
+                                                problem.title
+                                            )}
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div
+                                        class="archive-problem-description">
+
+                                        ${escapeHTML(
+                                            getShortDescription(
+                                                problem
+                                            )
+                                        )}
+
+                                    </div>
+
+
+                                    <div
+                                        class="archive-problem-tags">
+
+                                        <span class="tag">
+                                            ${escapeHTML(
+                                                problem.difficulty
+                                            )}
+                                        </span>
+
+                                        ${problem.tags.map(
+                                            function(tag) {
+
+                                                return `
+                                                    <span class="tag">
+                                                        ${escapeHTML(tag)}
+                                                    </span>
+                                                `;
+
+                                            }
+                                        ).join("")}
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+                    ).join("")}
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                dayElement
+            );
+
+        }
+    );
+
+
+    if (!visibleDays) {
+
+        container.innerHTML = `
+
+            <div class="archive-day">
+
+                <div class="archive-empty">
+
+                    <strong>
+                        No problems found
+                    </strong>
+
+                    Try another search or filter.
+
+                </div>
+
             </div>
 
         `;
 
-        const inputCopyButton =
-            inputBox.querySelector(".copy-btn");
+    }
 
-        inputCopyButton.addEventListener(
-            "click",
-            function() {
+}
 
-                copyText(
-                    example.input,
-                    inputCopyButton
-                );
 
-            }
+/* =========================================================
+   ARCHIVE STATISTICS
+   ========================================================= */
+
+function updateArchiveStats() {
+
+    const totalProblems =
+        ARCHIVE.reduce(
+            function(total, day) {
+
+                return total +
+                    day.problems.length;
+
+            },
+            0
         );
 
 
-        const outputBox =
-            document.createElement("div");
+    document.getElementById(
+        "archiveProblemCount"
+    ).textContent =
+        totalProblems;
 
-        outputBox.className =
-            "example-box";
 
-        outputBox.innerHTML = `
+    document.getElementById(
+        "archiveDayCount"
+    ).textContent =
+        ARCHIVE.length;
 
-            <div class="example-header">
 
-                <span>
-                    Output
-                </span>
+    document.getElementById(
+        "archiveLatestDay"
+    ).textContent =
+        "Day " + ARCHIVE[0].day;
 
-                <button
-                    class="copy-btn"
-                    type="button">
+}
 
-                    COPY
 
-                </button>
+/* =========================================================
+   SHOW HOME
+   ========================================================= */
 
-            </div>
+function showHome() {
 
-            <div class="code-box">
-                ${escapeHTML(example.output)}
-            </div>
+    document.getElementById(
+        "problemPage"
+    ).style.display = "none";
 
-        `;
 
-        const outputCopyButton =
-            outputBox.querySelector(".copy-btn");
+    document.getElementById(
+        "archivePage"
+    ).style.display = "none";
 
-        outputCopyButton.addEventListener(
-            "click",
-            function() {
 
-                copyText(
-                    example.output,
-                    outputCopyButton
-                );
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
 
-            }
-        );
 
-        wrapper.appendChild(inputBox);
-        wrapper.appendChild(outputBox);
-        container.appendChild(wrapper);
+    document.getElementById(
+        "homeNavButton"
+    ).classList.add("active");
 
+
+    document.getElementById(
+        "archiveNavButton"
+    ).classList.remove("active");
+
+
+    previousView =
+        "home";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
+
+}
+
+
+/* =========================================================
+   SHOW ARCHIVE
+   ========================================================= */
+
+function showArchive() {
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "problemPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "archivePage"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "homeNavButton"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "archiveNavButton"
+    ).classList.add("active");
+
+
+    previousView =
+        "archive";
+
+
+    renderArchive();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   BACK FROM PROBLEM
+   ========================================================= */
+
+function goBackFromProblem() {
+
+    if (previousView === "archive") {
+
+        showArchive();
+
+    } else {
+
+        showHome();
+
+    }
+
+}
+
+
+/* =========================================================
+   NEXT PROBLEM
+   ========================================================= */
+
+function nextProblem() {
+
+    if (
+        currentProblemIndex <
+        currentDay.problems.length - 1
+    ) {
+
+        openProblem(
+            currentDay.day,
+            currentProblemIndex + 1,
+            previousView
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       If this is the last problem of the day,
+       move to the next older archived day.
+       ===================================================== */
+
+    const dayIndex =
+        ARCHIVE.findIndex(
+            function(day) {
+                return day.day === currentDay.day;
+            }
+        );
+
+
+    if (
+        dayIndex >= 0 &&
+        dayIndex < ARCHIVE.length - 1
+    ) {
+
+        const olderDay =
+            ARCHIVE[dayIndex + 1];
+
+
+        openProblem(
+            olderDay.day,
+            0,
+            previousView
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS PROBLEM
+   ========================================================= */
+
+function previousProblem() {
+
+    if (currentProblemIndex > 0) {
+
+        openProblem(
+            currentDay.day,
+            currentProblemIndex - 1,
+            previousView
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       If this is first problem of the day,
+       move to the previous newer day.
+       ===================================================== */
+
+    const dayIndex =
+        ARCHIVE.findIndex(
+            function(day) {
+                return day.day === currentDay.day;
+            }
+        );
+
+
+    if (dayIndex > 0) {
+
+        const newerDay =
+            ARCHIVE[dayIndex - 1];
+
+
+        openProblem(
+            newerDay.day,
+            newerDay.problems.length - 1,
+            previousView
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE PREVIOUS / NEXT
+   ========================================================= */
+
+function updateNavigation() {
+
+    const previousButton =
+        document.getElementById(
+            "previousButton"
+        );
+
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    const dayIndex =
+        ARCHIVE.findIndex(
+            function(day) {
+                return day.day === currentDay.day;
+            }
+        );
+
+
+    const hasPrevious =
+        currentProblemIndex > 0 ||
+        dayIndex > 0;
+
+
+    const hasNext =
+        currentProblemIndex <
+            currentDay.problems.length - 1 ||
+        dayIndex <
+            ARCHIVE.length - 1;
+
+
+    previousButton.disabled =
+        !hasPrevious;
+
+
+    nextButton.disabled =
+        !hasNext;
 
 }
 
@@ -1862,20 +4338,29 @@ function copyText(text, button) {
 
             .then(function() {
 
-                showCopySuccess(button);
+                showCopySuccess(
+                    button
+                );
 
             })
 
             .catch(function() {
 
-                fallbackCopy(text, button);
+                fallbackCopy(
+                    text,
+                    button
+                );
 
             });
 
         return;
     }
 
-    fallbackCopy(text, button);
+
+    fallbackCopy(
+        text,
+        button
+    );
 
 }
 
@@ -1887,32 +4372,56 @@ function copyText(text, button) {
 function fallbackCopy(text, button) {
 
     const textarea =
-        document.createElement("textarea");
+        document.createElement(
+            "textarea"
+        );
 
-    textarea.value = text;
 
-    textarea.style.position = "fixed";
-    textarea.style.left = "-9999px";
-    textarea.style.top = "0";
-    textarea.style.opacity = "0";
+    textarea.value =
+        text;
 
-    document.body.appendChild(textarea);
+
+    textarea.style.position =
+        "fixed";
+
+    textarea.style.left =
+        "-9999px";
+
+    textarea.style.top =
+        "0";
+
+    textarea.style.opacity =
+        "0";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
 
     textarea.focus();
     textarea.select();
 
+
     try {
 
         const successful =
-            document.execCommand("copy");
+            document.execCommand(
+                "copy"
+            );
+
 
         if (successful) {
 
-            showCopySuccess(button);
+            showCopySuccess(
+                button
+            );
 
         } else {
 
-            showCopyFailed(button);
+            showCopyFailed(
+                button
+            );
 
         }
 
@@ -1920,11 +4429,16 @@ function fallbackCopy(text, button) {
 
     catch (error) {
 
-        showCopyFailed(button);
+        showCopyFailed(
+            button
+        );
 
     }
 
-    document.body.removeChild(textarea);
+
+    document.body.removeChild(
+        textarea
+    );
 
 }
 
@@ -1936,37 +4450,52 @@ function fallbackCopy(text, button) {
 function showCopySuccess(button) {
 
     const originalText =
-        button.dataset.originalText || "COPY";
+        button.dataset.originalText ||
+        "COPY";
+
 
     button.dataset.originalText =
         originalText;
 
+
     button.textContent =
         "✓ COPIED";
 
-    button.classList.remove("failed");
-    button.classList.add("copied");
+
+    button.classList.remove(
+        "failed"
+    );
+
+    button.classList.add(
+        "copied"
+    );
+
 
     showToast(
         "✓ Copied successfully!",
         "success"
     );
 
+
     clearTimeout(
         button.copyResetTimer
     );
 
+
     button.copyResetTimer =
-        setTimeout(function() {
+        setTimeout(
+            function() {
 
-            button.textContent =
-                originalText;
+                button.textContent =
+                    originalText;
 
-            button.classList.remove(
-                "copied"
-            );
+                button.classList.remove(
+                    "copied"
+                );
 
-        }, 2000);
+            },
+            2000
+        );
 
 }
 
@@ -1978,37 +4507,52 @@ function showCopySuccess(button) {
 function showCopyFailed(button) {
 
     const originalText =
-        button.dataset.originalText || "COPY";
+        button.dataset.originalText ||
+        "COPY";
+
 
     button.dataset.originalText =
         originalText;
 
+
     button.textContent =
         "✕ FAILED";
 
-    button.classList.remove("copied");
-    button.classList.add("failed");
+
+    button.classList.remove(
+        "copied"
+    );
+
+    button.classList.add(
+        "failed"
+    );
+
 
     showToast(
         "✕ Copy failed. Please try again.",
         "error"
     );
 
+
     clearTimeout(
         button.copyResetTimer
     );
 
+
     button.copyResetTimer =
-        setTimeout(function() {
+        setTimeout(
+            function() {
 
-            button.textContent =
-                originalText;
+                button.textContent =
+                    originalText;
 
-            button.classList.remove(
-                "failed"
-            );
+                button.classList.remove(
+                    "failed"
+                );
 
-        }, 2000);
+            },
+            2000
+        );
 
 }
 
@@ -2021,11 +4565,30 @@ function escapeHTML(text) {
 
     return String(text)
 
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -2036,18 +4599,27 @@ function escapeHTML(text) {
 
 let toastTimer;
 
-function showToast(message, type) {
+
+function showToast(
+    message,
+    type
+) {
 
     const toast =
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
+
 
     toast.textContent =
         message;
+
 
     toast.classList.remove(
         "success",
         "error"
     );
+
 
     if (type === "success") {
 
@@ -2057,6 +4629,7 @@ function showToast(message, type) {
 
     }
 
+
     if (type === "error") {
 
         toast.classList.add(
@@ -2065,101 +4638,28 @@ function showToast(message, type) {
 
     }
 
-    toast.classList.add("show");
 
-    clearTimeout(toastTimer);
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
 
     toastTimer =
-        setTimeout(function() {
+        setTimeout(
+            function() {
 
-            toast.classList.remove(
-                "show"
-            );
+                toast.classList.remove(
+                    "show"
+                );
 
-        }, 2200);
-
-}
-
-
-/* =========================================================
-   SHOW HOME
-   ========================================================= */
-
-function showHome() {
-
-    document.getElementById("problemPage")
-        .style.display = "none";
-
-    document.getElementById("homePage")
-        .style.display = "block";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================================
-   NEXT PROBLEM
-   ========================================================= */
-
-function nextProblem() {
-
-    if (
-        currentProblem <
-        problems.length - 1
-    ) {
-
-        openProblem(
-            currentProblem + 1
+            },
+            2200
         );
-
-    }
-
-}
-
-
-/* =========================================================
-   PREVIOUS PROBLEM
-   ========================================================= */
-
-function previousProblem() {
-
-    if (currentProblem > 0) {
-
-        openProblem(
-            currentProblem - 1
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   UPDATE PREVIOUS / NEXT BUTTONS
-   ========================================================= */
-
-function updateNavigation() {
-
-    const previousButton =
-        document.getElementById(
-            "previousButton"
-        );
-
-    const nextButton =
-        document.getElementById(
-            "nextButton"
-        );
-
-    previousButton.disabled =
-        currentProblem === 0;
-
-    nextButton.disabled =
-        currentProblem ===
-        problems.length - 1;
 
 }
 
@@ -2168,51 +4668,23 @@ function updateNavigation() {
    DARK MODE
    ========================================================= */
 
-function updateThemeButton() {
-
-    const button =
-        document.getElementById("themeToggle");
-
-    if (!button) return;
-
-    const isDark =
-        document.body.classList.contains("dark");
-
-    button.textContent =
-        isDark ? "☀️" : "🌙";
-
-    button.setAttribute(
-        "aria-label",
-        isDark
-            ? "Switch to light mode"
-            : "Switch to dark mode"
-    );
-
-    button.title =
-        isDark
-            ? "Switch to light mode"
-            : "Switch to dark mode";
-
-}
-
-
 function toggleDarkMode() {
 
     document.body.classList.toggle(
         "dark"
     );
 
+
     const isDark =
         document.body.classList.contains(
             "dark"
         );
 
+
     localStorage.setItem(
         "darkMode",
         isDark
     );
-
-    updateThemeButton();
 
 }
 
@@ -2226,7 +4698,10 @@ const savedDarkMode =
         "darkMode"
     );
 
-if (savedDarkMode === "true") {
+
+if (
+    savedDarkMode === "true"
+) {
 
     document.body.classList.add(
         "dark"
@@ -2234,29 +4709,20 @@ if (savedDarkMode === "true") {
 
 }
 
-updateThemeButton();
-
-
-const currentYearElement =
-    document.getElementById("currentYear");
-
-if (currentYearElement) {
-
-    currentYearElement.textContent =
-        new Date().getFullYear();
-
-}
-
 
 /* =========================================================
-   INITIALIZE WEBSITE
+   INITIALIZE
    ========================================================= */
 
-loadProblemCards();
+loadToday();
+
+loadDayFilter();
+
+updateArchiveStats();
+
+renderArchive();
 
 </script>
 
-
 </body>
-
 </html>
