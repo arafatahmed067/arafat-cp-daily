@@ -338,6 +338,139 @@ body.dark .footer {
     color: #64748b;
 }
 
+
+/* =========================
+   LATEST PROBLEM UPDATE
+   ========================= */
+
+.latest-update {
+    margin-top: 18px;
+    padding: 17px 22px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.latest-update-icon {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background: #dbeafe;
+    font-size: 17px;
+}
+
+.latest-update-content {
+    min-width: 0;
+}
+
+.latest-update-title {
+    color: #172033;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.latest-update-text {
+    margin-top: 2px;
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+}
+
+body.dark .latest-update {
+    background: #161b22;
+    border-color: #30363d;
+    border-left-color: #2563eb;
+}
+
+body.dark .latest-update-title {
+    color: #f0f6fc;
+}
+
+body.dark .latest-update-text {
+    color: #c9d1d9;
+}
+
+body.dark .latest-update-icon {
+    background: #1e3a5f;
+}
+
+
+/* =========================
+   HOW IT WORKS
+   ========================= */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.info-card {
+    min-width: 0;
+    padding: 22px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.025);
+}
+
+.info-number {
+    margin-bottom: 8px;
+
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.info-title {
+    margin-bottom: 3px;
+
+    color: #172033;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.info-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+body.dark .info-number {
+    color: #60a5fa;
+}
+
+body.dark .info-card p {
+    color: #c9d1d9;
+}
+
+
+/* =========================
+   EXAMPLE OUTPUT ALIGNMENT FIX
+   ========================= */
+
+.code-box {
+    text-align: left;
+}
+
+
 /* =========================
    PROBLEM CARDS
    ========================= */
@@ -1146,6 +1279,21 @@ body.dark .archive-empty strong {
 
 @media (max-width: 750px) {
 
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .latest-update {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 15px 16px;
+    }
+
+    .latest-update-title,
+    .latest-update-text {
+        text-align: left;
+    }
+
     .stats {
         grid-template-columns: 1fr;
     }
@@ -1304,6 +1452,31 @@ body.dark .archive-empty strong {
         </p>
 
         <div class="today-meta" id="todayMeta"></div>
+
+    </section>
+
+
+    <!-- LATEST PROBLEM UPDATE -->
+
+    <section class="latest-update" aria-label="Latest problem update">
+
+        <div class="latest-update-icon" aria-hidden="true">
+            📢
+        </div>
+
+        <div class="latest-update-content">
+
+            <div class="latest-update-title">
+                Latest Problem Update
+            </div>
+
+            <div
+                class="latest-update-text"
+                id="latestProblemUpdate">
+                Last time problems were updated: -
+            </div>
+
+        </div>
 
     </section>
 
@@ -3181,6 +3354,15 @@ function loadToday() {
 
 
     document.getElementById(
+        "latestProblemUpdate"
+    ).textContent =
+        "Last time problems were updated: " +
+        today.date +
+        " • " +
+        today.time;
+
+
+    document.getElementById(
         "todayMeta"
     ).innerHTML = `
 
@@ -3577,9 +3759,7 @@ function createExamples(examples) {
 
                 </div>
 
-                <div class="code-box">
-                    ${escapeHTML(example.input)}
-                </div>
+                <div class="code-box">${escapeHTML(example.input)}</div>
 
             `;
 
@@ -3632,9 +3812,7 @@ function createExamples(examples) {
 
                 </div>
 
-                <div class="code-box">
-                    ${escapeHTML(example.output)}
-                </div>
+                <div class="code-box">${escapeHTML(example.output)}</div>
 
             `;
 
