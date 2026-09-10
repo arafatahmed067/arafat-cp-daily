@@ -879,11 +879,12 @@ body.dark .archive-empty strong {
    ========================= */
 
 .example-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    justify-content: stretch;
+    align-items: stretch;
     gap: 15px;
-
     margin-bottom: 18px;
 }
 
@@ -2840,242 +2841,209 @@ RRRRRR`,
 
     /* =====================================================
        DAY 4
-       PDF SOURCE WILL BE INSERTED LATER
        ===================================================== */
 
     {
         day: 4,
-        date: "Pending",
-        time: "Pending",
-
-        formLink: "#",
-
+        date: "03 September 2026",
+        time: "Not specified",
+        formLink: "https://docs.google.com/forms/d/e/1FAIpQLSdvWX2cJxqh4Tolh5lM9Xqb_Vp1HDIMkjaYiAl3lGqPQYzumg/viewform?usp=dialog",
         problems: [
-
             {
                 id: "D4-A",
                 letter: "A",
-                title: "Day 4 — Source Pending",
+                title: "Luffy's Pillow Choppy",
                 difficulty: "Easy",
                 points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 4 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
+                tags: ["Math", "Condition", "Implementation"],
+                statement: `<p>As usual, <b>Luffy always moves against the flow!</b> In general, a leap year on Earth is considered if the year is divisible by 400 or 4 without any remainder.</p><p>But Luffy lives in his own world. In his world, many fictional characters live and supernatural entities exist.</p><p>Suppose the current year is <b>x</b>. In Luffy's world, <b>x</b> will be considered a leap year if and only if it is divisible by both lucky numbers <b>y</b> and <b>z</b> without any remainder.</p><p>Given <b>x</b>, <b>y</b>, and <b>z</b>, determine whether the year is a leap year or not.</p>`,
+                input: `<p>Three integers <b>x</b>, <b>y</b>, and <b>z</b>.</p>`,
+                output: `<p>Print <b>Leap Year</b> if <b>x</b> is divisible by both <b>y</b> and <b>z</b>. Otherwise, print <b>Not Leap Year</b>.</p>`,
+                constraints: `<ul><li><b>1 ≤ x, y, z ≤ 10<sup>9</sup></b></li><li><b>y</b> and <b>z</b> are non-zero.</li></ul>`,
                 examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
+                    { input: "2222 22 11", output: "Leap Year" },
+                    { input: "9919 22 11", output: "Not Leap Year" }
                 ]
             },
-
             {
                 id: "D4-B",
                 letter: "B",
-                title: "Day 4 — Source Pending",
+                title: "Help Lazy Shikamaru ....",
                 difficulty: "Easy",
                 points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 4 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
+                tags: ["String", "Implementation", "Functions"],
+                statement: `<p><b>Shikamaru is a lazy chill guy.</b> He has a fear of pronouncing large words in English.</p><p>There is even a concept that represents the fear of pronouncing large words. It is called <b>Hippopotomonstrosesquipedaliophobia</b> (fear of pronouncing large words....!!! ☠).</p><p>So, to solve this issue, Shikamaru came up with a dumb idea because:</p><p><b>"Bipoode chagol oo gas kai!! Oh, chagol to emneo gas kai..! ?"</b></p><p>He will take the <b>first letter</b> of the word and the <b>very last letter</b>, then put the <b>length of the string</b> between these two letters to make a code.</p><p>For example, if the word is <b>Shikamaru</b>, the first letter is <b>S</b>, the last letter is <b>u</b>, and the length is <b>9</b>. So the new string is <b>S9u</b>.</p><p>He will do this if and only if the length of the string is <b>6 or greater</b>. If the length is less than 6, output the word exactly as it is.</p>`,
+                input: `<p>Input a single string.</p>`,
+                output: `<p>If the length of the string is less than <b>6</b>, print the exact word entered.</p><p>Otherwise, print the first letter, then the length of the string, and then the last letter.</p>`,
+                constraints: `<ul><li>The string contains English letters.</li><li>If the string length is less than 6, print it unchanged.</li><li>If the string length is 6 or greater, use the described short form.</li></ul><h3>Tip</h3><p>You can use <b>variable_name.length()</b> or <b>variable_name.size()</b> to find the length of a string.</p>`,
                 examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
+                    { input: "Hello", output: "Hello" },
+                    { input: "Shikamaru", output: "S9u" },
+                    { input: "Programming", output: "P11g" },
+                    { input: "Metropolitan", output: "M12n" }
                 ]
             }
-
         ]
     },
 
-
     /* =====================================================
        DAY 3
-       PDF SOURCE WILL BE INSERTED LATER
        ===================================================== */
 
     {
         day: 3,
-        date: "Pending",
-        time: "Pending",
-
-        formLink: "#",
-
+        date: "02 September 2026",
+        time: "Not specified",
+        formLink: "https://docs.google.com/forms/d/e/1FAIpQLSd7YAwiHwjnXZ90aLkgsrhPTCOrfTacAG0S872jx1sZRq6mzQ/viewform?usp=dialog",
         problems: [
-
             {
                 id: "D3-A",
                 letter: "A",
-                title: "Day 3 — Source Pending",
+                title: "Help Senku to Decode .....",
                 difficulty: "Easy",
                 points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 3 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
+                tags: ["String", "Mapping", "Implementation"],
+                statement: `<p>Senku is a student of the CSE department. His sensei (teacher in Japan) recently taught him the concept of <b>Cryptography</b>.</p><p>Cryptography is a concept used to protect information. The main information gets encrypted, which means individual letters are replaced by other letters or symbols. By decrypting it, Senku can decode the text.</p><p>Now, as <b>Senku is a mukko sukko manus</b>, his sensei does not want to mess with his head. So, he replaces 5 English alphabets with 5 different symbols:</p><ul><li><b>A → @</b></li><li><b>B → #</b></li><li><b>C → (</b></li><li><b>D → )</b></li><li><b>E → *</b></li></ul><p>His sensei gives him a string containing these symbols. Help this mukko sukko Senku decode the original text.</p>`,
+                input: `<p>The encrypted string will contain only the five given symbols and its length will be between <b>1</b> and <b>5</b>.</p>`,
+                output: `<p>Decrypt the string and print the original text. The answer must be in <b>capital letters</b>.</p>`,
+                constraints: `<ul><li><b>1 ≤ |S| ≤ 5</b></li><li>The string contains only <b>@ # ( ) *</b>.</li></ul>`,
                 examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
+                    { input: "@#()*", output: "ABCDE" },
+                    { input: "*)(@#", output: "EDCAB" },
+                    { input: "#@#@@", output: "BABAA" }
                 ]
             },
-
             {
                 id: "D3-B",
                 letter: "B",
-                title: "Day 3 — Source Pending",
+                title: "Shikamaru in Big Trouble ......!",
                 difficulty: "Easy",
                 points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 3 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
+                tags: ["Math", "Condition", "Implementation"],
+                statement: `<p><b>Shikamaru gets a 9-day break after his term final.</b> He is a master of procrastination (Procrastination = কাজ ফেলে রাখা). The lazy chill guy..!</p><p>His mom told him to clean exactly <b>N</b> rooms in the house with the legendary all-Bangali-mom favourite dialogue:</p><p><b>"Jongol banai raksos room tare...!"</b></p><p>Also, his mom told him, <b>"I will come back in 30 minutes to check."</b></p><p>As Shikamaru is lazy, he thought, <b>"Let watch reel for few minutes, 30 min is too much time!"</b></p><p>Plot twist — the idiot wastes <b>10 whole minutes</b> watching reels.</p><p>Now, he needs to clean these <b>N</b> rooms as soon as possible. He needs <b>5 minutes</b> to clean each room.</p><p>Can this idiot clean all the <b>N</b> rooms before his mom comes to check?</p>`,
+                input: `<p>An integer <b>N</b> representing the number of rooms Shikamaru needs to clean.</p>`,
+                output: `<p>If he can finish cleaning before his mom comes, print:</p><p><b>Once a legend said: Churi bidda moha bidda jodi na poro dora..!</b></p><p>Otherwise, print:</p><p><b>Amr kunu laab loss nai , amr jibon tai loss :(</b></p>`,
+                constraints: `<ul><li><b>1 ≤ N ≤ 100</b></li><li>Shikamaru has only <b>20 minutes</b> left after wasting 10 minutes.</li><li>Each room takes <b>5 minutes</b> to clean.</li></ul>`,
                 examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
+                    { input: "4", output: "Once a legend said: Churi bidda moha bidda jodi na poro dora..!" },
+                    { input: "6", output: "Amr kunu laab loss nai , amr jibon tai loss :(" }
                 ]
             }
-
         ]
     },
 
-
     /* =====================================================
        DAY 2
-       PDF SOURCE WILL BE INSERTED LATER
        ===================================================== */
 
     {
         day: 2,
-        date: "Pending",
-        time: "Pending",
-
-        formLink: "#",
-
+        date: "01 September 2026",
+        time: "Not specified",
+        formLink: "https://docs.google.com/forms/d/e/1FAIpQLSdqkLrrHiBUojwzR2zlB5KjOJ4XoGuGXkq9aWVlgSk48YjG8w/viewform?usp=dialog",
         problems: [
-
             {
                 id: "D2-A",
                 letter: "A",
-                title: "Day 2 — Source Pending",
+                title: "Luffy and the Legendary Watermelon",
                 difficulty: "Easy",
                 points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 2 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
+                tags: ["Math", "Condition", "Implementation"],
+                statement: `<p>One extremely hot summer day, <b>Luffy and his friend</b> were wandering around, doing absolutely nothing (<b>Beker publics</b>).</p><p>They suddenly spotted the biggest watermelon they had ever seen. Obviously, they bought it immediately. Because what else do you do on a hot summer day?</p><p>They took the watermelon home and discovered that it weighed <b>w</b> kilograms.</p><p>Now came the real problem.</p><p><b>Luffy and his friend are huge fans of even numbers.</b> They believe that everything tastes better when the number is even. (Pillow choppy)</p><p>They want to split the watermelon into two <b>positive</b> pieces such that both pieces have an even weight. The pieces do not have to be equal.</p><p>Can Luffy and his friend enjoy their perfectly even watermelon feast?</p>`,
+                input: `<p>The first and only line contains an integer <b>w</b> — the weight of the watermelon in kilograms.</p>`,
+                output: `<p>Print <b>YES</b> if Luffy and his friend can split the watermelon into two positive parts, both having even weights. Otherwise, print <b>NO</b>.</p>`,
+                constraints: `<ul><li><b>1 ≤ w ≤ 100</b></li></ul>`,
                 examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
+                    { input: "5", output: "NO" },
+                    { input: "8", output: "YES" }
                 ]
             },
-
             {
                 id: "D2-B",
                 letter: "B",
-                title: "Day 2 — Source Pending",
+                title: "Ayanokoji Wants to Pass.....!",
                 difficulty: "Easy",
                 points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 2 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
+                tags: ["Array", "Condition", "Implementation"],
+                statement: `<p><b>Ayanokoji is a mukko sukko student from Metropolitan University in CSE.</b> He just wants to somehow pass the term final...!</p><p>He has already received the marks for <b>5 courses</b>. Out of 100, if he achieves at least <b>40 marks</b> in each course, he will pass the Term Final. (Tar kushi atkay k..!)</p><p>Getting less than 40 marks in a single course will be considered a fail in the Term Final.</p><p>You are given 5 different marks for 5 different courses. Determine whether this mukko sukko manus passed or got another disaster.</p>`,
+                input: `<p>Five different integer marks representing the marks of the five courses.</p>`,
+                output: `<p>Print <b>Aha ki anondo akashe batashe!!</b> if Ayanokoji passed all courses.</p><p>Otherwise, print <b>A single sheet of paper can’t define my entire future..huh</b>.</p>`,
+                constraints: `<ul><li>Exactly <b>5</b> integer marks are given.</li><li>Each mark is between <b>0</b> and <b>100</b>.</li></ul>`,
                 examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
+                    { input: "55 66 77 88 44", output: "Aha ki anondo akashe batashe!!" },
+                    { input: "33 44 55 66 77", output: "A single sheet of paper can’t define my entire future..huh" }
                 ]
             }
-
         ]
     },
 
-
     /* =====================================================
        DAY 1
-       PDF SOURCE WILL BE INSERTED LATER
        ===================================================== */
 
     {
         day: 1,
-        date: "Pending",
-        time: "Pending",
-
-        formLink: "#",
-
+        date: "31 August 2026",
+        time: "Not specified",
+        formLink: "https://docs.google.com/forms/d/e/1FAIpQLSd-fxSu9MLoA-EkaRVFNg3OqQR95ICFK2zOfFse11THY3n-Cw/viewform?usp=dialog",
         problems: [
-
             {
-                id: "D1-A",
-                letter: "A",
-                title: "Day 1 — Source Pending",
-                difficulty: "Easy",
-                points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 1 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
-                examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
-                ]
+                id: "D1-A", letter: "A", title: "Sum of Two Integers", difficulty: "Easy", points: 0,
+                tags: ["Math", "Implementation"],
+                statement: `<p>You are given two integers <b>A</b> and <b>B</b>. Print their sum.</p>`,
+                input: `<p>The input contains two integers <b>A</b> and <b>B</b>.</p>`,
+                output: `<p>Print the sum of <b>A</b> and <b>B</b>.</p>`,
+                constraints: `<p><b>-10<sup>9</sup> ≤ A, B ≤ 10<sup>9</sup></b></p>`,
+                examples: [{input:"5 7",output:"12"},{input:"10 25",output:"35"}]
             },
-
             {
-                id: "D1-B",
-                letter: "B",
-                title: "Day 1 — Source Pending",
-                difficulty: "Easy",
-                points: 0,
-                tags: ["Pending"],
-
-                statement: `<p>Day 1 source will be inserted from the PDF.</p>`,
-                input: `<p>Pending original source.</p>`,
-                output: `<p>Pending original source.</p>`,
-                constraints: `<p>Pending original source.</p>`,
-
-                examples: [
-                    {
-                        input: "Pending",
-                        output: "Pending"
-                    }
-                ]
+                id: "D1-B", letter: "B", title: "Positive, Negative or Zero", difficulty: "Easy", points: 0,
+                tags: ["Condition", "Implementation"],
+                statement: `<p>You are given an integer <b>N</b>. Determine whether it is positive, negative, or zero.</p>`,
+                input: `<p>The input contains one integer <b>N</b>.</p>`,
+                output: `<p>If <b>N</b> is positive, print <b>Positive</b>. If <b>N</b> is negative, print <b>Negative</b>. If <b>N</b> is zero, print <b>Zero</b>.</p>`,
+                constraints: `<p><b>-10<sup>9</sup> ≤ N ≤ 10<sup>9</sup></b></p>`,
+                examples: [{input:"8",output:"Positive"},{input:"-5",output:"Negative"}]
+            },
+            {
+                id: "D1-C", letter: "C", title: "Print 1 to N", difficulty: "Easy", points: 0,
+                tags: ["Loop", "Implementation"],
+                statement: `<p>You are given an integer <b>N</b>. Print all integers from <b>1</b> to <b>N</b>, one number on each line.</p>`,
+                input: `<p>The input contains one integer <b>N</b>.</p>`,
+                output: `<p>Print all integers from <b>1</b> to <b>N</b>, one per line.</p>`,
+                constraints: `<p><b>1 ≤ N ≤ 10<sup>5</sup></b></p>`,
+                examples: [{input:"5",output:"1\n2\n3\n4\n5"},{input:"3",output:"1\n2\n3"}]
+            },
+            {
+                id: "D1-D", letter: "D", title: "Find the Largest Number", difficulty: "Easy", points: 0,
+                tags: ["Array", "Loop", "Math"],
+                statement: `<p>You are given <b>N</b> integers. Find and print the largest number.</p>`,
+                input: `<p>The first line contains an integer <b>N</b>. The second line contains <b>N</b> integers.</p>`,
+                output: `<p>Print the largest number among the given integers.</p>`,
+                constraints: `<ul><li><b>1 ≤ N ≤ 10<sup>5</sup></b></li><li><b>-10<sup>9</sup> ≤ A<sub>i</sub> ≤ 10<sup>9</sup></b></li></ul>`,
+                examples: [{input:"5\n3 8 2 10 6",output:"10"},{input:"4\n7 2 9 1",output:"9"}]
+            },
+            {
+                id: "D1-E", letter: "E", title: "Count the Even Numbers", difficulty: "Easy", points: 0,
+                tags: ["Array", "Loop", "Condition"],
+                statement: `<p>You are given <b>N</b> integers. Count how many of them are even and print the count.</p>`,
+                input: `<p>The first line contains an integer <b>N</b>. The second line contains <b>N</b> integers.</p>`,
+                output: `<p>Print the number of even integers.</p>`,
+                constraints: `<ul><li><b>1 ≤ N ≤ 10<sup>5</sup></b></li><li><b>-10<sup>9</sup> ≤ A<sub>i</sub> ≤ 10<sup>9</sup></b></li></ul>`,
+                examples: [{input:"5\n2 7 4 9 6",output:"3"},{input:"4\n1 3 5 8",output:"1"}]
+            },
+            {
+                id: "D1-F", letter: "F", title: "Count the Letter 'a'", difficulty: "Easy", points: 0,
+                tags: ["String", "Loop", "Implementation"],
+                statement: `<p>You are given a string containing lowercase English letters. Count how many times the letter <b>'a'</b> appears in the string.</p>`,
+                input: `<p>The input contains one string <b>S</b> consisting of lowercase English letters.</p>`,
+                output: `<p>Print the number of times <b>'a'</b> appears in <b>S</b>.</p>`,
+                constraints: `<ul><li><b>1 ≤ |S| ≤ 10<sup>5</sup></b></li><li>The string contains only lowercase English letters.</li></ul>`,
+                examples: [{input:"banana",output:"3"},{input:"apple",output:"1"}]
             }
-
         ]
     }
+
 
 ];
 
