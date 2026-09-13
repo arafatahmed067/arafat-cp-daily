@@ -2024,6 +2024,326 @@ body.dark .archive-empty strong {
 const ARCHIVE = [
 
         /* =====================================================
+       DAY 11
+       ===================================================== */
+
+    {
+        day: 11,
+        date: "13 September 2026",
+        time: "6:05 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSe9SErdYEdBlpoYNSuKv2MtjBqkuKf2jZgTMLElz_MZXONCag/viewform?usp=dialog",
+
+        problems: [
+
+            {
+                id: "D11-A",
+                letter: "A",
+                title: "Senku's All-in-One Calculator",
+                difficulty: "Difficult",
+                points: 0,
+                tags: ["Math", "Functions", "Loop", "GCD", "LCM"],
+
+                statement: `
+                    <p>
+                        Senku has been continuously improving himself to become a
+                        better competitive programmer. On the <b>11th day</b> of
+                        his CP journey, he decides to create a calculator that
+                        combines almost all of the mathematical concepts and
+                        built-in functions he has learned so far.
+                    </p>
+
+                    <p>
+                        The calculator supports the following operations:
+                    </p>
+
+                    <div style="overflow-x:auto;">
+                        <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+                            <tr>
+                                <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">Code</th>
+                                <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">Operation</th>
+                                <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">Formula / Syntax</th>
+                            </tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">1</td><td style="border:1px solid #d1d5db;padding:8px;">Addition</td><td style="border:1px solid #d1d5db;padding:8px;"><b>a + b</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">2</td><td style="border:1px solid #d1d5db;padding:8px;">Subtraction</td><td style="border:1px solid #d1d5db;padding:8px;"><b>a - b</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">3</td><td style="border:1px solid #d1d5db;padding:8px;">Division</td><td style="border:1px solid #d1d5db;padding:8px;"><b>a / b</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">4</td><td style="border:1px solid #d1d5db;padding:8px;">Multiplication</td><td style="border:1px solid #d1d5db;padding:8px;"><b>a * b</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">5</td><td style="border:1px solid #d1d5db;padding:8px;">Precision</td><td style="border:1px solid #d1d5db;padding:8px;"><b>fixed &lt;&lt; setprecision(2) &lt;&lt; (double)a / b</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">6</td><td style="border:1px solid #d1d5db;padding:8px;">Power</td><td style="border:1px solid #d1d5db;padding:8px;"><b>pow(a, b)</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">7</td><td style="border:1px solid #d1d5db;padding:8px;">Square Root</td><td style="border:1px solid #d1d5db;padding:8px;"><b>sqrt(a)</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">8</td><td style="border:1px solid #d1d5db;padding:8px;">Maximum</td><td style="border:1px solid #d1d5db;padding:8px;"><b>max(a, b)</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">9</td><td style="border:1px solid #d1d5db;padding:8px;">Minimum</td><td style="border:1px solid #d1d5db;padding:8px;"><b>min(a, b)</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">10</td><td style="border:1px solid #d1d5db;padding:8px;">Average</td><td style="border:1px solid #d1d5db;padding:8px;"><b>(a + b) / 2.0</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">11</td><td style="border:1px solid #d1d5db;padding:8px;">Absolute Value</td><td style="border:1px solid #d1d5db;padding:8px;"><b>abs(a - b)</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">12</td><td style="border:1px solid #d1d5db;padding:8px;">End</td><td style="border:1px solid #d1d5db;padding:8px;"><b>return 0;</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">13</td><td style="border:1px solid #d1d5db;padding:8px;">GCD</td><td style="border:1px solid #d1d5db;padding:8px;"><b>gcd(c, d)</b></td></tr>
+                            <tr><td style="border:1px solid #d1d5db;padding:8px;">14</td><td style="border:1px solid #d1d5db;padding:8px;">LCM</td><td style="border:1px solid #d1d5db;padding:8px;"><b>lcm(e, f)</b></td></tr>
+                        </table>
+                    </div>
+
+                    <h3>Calculator Rules</h3>
+
+                    <p>
+                        At the beginning, Senku enters six integers:
+                        <b>a, b, c, d, e, f</b>. These values are entered only once.
+                    </p>
+
+                    <ul>
+                        <li>For operations <b>1 to 11</b>, use <b>a</b> and <b>b</b>.</li>
+                        <li>For operation <b>11</b>, calculate the absolute value of <b>a - b</b>.</li>
+                        <li>For operation <b>13</b>, calculate the GCD using <b>c</b> and <b>d</b>.</li>
+                        <li>For operation <b>14</b>, calculate the LCM using <b>e</b> and <b>f</b>.</li>
+                        <li>For operation <b>12</b>, terminate the program using <b>return 0;</b>.</li>
+                        <li>The value of <b>g</b> can be entered again and again until Senku chooses <b>12</b>.</li>
+                    </ul>
+
+                    <p>
+                        Your task is to implement Senku's calculator.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The first line contains six space-separated integers:
+                        <b>a b c d e f</b>.
+                    </p>
+
+                    <p>
+                        Each of the following lines contains an integer <b>g</b>,
+                        representing the operation to perform. The input continues
+                        until <b>g = 12</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        For every operation except <b>12</b>, print the result on
+                        a separate line.
+                    </p>
+
+                    <ul>
+                        <li>For operation <b>5</b>, print the value of <b>a / b</b> with exactly 2 digits after the decimal point.</li>
+                        <li>For operation <b>13</b>, print the GCD of <b>c, d</b>.</li>
+                        <li>For operation <b>14</b>, print the LCM of <b>e, f</b>.</li>
+                    </ul>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ a, b, c, d, e, f ≤ 10<sup>5</sup></b></li>
+                        <li><b>1 ≤ g ≤ 14</b></li>
+                        <li><b>b ≠ 0</b></li>
+                        <li><b>a ≥ 0</b> for operation 7</li>
+                        <li><b>c, d, e, f</b> are positive integers.</li>
+                        <li>The result of every operation fits within the required numeric range.</li>
+                    </ul>
+
+                    <h3>Hints</h3>
+
+                    <ul>
+                        <li>You can use an infinite loop such as <b>while(true)</b> to repeatedly take the value of <b>g</b>.</li>
+                        <li>You only need to take <b>a, b, c, d, e, f</b> once before the loop.</li>
+                        <li>Take <b>g</b> inside the infinite loop so that the calculator can perform another operation.</li>
+                        <li>For operation <b>12</b>, use <b>return 0;</b> to immediately terminate the program successfully.</li>
+                        <li>You may use the built-in mathematical functions from <b>&lt;cmath&gt;</b> and <b>&lt;numeric&gt;</b>.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: `10 4 12 18 8 20
+1
+3
+5
+6
+8
+9
+10
+11
+13
+14
+12`,
+                        output: `14
+2
+2.50
+10000
+10
+4
+7.00
+6
+6
+40`
+                    },
+
+                    {
+                        input: `25 4 15 25 6 8
+4
+7
+8
+9
+10
+11
+13
+14
+12`,
+                        output: `100
+5
+25
+4
+14.50
+21
+5
+24`
+                    }
+                ]
+            },
+
+            {
+                id: "D11-B",
+                letter: "B",
+                title: "Senku's All-in-One String",
+                difficulty: "Medium",
+                points: 0,
+                tags: ["String", "STL", "Functions", "Implementation"],
+
+                statement: `
+                    <p>
+                        Just like his calculator, Senku now wants to test how much
+                        he has learned about <b>strings</b>.
+                    </p>
+
+                    <p>
+                        During his CP journey, he has learned four basic string operations:
+                    </p>
+
+                    <ol>
+                        <li>Reverse the string</li>
+                        <li>Find the length of the string</li>
+                        <li>Find a given character</li>
+                        <li>Count how many times the given character appears</li>
+                    </ol>
+
+                    <p>
+                        You will be given a string <b>s</b> and a character <b>c</b>.
+                        You have to perform all four operations and print their results
+                        in the given order.
+                    </p>
+
+                    <p>
+                        <b>Important:</b> The length, first position, and character count
+                        are based on the original string <b>s</b>. Only the first output
+                        requires the reversed string.
+                    </p>
+
+                    <h3>Operations and C++ Syntax</h3>
+
+                    <div style="overflow-x:auto;">
+                        <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+                            <tr>
+                                <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">Operation</th>
+                                <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">C++ Syntax</th>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #d1d5db;padding:8px;">Reverse</td>
+                                <td style="border:1px solid #d1d5db;padding:8px;"><b>reverse(s.begin(), s.end())</b></td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #d1d5db;padding:8px;">Length</td>
+                                <td style="border:1px solid #d1d5db;padding:8px;"><b>s.length()</b></td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #d1d5db;padding:8px;">Find character</td>
+                                <td style="border:1px solid #d1d5db;padding:8px;"><b>s.find(c)</b></td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid #d1d5db;padding:8px;">Count character</td>
+                                <td style="border:1px solid #d1d5db;padding:8px;"><b>count(s.begin(), s.end(), c)</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                `,
+
+                input: `
+                    <p>
+                        The first line contains a string <b>s</b>.
+                    </p>
+
+                    <p>
+                        The second line contains a character <b>c</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p>Print four lines:</p>
+
+                    <ol>
+                        <li>First, print the reversed string.</li>
+                        <li>Second, print the length of the string.</li>
+                        <li>Third, print the first position where character <b>c</b> occurs.</li>
+                        <li>Fourth, print how many times character <b>c</b> occurs in the string.</li>
+                    </ol>
+
+                    <p>
+                        If <b>c</b> does not occur in the string, print <b>-1</b>
+                        for the third line.
+                    </p>
+
+                    <p>
+                        String positions are <b>0-indexed</b>, meaning the first
+                        character is at position <b>0</b>.
+                    </p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ |s| ≤ 10<sup>5</sup></b></li>
+                        <li><b>s</b> contains lowercase English letters only.</li>
+                        <li><b>c</b> is a lowercase English letter.</li>
+                    </ul>
+
+                    <h3>Hint</h3>
+
+                    <p>You can use the following built-in functions:</p>
+
+                    <ul>
+                        <li><b>reverse(s.begin(), s.end());</b></li>
+                        <li><b>s.length();</b></li>
+                        <li><b>s.find(c);</b></li>
+                        <li><b>count(s.begin(), s.end(), c);</b></li>
+                    </ul>
+
+                    <p>
+                        You need to perform the operations in the required order
+                        and print each result on a separate line.
+                    </p>
+                `,
+
+                examples: [
+                    {
+                        input: `competitive
+e`,
+                        output: `etitivepmoc
+11
+1
+3`
+                    },
+
+                    {
+                        input: `banana
+n`,
+                        output: `ananab
+6
+2
+2`
+                    }
+                ]
+            }
+        ]
+    },
+
+
+/* =====================================================
        DAY 10
        ===================================================== */
 
