@@ -4676,6 +4676,469 @@ n`,
 
 
     /* =====================================================
+       CONTEST 2
+       11 September 2026
+       ===================================================== */
+
+    {
+        day: "C2",
+        archiveLabel: "Contest 2",
+        date: "11 September 2026",
+        time: "9:00 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLScKe8I1AsuTcwYLMFRFGVJjErZt6syXwrMJXql4DpJdIVpPlg/viewform?usp=publish-editor",
+
+        problems: [
+
+            {
+                id: "C2-A",
+                letter: "A",
+                title: "The Triplet Reverse Technique! — Easy",
+                difficulty: "Easy",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Shikamaru is testing his friends with a simple string trick. He gives you a string of <b>exactly 9 characters</b>.
+                        Your task is to divide the string into <b>3 equal parts</b>, each containing <b>3 characters</b>. Then, reverse each part individually and join them together.
+                    </p>
+
+                    <p>
+                        <b>For example</b>, if the string is:<br>
+                        <b>Shikamaru</b><br>
+                        Divide it into:<br>
+                        <b>Shi | kam | aru</b><br>
+                        Reverse each part:<br>
+                        <b>ihS | mak | ura</b><br>
+                        So the final string is:<br>
+                        <b>ihSmakura</b>
+                    </p>
+                `,
+
+                input: `
+                    <p><b>Input Format:</b></p>
+                    <p>
+                        The input contains a single string <b>S</b>.<br>
+                        <b>S</b> contains exactly <b>9 characters</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p><b>Output Format:</b></p>
+                    <p>Print the string obtained after:</p>
+                    <ol>
+                        <li>Dividing S into 3 equal parts.</li>
+                        <li>Reversing each part individually.</li>
+                        <li>Joining the reversed parts.</li>
+                    </ol>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>|S| = 9</b></li>
+                        <li><b>S</b> contains only English letters.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "Shikamaru",
+                        output: "ihSmakura"
+                    },
+                    {
+                        input: "ABCDEFghi",
+                        output: "CBAFEDihg"
+                    }
+                ]
+            },
+
+            {
+                id: "C2-B",
+                letter: "B",
+                title: "Latif's Diagonal Matrix",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Latif is a CSE student.
+                        In his <b>Matrices, Geometry and Vector Analysis</b> course, his faculty has taught him about matrices and the properties required for a matrix to be called a <b>diagonal matrix</b>.
+                    </p>
+                    <p>
+                        After class, Latif gets a 3 × 3 matrix and starts wondering:<br>
+                        <b>"Is this really a diagonal matrix?"</b>
+                    </p>
+                    <p>
+                        A <b>3 × 3 matrix is diagonal</b> if every element <b>outside the main diagonal is 0</b>.
+                    </p>
+                    <p>
+                        For example:<br>
+                        <b>5 &nbsp;0 &nbsp;0<br>
+                        0 &nbsp;3 &nbsp;0<br>
+                        0 &nbsp;0 &nbsp;7</b><br>
+                        is a diagonal matrix.
+                    </p>
+                    <p>Your task is to determine whether the given matrix is diagonal or not.</p>
+                `,
+
+                input: `
+                    <p>The input contains a <b>3 × 3 matrix</b>.</p>
+                    <p>Each of the 9 elements is an integer.</p>
+                `,
+
+                output: `
+                    <p>If the given matrix is a diagonal matrix, print:</p>
+                    <p><b>It is diagonal</b></p>
+                    <p>Otherwise, print:</p>
+                    <p><b>It is not diagonal</b></p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li>The matrix size is always 3 × 3.</li>
+                        <li><b>-1000 ≤ a[i][j] ≤ 1000</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: `5 0 0
+0 3 0
+0 0 7`,
+                        output: "It is diagonal"
+                    },
+                    {
+                        input: `5 0 1
+0 3 0
+0 0 7`,
+                        output: "It is not diagonal"
+                    }
+                ]
+            },
+
+            {
+                id: "C2-C",
+                letter: "C",
+                title: "Ascending order",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Arafat is practicing arrays for his CP journey.
+                        Today, his faculty gives him an array of numbers, but the numbers are completely mixed up. Some are small, some are big, and apparently nobody told them where to stand.
+                    </p>
+                    <p>
+                        Arafat's task is simple:<br>
+                        <b>Arrange all the numbers from the smallest to the largest.</b>
+                    </p>
+                    <p>Help Arafat sort the array in <b>ascending order</b>.</p>
+                `,
+
+                input: `
+                    <p><b>Input Format</b></p>
+                    <p>The first line contains an integer <b>N</b>, representing the number of elements in the array.</p>
+                    <p>The second line contains <b>N</b> integers representing the array elements.</p>
+                `,
+
+                output: `
+                    <p><b>Output Format</b></p>
+                    <p>Print the elements of the array after sorting them from <b>smallest to largest</b>.</p>
+                    <p>Separate the elements with a space.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ N ≤ 100</b></li>
+                        <li><b>-1000 ≤ A[i] ≤ 1000</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: `5
+8 2 9 1 5`,
+                        output: "1 2 5 8 9"
+                    },
+                    {
+                        input: `7
+10 -2 5 0 3 -8 4`,
+                        output: "-8 -2 0 3 4 5 10"
+                    }
+                ]
+            },
+
+            {
+                id: "C2-D",
+                letter: "D",
+                title: "MR. Late Latif",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Latif is a CSE student who is usually never late for his classes.
+                        But today, something unexpected happened.
+                    </p>
+                    <p>
+                        He overslept and missed his usual bus. Now he has to use a local vehicle to reach his university.
+                        His class starts at <b>09:00 AM</b>.
+                    </p>
+                    <p>
+                        Latif wakes up at <b>x</b> and immediately starts his journey. The distance between the place where he takes the local vehicle and his university is <b>k</b> kilometers.
+                        The local vehicle travels at an average speed of <b>30 km/h</b>.
+                    </p>
+                    <p>
+                        Latif wants to know whether he can still reach the university <b>before or exactly at 09:00 AM</b>.
+                        Help Latif before his teacher notices him.
+                    </p>
+                `,
+
+                input: `
+                    <p>The input contains:</p>
+                    <ul>
+                        <li>A string <b>x</b> representing the time Latif wakes up in <b>HH:MM-am</b> format.</li>
+                        <li>An integer <b>k</b>, representing the distance between the vehicle-taking point and the university in kilometers.</li>
+                    </ul>
+                `,
+
+                output: `
+                    <p>If Latif can reach the university <b>at or before 09:00 AM</b>, print:</p>
+                    <p><b>Legacy remains intact</b></p>
+                    <p>Otherwise, print:</p>
+                    <p><b>Not again</b></p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>01:00-am ≤ x ≤ 08:59-am</b></li>
+                        <li><b>1 ≤ k ≤ 120</b></li>
+                        <li>The speed of the vehicle is always <b>30 km/h</b>.</li>
+                        <li><b>x</b> is given in <b>HH:MM-am</b> format.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "08:00-am 30",
+                        output: "Legacy remains intact"
+                    },
+                    {
+                        input: "08:30-am 30",
+                        output: "Not again"
+                    }
+                ]
+            },
+
+            {
+                id: "C2-E",
+                letter: "E",
+                title: "The Triplet Reverse Technique! — Medium",
+                difficulty: "Medium",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Shikamaru came up with another string technique.
+                        He gives you a string <b>S</b> and asks you to divide it into <b>3 equal parts</b>, then reverse each part individually and print the final string.
+                    </p>
+                    <p>But there is one problem...</p>
+                    <p><b>Sometimes Shikamaru himself gets confused.</b></p>
+                    <p>
+                        Your task is to determine whether the string can be divided into <b>3 equal parts</b>.
+                    </p>
+                    <ul>
+                        <li>If it is possible, divide the string into 3 equal parts, reverse each part individually, and print the resulting string.</li>
+                        <li>Otherwise, print: <b>Shikamaru is confused</b></li>
+                    </ul>
+                `,
+
+                input: `
+                    <p>The input contains a single string <b>S</b>.</p>
+                `,
+
+                output: `
+                    <p>If the length of <b>S</b> can be divided into 3 equal parts, print the resulting string after reversing each part.</p>
+                    <p>Otherwise, print:</p>
+                    <p><b>"Shikamaru is confused"</b> without quotes.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ |S| ≤ 120</b></li>
+                        <li><b>S</b> contains only English letters.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "Shikamaru",
+                        output: "ihSmakura"
+                    },
+                    {
+                        input: "NarutoSasuk",
+                        output: "Shikamaru is confused"
+                    }
+                ]
+            },
+
+            {
+                id: "C2-F",
+                letter: "F",
+                title: "Latif's Kartesio Distance",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>Latif is back again.</p>
+                    <p>
+                        After fighting with matrices, his faculty now throws him into the world of the <b>Kartesio Graph</b>.
+                    </p>
+                    <p>
+                        Latif is given two points on the graph:<br>
+                        <b>(x₁, y₁)</b> and <b>(x₂, y₂)</b>
+                    </p>
+                    <p>
+                        Now his faculty asks him to determine the <b>straight-line distance</b> between these two points.
+                    </p>
+                    <p>
+                        Latif knows the concept from class, but apparently his brain has decided to take a break.
+                        Help Latif calculate the distance between the two given points.
+                    </p>
+                `,
+
+                input: `
+                    <p><b>Input Format</b></p>
+                    <p>The input contains four integers:</p>
+                    <p><b>x₁ y₁ x₂ y₂</b></p>
+                    <p>representing the coordinates of the two points.</p>
+                `,
+
+                output: `
+                    <p>Print the straight-line distance between the two points.</p>
+                    <p>Print the answer with <b>2 digits after the decimal point</b>.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>-100 ≤ x₁, y₁, x₂, y₂ ≤ 100</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "0 0 3 4",
+                        output: "5.00"
+                    },
+                    {
+                        input: "-2 3 4 -5",
+                        output: "10.00"
+                    }
+                ]
+            },
+
+            {
+                id: "C2-G",
+                letter: "G",
+                title: "Resistor Color Banding",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Arafat is a CSE student at Metropolitan University.
+                        This semester, he got a new course called <b>Basic Electrical and Electronic Circuits</b>. In this course, his faculty taught him how to determine the resistance value of a <b>3-band resistor</b> using its color bands.
+                    </p>
+
+                    <p>The resistor uses the following color codes:</p>
+
+                    <table style="width:100%;border-collapse:collapse;margin:12px 0;">
+                        <tr>
+                            <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">Color</th>
+                            <th style="border:1px solid #d1d5db;padding:8px;text-align:left;">Value</th>
+                        </tr>
+                        <tr><td style="border:1px solid #d1d5db;padding:8px;">black</td><td style="border:1px solid #d1d5db;padding:8px;">0</td></tr>
+                        <tr><td style="border:1px solid #d1d5db;padding:8px;">brown</td><td style="border:1px solid #d1d5db;padding:8px;">1</td></tr>
+                        <tr><td style="border:1px solid #d1d5db;padding:8px;">red</td><td style="border:1px solid #d1d5db;padding:8px;">2</td></tr>
+                        <tr><td style="border:1px solid #d1d5db;padding:8px;">orange</td><td style="border:1px solid #d1d5db;padding:8px;">3</td></tr>
+                        <tr><td style="border:1px solid #d1d5db;padding:8px;">yellow</td><td style="border:1px solid #d1d5db;padding:8px;">4</td></tr>
+                    </table>
+
+                    <p>
+                        Now Arafat wants to build a program that can calculate the resistor value automatically.
+                        You are given <b>3 color names</b>, representing the three bands of a resistor.
+                    </p>
+                    <p>
+                        The <b>1st and 2nd colors</b> give the first two digits of the resistance value.
+                        The <b>3rd color</b> determines the multiplier. For the 3rd color, its value is used as the power of 10.
+                        Finally, combine the first two digits with this multiplier to get the resistance value.
+                    </p>
+                    <p>
+                        For example, if the first two colors give 12 and the third color has value 3, the final value is obtained using <b>12 × 10³</b>.
+                        The answer should be given in <b>ohms</b>.
+                    </p>
+                `,
+
+                input: `
+                    <p>The input contains three lowercase color names representing the three resistor bands.</p>
+                `,
+
+                output: `
+                    <p>Print the resistance value of the resistor in ohms.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li>Exactly 3 color names will be given.</li>
+                        <li>Each color is one of: <b>black, brown, red, orange, yellow</b>.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "brown red orange",
+                        output: "12000"
+                    },
+                    {
+                        input: "black brown brown",
+                        output: "10"
+                    }
+                ]
+            }
+        ]
+    },
+
+
+    /* =====================================================
        CONTEST 1
        04 September 2026
        ===================================================== */
