@@ -4675,6 +4675,539 @@ n`,
 
 
 
+        /* =====================================================
+           CONTEST 3
+           ===================================================== */
+
+    {
+        day: "C3",
+        archiveLabel: "Contest 3",
+        date: "18 September 2026",
+        time: "9:00 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSfblGgdP4pguAqkfYhz0DlnDKg3g0VauLZulC1Xacn5Kmxijw/viewform?usp=publish-editor",
+
+        problems: [
+
+            {
+                id: "C3-A",
+                letter: "A",
+                title: "Yuji's Domain Expansion(Arafat)",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Yuji is a special-grade sorcerer in the JJK universe.<br>
+                        His ability is a powerful Domain Expansion that allows him to create a circular area under his control. Everything inside this domain comes under Yuji's control, and no curse can escape once it is trapped inside.
+                    </p>
+
+                    <p>
+                        Yuji finally starts his attack against one of the strongest curse spirits ever known — <b>Sukuna</b>.
+                    </p>
+
+                    <p>
+                        Yuji activates his Domain Expansion at the point <b>(x₁, y₁)</b>. This point becomes the <b>center of the domain</b>, and a circle with radius <b>R</b> is created around him.
+                        Sukuna is currently standing at another point <b>(x₂, y₂)</b>.
+                    </p>
+
+                    <p>
+                        Now Yuji needs to know one thing:<br>
+                        <b>Can his Domain Expansion trap Sukuna?</b>
+                    </p>
+
+                    <p>
+                        Sukuna will be trapped if his position is <b>inside the circular domain or exactly on its boundary</b>.
+                        Your task is to determine whether Sukuna is within Yuji's Domain Expansion.
+                    </p>
+                `,
+
+                input: `
+                    <p><b>The input contains five integers:</b></p>
+                    <p><b>x₁ y₁ x₂ y₂ R</b></p>
+                    <p>
+                        Where:<br>
+                        <b>(x₁, y₁)</b> represents Yuji's position and the center of the Domain Expansion.<br>
+                        <b>(x₂, y₂)</b> represents Sukuna's position.<br>
+                        <b>R</b> represents the radius of Yuji's Domain Expansion.
+                    </p>
+                `,
+
+                output: `
+                    <p>If Sukuna is inside the domain or exactly on the boundary, print:</p>
+                    <p><b>Finally, Sukuna died</b></p>
+                    <p>Otherwise, print:</p>
+                    <p><b>This is the end</b></p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>-10⁴ ≤ x₁, y₁, x₂, y₂ ≤ 10⁴</b></li>
+                        <li><b>1 ≤ R ≤ 10⁴</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "0 0 3 4 5",
+                        output: "Finally, Sukuna died"
+                    },
+                    {
+                        input: "0 0 6 8 5",
+                        output: "This is the end"
+                    }
+                ]
+            },
+
+            {
+                id: "C3-B",
+                letter: "B",
+                title: "Senku's Equivalent Resistor Theory(Arafat)",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Senku is one of the greatest scientists in the world. Many people call him the Einstein of the <i>Dr. Stone</i> universe.
+                    </p>
+
+                    <p>
+                        One day, his <b>Sensei</b> (teacher in Japanese) decided to teach him an important concept from electrical science — how to calculate the <b>equivalent resistance</b> of multiple resistors connected together.
+                    </p>
+
+                    <p>
+                        Senku's Sensei gives him Three resistors. Each resistor has a <b>name</b> and a <b>resistance value</b>.
+                        The resistors are represented by a string.
+                    </p>
+
+                    <p>
+                        For example:<br>
+                        <b>a123b231c222</b>
+                    </p>
+
+                    <p>This means:</p>
+                    <ul>
+                        <li>a = 123</li>
+                        <li>b = 231</li>
+                        <li>c = 222</li>
+                    </ul>
+
+                    <p>
+                        Every resistor has a resistance value between <b>100 and 999</b>.
+                        But Senku's Sensei doesn't tell him directly how the three resistors are connected.
+                        Instead, he gives Senku another string <b>t</b> containing the type of connection:
+                    </p>
+
+                    <ul>
+                        <li><b>inser</b> → <b>Series connection</b></li>
+                        <li><b>inpar</b> → <b>Parallel connection</b></li>
+                    </ul>
+
+                    <p>
+                        Now Senku has to calculate the equivalent resistance of all the given resistors.
+                        His Sensei tells him that the formulas are simple.
+                    </p>
+
+                    <p>
+                        For a <b>series connection</b>, the equivalent resistance is the sum of all resistor values:<br>
+                        <b>R = a + b + c</b>
+                    </p>
+
+                    <p>
+                        For a <b>parallel connection</b>, the equivalent resistance is:<br>
+                        <b>R = 1 / (1/a + 1/b + 1/c)</b>
+                    </p>
+
+                    <p>
+                        After calculating the equivalent resistance, Senku only needs the <b>integer part</b> of the answer.
+                        He does not want the decimal part.
+                        Help Senku calculate the equivalent resistance and print the required answer.
+                    </p>
+                `,
+
+                input: `
+                    <p><b>The input contains two strings:</b></p>
+                    <p>
+                        The first string <b>s</b> describes the resistors. Each lowercase English letter represents a resistor name, and the digits immediately following that letter represent its resistance value.
+                    </p>
+                    <p>
+                        The second string <b>t</b> describes the type of connection.
+                    </p>
+                    <p>
+                        <b>t</b> will be either:<br>
+                        <b>inser</b> — for series connection<br>
+                        <b>inpar</b> — for parallel connection
+                    </p>
+                    <p>Each resistor value satisfies <b>100 ≤ value ≤ 999</b>.</p>
+                    <p>There are at least <b>3 resistors</b> in <b>s</b>.</p>
+                `,
+
+                output: `
+                    <p>Print the <b>integer part</b> of the equivalent resistance.</p>
+                    <p>No decimal places should be printed.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>3 ≤ number of resistors ≤ 10</b></li>
+                        <li><b>100 ≤ resistor value ≤ 999</b></li>
+                        <li>Each resistor name is a lowercase English letter.</li>
+                        <li><b>t</b> is either <b>inser</b> or <b>inpar</b>.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "a123b231c222 inser",
+                        output: "576"
+                    },
+                    {
+                        input: "a100b200c300 inpar",
+                        output: "54"
+                    }
+                ]
+            },
+
+            {
+                id: "C3-C",
+                letter: "C",
+                title: "A. Pass Key (Arafat)",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        After searching for too long and having a great journey in search of the legendary treasure, the One Piece, Luffy and his crew finally found it.
+                    </p>
+
+                    <p>
+                        But there was one problem.<br>
+                        The treasure had a very special security feature. No matter how powerful the user's Haki was or how strong their Devil Fruit power might be, the treasure could not be unlocked without finding a very specific key.
+                    </p>
+
+                    <p>The key follows some strict properties.</p>
+
+                    <p><b>Properties:</b></p>
+
+                    <ol>
+                        <li>
+                            The key is a string containing a combination of <b>letters and digits</b>. All letters in the key are lowercase English letters (a to z).
+                        </li>
+                        <li>
+                            The length of the key can vary, but the treasure only accepts a key whose length is exactly <b>8 or 16</b>. Any other length means the key will not work.
+                        </li>
+                        <li>
+                            If the length of the key is <b>8</b>, the key is valid if and only if:
+                            <ul>
+                                <li>the <b>3rd and 4th characters</b>, when combined, form a two-digit number;</li>
+                                <li>the <b>last two characters</b>, when combined, form another two-digit number;</li>
+                                <li>the number formed by the 3rd and 4th characters is exactly <b>half</b> of the number formed by the last two characters.</li>
+                            </ul>
+                            For example, <b>ar25fa50</b> is valid because 25 is half of 50.
+                        </li>
+                        <li>
+                            If the length of the key is <b>16</b>, then there is a twist.
+                            The key is valid if and only if:
+                            <ul>
+                                <li>the <b>7th and 8th characters</b>, when combined, form a number that is <b>double</b> the number formed by the <b>3rd and 4th characters</b>;</li>
+                                <li>the <b>11th and 12th characters</b>, when combined, form a number whose difference from the number formed by the <b>3rd and 4th characters</b> is exactly <b>10</b>;</li>
+                                <li>the <b>15th and 16th characters</b>, when combined, form a number that is <b>double</b> the number formed by the <b>11th and 12th characters</b>.</li>
+                            </ul>
+                            For example, <b>ab25cd50ef35gh70</b> is valid because:<br>
+                            50 = 25 × 2<br>
+                            35 - 25 = 10<br>
+                            70 = 35 × 2
+                        </li>
+                    </ol>
+
+                    <p>
+                        Luffy and his crew found millions of strings near the treasure, and they are checking them one by one.
+                        Your task is to determine whether a given string is the true treasure key.
+                    </p>
+                `,
+
+                input: `
+                    <p>A single string <b>S</b> containing a combination of lowercase English letters and digits.</p>
+                `,
+
+                output: `
+                    <p>If the string satisfies all the properties of a workable treasure key, print:</p>
+                    <p><b>Finally Luffy became the King of the Pirates</b></p>
+                    <p>Otherwise, print:</p>
+                    <p><b>Where the key? Find the valid key.</b></p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ |S| ≤ 100</b></li>
+                        <li><b>S</b> contains only lowercase English letters (a-z) and digits (0-9).</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "ar25fa50",
+                        output: "Finally Luffy became the King of the Pirates"
+                    },
+                    {
+                        input: "ab25c",
+                        output: "Where the key? Find the valid key."
+                    }
+                ]
+            },
+
+            {
+                id: "C3-D",
+                letter: "D",
+                title: "Programming Ability (Mubin)",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        There are <b>N</b> people numbered 1 through N. Each person has an integer score called programming ability; person i's programming ability is <b>P<sub>i</sub></b> points.
+                    </p>
+
+                    <p>
+                        How many more points does person 1 need so that person 1 becomes the strongest?
+                    </p>
+
+                    <p>
+                        In other words, find the minimum non-negative integer <b>x</b> such that:<br>
+                        <b>P<sub>1</sub> + x &gt; P<sub>i</sub></b> (for all i != 1)
+                    </p>
+                `,
+
+                input: `
+                    <p><b>Input Format</b></p>
+                    <p>The input is given from Standard Input in the following format:</p>
+                    <pre>N
+P<sub>1</sub> P<sub>2</sub> ... P<sub>N</sub></pre>
+                `,
+
+                output: `
+                    <p><b>Output Format</b></p>
+                    <p>Print the answer as a single integer (the minimum non-negative integer x).</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ N ≤ 100</b></li>
+                        <li><b>1 ≤ P<sub>i</sub> ≤ 100</b></li>
+                        <li>All input values are integers.</li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: `5
+10 20 30 40 50`,
+                        output: "41"
+                    },
+                    {
+                        input: `4
+100 50 75 90`,
+                        output: "0"
+                    }
+                ]
+            },
+
+            {
+                id: "C3-E",
+                letter: "E",
+                title: "Even Sum (Mubin)",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>You are given an array <b>A</b> of <b>N</b> elements.</p>
+
+                    <p>
+                        You must perform exactly one move. In this move, you have to choose an index <b>i</b> (1 &le; i &le; N) and remove <b>A<sub>i</sub></b> from the array.
+                    </p>
+
+                    <p>
+                        Determine whether there exists an index <b>i</b> such that after removing <b>A<sub>i</sub></b>, the sum of the remaining N-1 elements becomes even.
+                    </p>
+                `,
+
+                input: `
+                    <p>The first line of input will contain a single integer <b>T</b>, denoting the number of test cases.</p>
+                    <p>Each test case consists of two lines:</p>
+                    <ul>
+                        <li>The first line contains a single integer <b>N</b>, denoting the size of the array.</li>
+                        <li>The second line contains N space-separated integers <b>A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>N</sub></b>, denoting the elements of the array.</li>
+                    </ul>
+                `,
+
+                output: `
+                    <p>For each test case, output <b>YES</b> if there exists an index i such that after removing A<sub>i</sub>, the sum of the remaining elements is even; otherwise, output <b>NO</b>.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ T ≤ 100</b></li>
+                        <li><b>2 ≤ N ≤ 100</b></li>
+                        <li><b>1 ≤ A<sub>i</sub> ≤ 100</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: `4
+2
+5 7
+3
+1 2 3
+4
+1 1 1 1
+5
+4 1 6 7 3`,
+                        output: `NO
+YES
+NO
+YES`
+                    },
+                    {
+                        input: `4
+4
+2 4 6 8
+6
+1 2 3 4 5 6
+4
+1 3 5 7
+6
+2 2 2 3 3 3`,
+                        output: `YES
+YES
+NO
+YES`
+                    }
+                ]
+            },
+
+            {
+                id: "C3-F",
+                letter: "F",
+                title: "Draft Picks (Mubin)",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        N people are preparing to play a card game. The people are numbered 1 to N.
+                        There are K cards, with exactly one card having strength x for each <b>1 &le; x &le; K</b>.
+                    </p>
+
+                    <p>
+                        In an attempt to keep things fair, the players decide to pick cards in a <b>snake draft</b>.
+                        This means the process is as follows:
+                    </p>
+
+                    <ul>
+                        <li>
+                            First, player 1 will pick one card, then player 2, player 3, and so on until player N picks a card (or all cards have been picked).
+                        </li>
+                        <li>
+                            After all N players have picked one card each, the order reverses: player N will pick a card, then player N-1, and so on until player 1.
+                        </li>
+                        <li>
+                            After all N players have picked one card each, the order reverses again: so players 1 to N will pick their third cards in this order.
+                        </li>
+                        <li>
+                            This process of players picking one card each in order from either 1 to N or N to 1 and then reversing order continues over and over again till all K cards have been picked.
+                        </li>
+                    </ul>
+
+                    <p>
+                        On their turn, every player will always pick the card with the <b>maximum remaining strength</b>.
+                        The deck strength of a player is defined to be the sum of strengths of all the cards they picked.
+                    </p>
+
+                    <p>
+                        For example, if a player picks three cards with strengths 3, 7, and 11, their deck strength is 3 + 7 + 11 = 21.
+                    </p>
+
+                    <p>
+                        After all picks have been made, what is the maximum deck strength any one player has?
+                    </p>
+                `,
+
+                input: `
+                    <p>The first line of input will contain a single integer <b>T</b>, denoting the number of test cases.</p>
+                    <p>Each test case consists of a single line of input, containing two space-separated integers <b>N</b> and <b>K</b>.</p>
+                `,
+
+                output: `
+                    <p>For each test case, output on a new line the answer: the maximum deck strength of any one player.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 ≤ T ≤ 10<sup>4</sup></b></li>
+                        <li><b>2 ≤ N ≤ 100</b></li>
+                        <li><b>1 ≤ K ≤ 100</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: `4
+2 2
+3 7
+5 3
+6 20`,
+                        output: `2
+10
+3
+37`
+                    },
+                    {
+                        input: `6
+2 5
+3 4
+4 8
+5 10
+6 5
+4 15`,
+                        output: `8
+4
+9
+11
+5
+30`
+                    }
+                ]
+            }
+
+        ]
+    },
+
     /* =====================================================
        CONTEST 2
        11 September 2026
