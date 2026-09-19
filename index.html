@@ -63,6 +63,7 @@ body.dark .hero {
 
 body.dark .problem-card,
 body.dark .info-card,
+body.dark .profile-panel,
 body.dark .problem-container,
 body.dark .example-box,
 body.dark .archive-day,
@@ -1370,6 +1371,1376 @@ body.dark .archive-empty strong {
         text-align: center;
     }
 }
+
+
+/* =========================================================
+   ARAFAT CP — LOCAL PROFILE + APPROVAL EXPERIENCE
+   ========================================================= */
+.profile-nav-btn{
+    display:inline-flex;align-items:center;gap:8px;max-width:220px;overflow:hidden
+}
+.profile-avatar{
+    width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#e8f0fe,#f3e8ff);color:#315fc8;border:1px solid #cdd8f2;
+    font-size:12px;font-weight:900;flex:0 0 28px
+}
+.profile-nav-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.profile-panel{display:none;margin-top:30px}
+.profile-panel.visible{display:block}
+.profile-hero{
+    padding:30px;border-radius:24px;background:linear-gradient(135deg,#ffffff,#f4f7ff);
+    border:1px solid #dfe5ef;margin-bottom:18px;box-shadow:0 14px 40px rgba(25,55,100,.07)
+}
+.profile-hero-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.profile-identity{display:flex;align-items:center;gap:16px;min-width:0}
+.profile-big-avatar{
+    width:76px;height:76px;border-radius:23px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#4285f4,#7c4dff);color:#fff;font-size:30px;font-weight:900;
+    box-shadow:0 10px 28px rgba(66,133,244,.22);flex:0 0 76px
+}
+.profile-hero h1{font-size:31px;line-height:1.15}
+.profile-hero p{color:#687386;font-size:13px;margin-top:5px}
+.profile-actions{display:flex;gap:8px;flex-wrap:wrap}
+.profile-action-btn{
+    border:1px solid #d4dae4;background:#fff;color:#344054;padding:10px 14px;border-radius:11px;
+    cursor:pointer;font-size:12px;font-weight:850;transition:.2s
+}
+.profile-action-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(15,23,42,.08)}
+.profile-action-btn.primary{background:#1a73e8;color:#fff;border-color:#1a73e8}
+
+.profile-dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.profile-stat{
+    background:#fff;border:1px solid #e1e6ee;border-radius:17px;padding:18px;text-align:center;
+    box-shadow:0 5px 18px rgba(15,23,42,.025)
+}
+.profile-stat-number{font-size:27px;font-weight:900}
+.profile-stat-label{color:#697586;font-size:11px;font-weight:800;margin-top:2px}
+.profile-stat:nth-child(2) .profile-stat-number{color:#188038}
+.profile-stat:nth-child(3) .profile-stat-number{color:#b7791f}
+.profile-stat:nth-child(4) .profile-stat-number{color:#d93025}
+
+.profile-progress-box,.profile-history-box{
+    background:#fff;border:1px solid #e1e6ee;border-radius:19px;padding:22px;margin-bottom:18px;
+    box-shadow:0 5px 18px rgba(15,23,42,.025)
+}
+.profile-progress-title,.profile-history-title{font-size:18px;font-weight:900;margin-bottom:12px}
+.progress-track{width:100%;height:12px;background:#e9edf3;border-radius:50px;overflow:hidden;margin:10px 0 7px}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#1a73e8,#7c4dff);border-radius:inherit;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.profile-filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.profile-filter-btn{
+    border:1px solid #d5dbe5;background:#fff;color:#536174;padding:8px 11px;border-radius:999px;
+    cursor:pointer;font-size:11px;font-weight:850;transition:.2s
+}
+.profile-filter-btn.active,.profile-filter-btn:hover{background:#1a73e8;border-color:#1a73e8;color:#fff}
+.profile-problem-list{display:flex;flex-direction:column;gap:8px}
+.profile-problem-row{
+    display:grid;grid-template-columns:82px 1fr auto;gap:12px;align-items:center;padding:14px;
+    border:1px solid #e3e7ed;border-radius:14px;background:#fafbfc;transition:.2s
+}
+.profile-problem-row:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(15,23,42,.05)}
+.profile-day{font-size:11px;font-weight:900;color:#1a73e8}
+.profile-problem-name{min-width:0}
+.profile-problem-name strong{display:block;font-size:13px}
+.profile-problem-name span{color:#7a8697;font-size:10px}
+.status-pill{
+    display:inline-flex;align-items:center;justify-content:center;min-width:126px;padding:7px 10px;
+    border-radius:999px;font-size:9px;font-weight:950;white-space:nowrap
+}
+.status-not-attempted{background:#eef1f5;color:#687386}
+.status-submitted{background:#fff4d6;color:#a15c00}
+.status-not-approved{background:#fde8e7;color:#c5221f}
+.status-approved{background:#e4f6e9;color:#137333}
+
+.problem-status-box{
+    margin-top:20px;padding:18px;border-radius:17px;border:1px solid #e1e6ee;background:#f8fafc
+}
+.problem-status-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.problem-status-title{font-weight:900}
+.problem-status-help{color:#687386;font-size:11px;margin-top:4px}
+.approval-button{
+    width:100%;margin-top:14px;border:1px solid #dc2626;background:#dc2626;color:#fff;
+    padding:13px 16px;border-radius:11px;cursor:pointer;font-size:13px;font-weight:950;
+    letter-spacing:.2px;box-shadow:0 7px 18px rgba(220,38,38,.18);transition:.22s
+}
+.approval-button:hover{background:#b91c1c;transform:translateY(-1px)}
+.approval-button.approved{
+    background:#188038;border-color:#188038;box-shadow:0 7px 18px rgba(24,128,56,.18);cursor:default
+}
+.approval-button:disabled{opacity:1}
+.approval-reset-button{width:100%;margin-top:7px;padding:8px 12px;border:1px solid #d5dbe5;background:transparent;color:#6b7280;border-radius:9px;cursor:pointer;font-size:10px;font-weight:900}
+.approval-reset-button:hover{background:#f3f4f6;color:#374151}
+body.dark .approval-reset-button{border-color:#394553;color:#aeb8c6}
+body.dark .approval-reset-button:hover{background:#1b222c;color:#e8edf5}
+.problem-approved-time{margin-top:9px;color:#137333;font-size:11px;font-weight:850}
+
+.profile-modal{
+    position:fixed;inset:0;z-index:12000;display:none;align-items:center;justify-content:center;padding:18px;
+    background:rgba(20,28,40,.48);backdrop-filter:blur(10px)
+}
+.profile-modal.show{display:flex}
+.profile-modal-card{
+    width:min(650px,100%);max-height:88vh;overflow:auto;background:#fff;border:1px solid #e0e5ec;
+    border-radius:26px;padding:24px;box-shadow:0 30px 100px rgba(0,0,0,.22)
+}
+.profile-modal-head{display:flex;justify-content:space-between;gap:15px}
+.profile-modal-kicker{font-size:10px;letter-spacing:1.5px;font-weight:950;color:#1a73e8}
+.profile-modal-card h2{font-size:23px}
+.profile-modal-head p{color:#707b8d;font-size:12px;margin:4px 0 18px}
+.profile-x-btn{
+    border:0;background:#f1f3f6;color:#526072;width:36px;height:36px;border-radius:50%;
+    font-size:22px;cursor:pointer;flex:0 0 36px
+}
+.profile-create-box{
+    display:flex;gap:8px;padding:12px;background:#f7f9fc;border:1px solid #e2e7ee;
+    border-radius:16px;margin-bottom:20px
+}
+.profile-create-input{
+    flex:1;min-width:0;padding:11px 12px;border:1px solid #d3dae4;border-radius:10px;outline:none;
+    background:#fff;color:#172033
+}
+.profile-create-input:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1)}
+.profile-manager-title{
+    font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:950;color:#7a8697;margin-bottom:9px
+}
+.profile-list{display:flex;flex-direction:column;gap:9px}
+.profile-list-item{
+    display:flex;align-items:center;gap:11px;padding:12px;border:1px solid #e1e6ee;
+    border-radius:15px;background:#fff;transition:.2s
+}
+.profile-list-item:hover{box-shadow:0 6px 20px rgba(15,23,42,.06)}
+.profile-list-item.active{border-color:#1a73e8;box-shadow:0 0 0 2px rgba(26,115,232,.1)}
+.profile-list-item .profile-avatar{width:40px;height:40px;flex-basis:40px;font-size:15px}
+.profile-list-name{flex:1;min-width:0;font-weight:850}
+.profile-list-name small{display:block;color:#7a8697;font-size:10px;margin-top:2px}
+.profile-list-actions{display:flex;gap:6px}
+.profile-small-btn{
+    border:1px solid #d5dbe5;background:#fff;color:#3d4959;padding:7px 9px;border-radius:8px;
+    cursor:pointer;font-size:10px;font-weight:900
+}
+.profile-small-btn:disabled{cursor:default;opacity:.8}
+.profile-small-btn.delete{color:#c5221f;border-color:#efb8b5}
+.profile-modal-close{
+    width:100%;margin-top:16px;padding:10px;border:1px solid #d5dbe5;background:transparent;
+    color:#4b5768;border-radius:10px;cursor:pointer;font-weight:900
+}
+.profile-empty{
+    text-align:center;padding:28px 15px;color:#7a8697;border:1px dashed #d8dee8;border-radius:14px
+}
+
+
+/* =========================================================
+   APPROVAL CELEBRATION — 8 DISTINCT WORLDS
+   FULLSCREEN • LOOPING • USER-CONTROLLED • UNIQUE
+   ========================================================= */
+
+.celebration-overlay{
+    position:fixed;
+    inset:0;
+    z-index:15000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    isolation:isolate;
+    background:rgba(3,6,12,.88);
+    backdrop-filter:blur(16px);
+}
+
+.celebration-overlay.show{
+    display:flex;
+    animation:celebrationOverlayIn .35s ease both;
+}
+
+.celebration-stage{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    overflow:hidden;
+    pointer-events:auto;
+    isolation:isolate;
+}
+
+.celebration-interactor{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    border:0;
+    background:transparent;
+    cursor:crosshair;
+    pointer-events:auto;
+}
+
+.celebration-card{
+    position:relative;
+    z-index:100;
+    isolation:isolate;
+    width:min(680px,calc(100% - 24px));
+    max-height:calc(100vh - 32px);
+    overflow:auto;
+    padding:30px 26px 24px;
+    text-align:center;
+    border-radius:30px;
+    background:#fff;
+    border:1px solid #dfe5ed;
+    box-shadow:0 35px 140px rgba(0,0,0,.58);
+    animation:celebrationCardEntrance .7s cubic-bezier(.16,1.2,.3,1) both;
+}
+
+.celebration-card .ce-icon{
+    position:relative;
+    z-index:4;
+    font-size:64px;
+    line-height:1;
+    margin:4px 0 10px;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.18));
+    animation:iconFloat 2.8s ease-in-out infinite;
+}
+
+.celebration-card .ce-kicker{
+    position:relative;
+    z-index:4;
+    font-size:10px;
+    letter-spacing:2.5px;
+    font-weight:950;
+    text-transform:uppercase;
+}
+
+.celebration-card h2{
+    position:relative;
+    z-index:4;
+    font-size:clamp(25px,5vw,40px);
+    line-height:1.1;
+    margin:7px 0;
+}
+
+.celebration-card p{
+    position:relative;
+    z-index:4;
+    color:#657185;
+    font-size:13px;
+    margin:0 auto;
+    max-width:560px;
+}
+
+.ce-badge{
+    position:relative;
+    z-index:4;
+    display:inline-flex;
+    margin-top:10px;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:.7px;
+}
+
+.ce-stats{
+    position:relative;
+    z-index:4;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:17px 0;
+}
+
+.ce-stats>div{
+    padding:12px 7px;
+    border:1px solid #e1e6ee;
+    border-radius:13px;
+    background:#f8fafc;
+    transition:.25s;
+}
+
+.ce-stats>div:hover{
+    transform:translateY(-3px);
+}
+
+.ce-stats strong{
+    display:block;
+    font-size:21px;
+}
+
+.ce-stats span{
+    font-size:9px;
+    color:#758195;
+    font-weight:850;
+    text-transform:uppercase;
+}
+
+.celebration-actions{
+    position:relative;
+    z-index:120;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.celebration-close{
+    border:none;
+    background:#1a73e8;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:900;
+    transition:.22s;
+}
+
+.celebration-close:hover{
+    transform:translateY(-2px) scale(1.02);
+}
+
+.celebration-close.secondary{
+    background:#eef3f9;
+    color:#344054;
+}
+
+.balloon-hint{
+    position:relative;
+    z-index:4;
+    margin-top:13px;
+    color:#7a8697;
+    font-size:10px;
+    font-weight:800;
+}
+
+/* =========================
+   UNIQUE WORLD THEMES
+   ========================= */
+
+.ce-accepted{
+    background:linear-gradient(145deg,#06120b,#0b2917 48%,#06100a);
+    border:1px solid #31e981;
+    color:#eafff2;
+    box-shadow:0 0 90px rgba(49,233,129,.24),0 35px 140px rgba(0,0,0,.72);
+}
+.ce-accepted .ce-kicker{color:#54f59a}
+.ce-accepted p{color:#b7e9c8}
+.ce-accepted .ce-badge{background:#123c25;color:#62ff9d}
+.ce-accepted .ce-stats>div{background:#0b1c13;border-color:#1c5c37}
+.ce-accepted .ce-stats span{color:#8bc8a3}
+.ce-accepted .celebration-close{background:#24bd68}
+
+.ce-balloons{
+    background:linear-gradient(145deg,#fff5fb,#edf6ff 48%,#fffaf0);
+    border:2px solid #ed76b0;
+    box-shadow:0 0 100px rgba(232,77,145,.32),0 35px 140px rgba(0,0,0,.35);
+}
+.ce-balloons .ce-kicker{color:#d63883}
+.ce-balloons .ce-badge{background:#ffe1ef;color:#b9276b}
+.ce-balloons .celebration-close{background:#d63883}
+
+.ce-confetti{
+    background:linear-gradient(145deg,#fffdf4,#f1f7ff);
+    border:1px solid #f0d36c;
+    box-shadow:0 0 90px rgba(245,177,32,.27),0 35px 140px rgba(0,0,0,.4);
+}
+.ce-confetti .ce-kicker{color:#d38b00}
+.ce-confetti .ce-badge{background:#fff0bd;color:#9a6400}
+.ce-confetti .celebration-close{background:#e49b0b}
+
+.ce-fireworks{
+    background:radial-gradient(circle at 50% 0,#203760,#071020 72%);
+    border:1px solid #5689d6;
+    color:#fff;
+    box-shadow:0 0 110px rgba(63,128,255,.3),0 35px 140px rgba(0,0,0,.78);
+}
+.ce-fireworks .ce-kicker{color:#79b8ff}
+.ce-fireworks p{color:#b7c8e3}
+.ce-fireworks .ce-badge{background:#162b4e;color:#8fc7ff}
+.ce-fireworks .ce-stats>div{background:#0c182b;border-color:#29466f}
+.ce-fireworks .ce-stats span{color:#8da8c9}
+.ce-fireworks .celebration-close{background:#3277e8}
+
+.ce-galaxy{
+    background:radial-gradient(circle at 50% 38%,#33216c,#0c0920 60%,#05040e);
+    border:1px solid #9278ff;
+    color:#fff;
+    box-shadow:0 0 120px rgba(126,86,255,.34),0 35px 140px rgba(0,0,0,.82);
+}
+.ce-galaxy .ce-kicker{color:#c9b4ff}
+.ce-galaxy p{color:#c8c0df}
+.ce-galaxy .ce-badge{background:#2b205d;color:#d5c5ff}
+.ce-galaxy .ce-stats>div{background:#120e2c;border-color:#45377b}
+.ce-galaxy .ce-stats span{color:#aaa0ce}
+.ce-galaxy .celebration-close{background:#7651df}
+
+.ce-terminal{
+    background:#020805;
+    border:1px solid #27e77a;
+    color:#b8ffcc;
+    border-radius:10px;
+    box-shadow:0 0 90px rgba(39,231,122,.24),0 35px 140px rgba(0,0,0,.88);
+    font-family:Consolas,monospace;
+}
+.ce-terminal .ce-kicker{color:#42ff91}
+.ce-terminal h2{font-family:Consolas,monospace;font-size:clamp(21px,4vw,32px)}
+.ce-terminal p{color:#84c999;font-family:Consolas,monospace}
+.ce-terminal .ce-badge{background:#092c17;color:#58ff99;border:1px solid #1a8f4c}
+.ce-terminal .ce-stats>div{background:#06130b;border-color:#164f2d}
+.ce-terminal .ce-stats span{color:#70b889}
+.ce-terminal .celebration-close{background:#129b4b;border-radius:5px;font-family:Consolas,monospace}
+
+.ce-dna{
+    background:linear-gradient(145deg,#04131a,#082b38 52%,#031116);
+    border:1px solid #32e7ff;
+    color:#e8fdff;
+    box-shadow:0 0 120px rgba(42,199,223,.3),0 35px 140px rgba(0,0,0,.82);
+}
+.ce-dna .ce-kicker{color:#67efff}
+.ce-dna p{color:#b8e9ef}
+.ce-dna .ce-badge{background:#063c4a;color:#72f5ff}
+.ce-dna .ce-stats>div{background:#061e27;border-color:#1a6876}
+.ce-dna .ce-stats span{color:#87cbd3}
+.ce-dna .celebration-close{background:#079bb3}
+
+.ce-brain{
+    background:linear-gradient(145deg,#171044,#25136a 48%,#102a62);
+    border:1px solid #b39cff;
+    color:#fff;
+    box-shadow:0 0 120px rgba(143,105,255,.36),0 35px 140px rgba(0,0,0,.8);
+}
+.ce-brain .ce-kicker{color:#d6c9ff}
+.ce-brain p{color:#d8d1ee}
+.ce-brain .ce-badge{background:#38237a;color:#e2d9ff}
+.ce-brain .ce-stats>div{background:#1a1440;border-color:#56448e}
+.ce-brain .ce-stats span{color:#b9afe0}
+.ce-brain .celebration-close{background:#7656e8}
+
+/* =========================
+   SHARED EFFECT PRIMITIVES
+   ========================= */
+
+.effect-text{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+    text-align:center;
+    font-weight:1000;
+    letter-spacing:2px;
+    white-space:nowrap;
+    pointer-events:none;
+    text-shadow:0 8px 35px rgba(0,0,0,.5);
+    animation:heroTextPulse 2.6s ease-in-out infinite;
+}
+
+.effect-ring{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:70px;
+    height:70px;
+    border:3px solid rgba(255,255,255,.8);
+    border-radius:50%;
+    transform:translate(-50%,-50%) scale(.1);
+    animation:ringBurstLoop 2.2s ease-out infinite;
+}
+
+.effect-star{
+    position:absolute;
+    font-size:22px;
+    animation:starFlyLoop 2.7s cubic-bezier(.15,.8,.2,1) infinite;
+    filter:drop-shadow(0 0 8px currentColor);
+    pointer-events:none;
+}
+
+.confetti-piece{
+    position:absolute;
+    z-index:1;
+    top:-30px;
+    border-radius:3px;
+    animation:confettiFallLoop linear infinite;
+    transform-origin:center;
+    box-shadow:0 0 7px rgba(255,255,255,.3);
+    pointer-events:none;
+}
+
+.firework{
+    position:absolute;
+    z-index:1;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 22px 7px #fff;
+    animation:fireworkCoreLoop .85s ease-out infinite;
+    pointer-events:none;
+}
+
+.firework-dot{
+    position:absolute;
+    z-index:1;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 14px #fff;
+    transform:translate(-50%,-50%);
+    animation:fireworkFlyLoop 1.25s cubic-bezier(.1,.6,.2,1) infinite;
+    pointer-events:none;
+}
+
+.galaxy-star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 8px 2px #cbbcff;
+    animation:orbitStarLoop linear infinite;
+    pointer-events:none;
+}
+
+.galaxy-dust{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#e4d9ff;
+    box-shadow:0 0 6px 1px #bcaaff;
+    animation:galaxyDustLoop 5s linear infinite;
+}
+
+.code-rain{
+    position:absolute;
+    top:-30px;
+    color:#48ff91;
+    font:700 12px Consolas,monospace;
+    opacity:.8;
+    animation:codeFallLoop linear infinite;
+    text-shadow:0 0 10px #18e66c;
+    pointer-events:none;
+}
+
+.terminal-box{
+    position:absolute;
+    left:50%;
+    top:9%;
+    z-index:2;
+    transform:translateX(-50%);
+    width:min(620px,92vw);
+    padding:20px;
+    text-align:left;
+    border:1px solid #1b7a42;
+    background:rgba(0,15,7,.8);
+    box-shadow:0 0 30px rgba(30,255,110,.12);
+    font:12px Consolas,monospace;
+    color:#63ff9b;
+    pointer-events:none;
+}
+
+.terminal-line{
+    opacity:0;
+    animation:terminalLineLoop 3.6s ease-in-out infinite;
+}
+
+.binary-grid{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:8px;
+    padding:8vh 5vw;
+    opacity:.32;
+    pointer-events:none;
+}
+
+.binary-cell{
+    font:11px Consolas,monospace;
+    color:#42ff91;
+    animation:binaryPulseLoop 1.2s ease-in-out infinite alternate;
+}
+
+/* =========================
+   DNA — BRICK-BY-BRICK
+   ========================= */
+
+.dna-core{
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:3;
+    width:210px;
+    height:350px;
+    transform-style:preserve-3d;
+    perspective:900px;
+    transform:translate(-50%,-50%);
+    filter:drop-shadow(0 0 28px rgba(55,232,255,.6));
+    animation:dnaFloatLoop 7s ease-in-out infinite;
+}
+.dna-core:before{content:"";position:absolute;inset:-25px;border:1px solid rgba(72,238,255,.15);border-radius:50%;transform:rotateX(72deg);box-shadow:0 0 45px rgba(43,221,255,.12)}
+.dna-core .dna-node{
+    position:absolute;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff,#71f7ff 35%,#1596b6 100%);
+    box-shadow:0 0 18px #35e8ff,0 0 35px rgba(53,232,255,.35);
+    transform:translate(-50%,-50%) scale(0) translateZ(80px);
+    opacity:0;
+    animation:dnaBrickBuild 6s cubic-bezier(.16,1.2,.3,1) infinite;
+}
+.dna-core .dna-bridge{
+    position:absolute;
+    height:4px;
+    border-radius:8px;
+    background:linear-gradient(90deg,#35e8ff,#fff,#35e8ff);
+    box-shadow:0 0 12px #35e8ff,0 0 28px rgba(53,232,255,.4);
+    transform-origin:left center;
+    transform:scaleX(0) translateZ(0);
+    opacity:0;
+    animation:dnaBridgeBuild 6s cubic-bezier(.16,1.1,.3,1) infinite;
+}
+.dna-core .dna-bridge:after{content:"";position:absolute;left:50%;top:50%;width:100%;height:100%;border-radius:inherit;background:rgba(255,255,255,.4);transform:translate(-50%,-50%) scaleY(2.5);filter:blur(3px)}
+
+.dna-spark{
+    position:absolute;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#9fffff;
+    box-shadow:0 0 12px #3cecff;
+    animation:dnaSparkLoop 2.2s ease-out infinite;
+    pointer-events:none;
+}
+
+/* =========================
+   BRAIN → LIGHT BULB
+   ========================= */
+
+.brain-orb{
+    position:absolute;
+    left:50%;
+    top:46%;
+    z-index:4;
+    font-size:112px;
+    transform:translate(-50%,-50%);
+    transform-origin:center;
+    animation:brainMorphLoop 5.8s cubic-bezier(.4,0,.2,1) infinite;
+    filter:drop-shadow(0 0 28px #9c7cff);
+    will-change:transform,opacity,filter;
+}
+.lightbulb-core{
+    position:absolute;
+    left:50%;
+    top:50%;
+    z-index:5;
+    width:96px;
+    height:122px;
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.1) rotate(-18deg);
+    animation:bulbMorphLoop 5.8s cubic-bezier(.2,.9,.25,1) infinite;
+    filter:drop-shadow(0 0 34px #ffe76b);
+}
+.lightbulb-glass{position:absolute;left:16px;top:4px;width:64px;height:72px;border-radius:50% 50% 45% 45%;background:radial-gradient(circle at 38% 28%,#fffbd0 0,#ffe56a 30%,#ffad22 68%,#ff7a00 100%);box-shadow:0 0 28px #ffe76b,0 0 65px rgba(255,190,50,.8);animation:bulbGlowLoop 1.3s ease-in-out infinite}
+.lightbulb-glass:before{content:"";position:absolute;left:18px;top:23px;width:28px;height:22px;border:3px solid rgba(255,255,255,.9);border-top:0;border-radius:0 0 50% 50%;transform:rotate(-8deg)}
+.lightbulb-base{position:absolute;left:27px;top:72px;width:42px;height:27px;border-radius:5px 5px 10px 10px;background:repeating-linear-gradient(to bottom,#e8e9ee 0 4px,#7f8795 4px 7px);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+.lightbulb-rays{position:absolute;inset:-28px;animation:bulbRaysLoop 1.8s ease-in-out infinite}
+.lightbulb-rays i{position:absolute;left:50%;top:50%;width:4px;height:24px;border-radius:5px;background:#ffe76b;box-shadow:0 0 12px #ffe76b;transform-origin:2px 2px}
+.lightbulb-rays i:nth-child(1){transform:translate(-50%,-50%) rotate(0) translateY(-72px)}
+.lightbulb-rays i:nth-child(2){transform:translate(-50%,-50%) rotate(45deg) translateY(-72px)}
+.lightbulb-rays i:nth-child(3){transform:translate(-50%,-50%) rotate(90deg) translateY(-72px)}
+.lightbulb-rays i:nth-child(4){transform:translate(-50%,-50%) rotate(135deg) translateY(-72px)}
+.lightbulb-rays i:nth-child(5){transform:translate(-50%,-50%) rotate(180deg) translateY(-72px)}
+.lightbulb-rays i:nth-child(6){transform:translate(-50%,-50%) rotate(225deg) translateY(-72px)}
+.lightbulb-rays i:nth-child(7){transform:translate(-50%,-50%) rotate(270deg) translateY(-72px)}
+.lightbulb-rays i:nth-child(8){transform:translate(-50%,-50%) rotate(315deg) translateY(-72px)}
+.morph-ring{position:absolute;left:50%;top:50%;width:130px;height:130px;border:2px solid rgba(255,225,100,.7);border-radius:50%;transform:translate(-50%,-50%) scale(.1);opacity:0;animation:morphRingLoop 5.8s ease-out infinite;box-shadow:0 0 25px rgba(255,220,75,.5)}
+.morph-spark{position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:#ffe66b;box-shadow:0 0 16px #ffe66b;opacity:0;animation:morphSparkLoop 2.4s ease-out infinite}
+
+.brain-particle{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#d5c7ff;
+    box-shadow:0 0 13px #b89cff;
+    animation:brainParticleLoop 2.4s ease-out infinite;
+}
+
+/* =========================
+   BALLOONS — CLICK TO POP
+   ========================= */
+
+.balloon-button{
+    position:absolute;
+    z-index:5;
+    display:block;
+    width:64px;
+    height:92px;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    pointer-events:auto;
+    touch-action:manipulation;
+    animation:balloonBobLoop 2.4s ease-in-out infinite;
+}
+
+.balloon-button .balloon-body{
+    position:absolute;
+    left:50%;
+    top:0;
+    width:48px;
+    height:62px;
+    transform:translateX(-50%);
+    border-radius:50% 50% 46% 46%;
+    box-shadow:inset -8px -9px 0 rgba(0,0,0,.08),0 9px 20px rgba(0,0,0,.16);
+}
+
+.balloon-button .balloon-knot{
+    position:absolute;
+    left:50%;
+    top:58px;
+    width:0;
+    height:0;
+    transform:translateX(-50%);
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-top:9px solid currentColor;
+}
+
+.balloon-button .balloon-string{
+    position:absolute;
+    left:50%;
+    top:66px;
+    width:1px;
+    height:28px;
+    background:rgba(255,255,255,.65);
+    transform-origin:top;
+}
+
+.balloon-button:hover .balloon-body{
+    filter:brightness(1.15);
+}
+
+.balloon-button:active .balloon-body{
+    transform:translateX(-50%) scale(.92);
+}
+
+.balloon-button.popping{
+    animation:balloonPopLoop .34s ease-out forwards !important;
+    pointer-events:none;
+}
+
+.balloon-pop-text{
+    position:absolute;
+    z-index:6;
+    font-size:25px;
+    font-weight:1000;
+    pointer-events:none;
+    animation:popTextLoop .65s ease-out forwards;
+}
+
+/* =========================
+   CONFETTI CANNON
+   ========================= */
+
+.cannon-unit{
+    position:absolute;
+    z-index:3;
+    width:112px;
+    height:74px;
+    pointer-events:none;
+    filter:drop-shadow(0 0 18px rgba(255,255,255,.22));
+}
+.cannon-unit.left{left:4vw;bottom:8vh;transform:rotate(-18deg)}
+.cannon-unit.right{right:4vw;bottom:8vh;transform:scaleX(-1) rotate(-18deg)}
+.cannon-body{position:absolute;left:0;bottom:0;width:70px;height:48px;border-radius:16px 10px 18px 12px;background:linear-gradient(145deg,#ff4d7d,#ffb13b);box-shadow:0 0 24px rgba(255,107,85,.38)}
+.cannon-body:before{content:"";position:absolute;left:42px;top:-10px;width:72px;height:24px;border-radius:15px;background:linear-gradient(90deg,#7b4dff,#38d9ff);box-shadow:0 0 20px rgba(78,210,255,.5)}
+.cannon-wheel{position:absolute;bottom:-8px;width:26px;height:26px;border-radius:50%;background:#151b2b;border:5px solid #f5d36a;box-shadow:0 0 12px rgba(245,211,106,.35)}
+.cannon-wheel.one{left:8px}.cannon-wheel.two{left:43px}
+.cannon-muzzle{position:absolute;left:106px;top:-12px;width:16px;height:42px;border-radius:9px;background:#20283b;box-shadow:0 0 15px rgba(255,255,255,.25)}
+.cannon-muzzle:after{content:"";position:absolute;inset:5px;border-radius:50%;background:#050812;box-shadow:inset 0 0 10px #8defff}
+.cannon-flash{position:absolute;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 0 75px 30px rgba(255,255,255,.9);transform:translate(-50%,-50%) scale(.1);opacity:0;animation:cannonFlashLoop 1.9s ease-out infinite;pointer-events:none;z-index:4}
+.cannon-particle{position:absolute;left:0;top:0;width:9px;height:15px;border-radius:3px;opacity:0;animation:cannonParticleFly 1.9s cubic-bezier(.12,.62,.2,1) infinite;pointer-events:none;transform:translate(-50%,-50%) rotate(0deg)}
+.cannon-particle:after{content:"";position:absolute;inset:0;border-radius:inherit;background:inherit;box-shadow:0 0 8px rgba(255,255,255,.35)}
+.cannon-spark{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 18px 5px #fff;opacity:0;animation:cannonSparkFlash 1.9s ease-out infinite;pointer-events:none}
+
+/* =========================
+   KEYFRAMES
+   ========================= */
+
+@keyframes celebrationOverlayIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+@keyframes celebrationCardEntrance{
+    from{opacity:0;transform:translateY(45px) scale(.86) rotateX(8deg)}
+    to{opacity:1;transform:none}
+}
+
+@keyframes iconFloat{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-7px) rotate(2deg)}
+}
+
+@keyframes heroTextPulse{
+    0%,100%{opacity:.72;transform:translate(-50%,-50%) scale(.96)}
+    50%{opacity:1;transform:translate(-50%,-50%) scale(1.04)}
+}
+
+@keyframes ringBurstLoop{
+    0%{transform:translate(-50%,-50%) scale(.1);opacity:0}
+    12%{opacity:.95}
+    100%{transform:translate(-50%,-50%) scale(15);opacity:0}
+}
+
+@keyframes starFlyLoop{
+    0%{transform:translate(-50%,-50%) scale(.1) rotate(0);opacity:0}
+    15%{opacity:1}
+    100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1) rotate(360deg);opacity:0}
+}
+
+@keyframes confettiFallLoop{
+    0%{transform:translateY(-8vh) translateX(0) rotate(0);opacity:0}
+    8%{opacity:1}
+    50%{transform:translateY(55vh) translateX(var(--drift)) rotate(450deg);opacity:1}
+    100%{transform:translateY(118vh) translateX(calc(var(--drift) * -1)) rotate(900deg);opacity:0}
+}
+
+@keyframes fireworkCoreLoop{
+    0%,100%{transform:scale(.15);opacity:0}
+    12%{transform:scale(1.8);opacity:1}
+    25%{transform:scale(.55);opacity:.25}
+    100%{transform:scale(.15);opacity:0}
+}
+
+@keyframes fireworkFlyLoop{
+    0%{transform:translate(-50%,-50%) scale(.15);opacity:0}
+    12%{opacity:1}
+    100%{transform:translate(calc(-50% + var(--fx)),calc(-50% + var(--fy))) scale(.9);opacity:0}
+}
+
+@keyframes orbitStarLoop{
+    0%{transform:rotate(0deg) translateX(var(--orbit)) rotate(0deg) scale(.25);opacity:0}
+    10%{opacity:1}
+    50%{opacity:.9}
+    100%{transform:rotate(360deg) translateX(var(--orbit)) rotate(-360deg) scale(1.05);opacity:0}
+}
+
+@keyframes galaxyDustLoop{
+    0%{transform:translate(0,0) scale(.2);opacity:0}
+    20%{opacity:.9}
+    100%{transform:translate(var(--gx),var(--gy)) scale(1);opacity:0}
+}
+
+@keyframes codeFallLoop{
+    0%{transform:translateY(-10vh);opacity:0}
+    12%{opacity:.8}
+    88%{opacity:.8}
+    100%{transform:translateY(120vh);opacity:0}
+}
+
+@keyframes terminalLineLoop{
+    0%,12%{opacity:0;transform:translateX(0)}
+    20%,72%{opacity:1;transform:translateX(6px)}
+    82%,100%{opacity:0;transform:translateX(14px)}
+}
+
+@keyframes binaryPulseLoop{
+    0%{opacity:.08;transform:scale(.72)}
+    50%{opacity:1;transform:scale(1)}
+    100%{opacity:.08;transform:scale(.72)}
+}
+
+@keyframes dnaFloatLoop{
+    0%{transform:translate(-50%,-50%) rotateX(-7deg) rotateY(0deg) rotateZ(-2deg)}
+    25%{transform:translate(-50%,-50%) rotateX(5deg) rotateY(90deg) rotateZ(2deg)}
+    50%{transform:translate(-50%,-50%) rotateX(-4deg) rotateY(180deg) rotateZ(-1deg)}
+    75%{transform:translate(-50%,-50%) rotateX(7deg) rotateY(270deg) rotateZ(2deg)}
+    100%{transform:translate(-50%,-50%) rotateX(-7deg) rotateY(360deg) rotateZ(-2deg)}
+}
+@keyframes dnaBrickBuild{
+    0%,5%{transform:translate(-50%,-50%) scale(0) translateZ(-180px) rotateY(90deg);opacity:0}
+    12%{transform:translate(-50%,-50%) scale(1.45) translateZ(25px) rotateY(0);opacity:1}
+    18%,76%{transform:translate(-50%,-50%) scale(1) translateZ(0) rotateY(0);opacity:1}
+    88%,100%{transform:translate(-50%,-50%) scale(.55) translateZ(-30px);opacity:.15}
+}
+@keyframes dnaBridgeBuild{
+    0%,10%{transform:scaleX(0) translateZ(-80px);opacity:0}
+    18%{transform:scaleX(1.12) translateZ(15px);opacity:1}
+    23%,76%{transform:scaleX(1) translateZ(0);opacity:1}
+    88%,100%{transform:scaleX(.12);opacity:.08}
+}
+@keyframes dnaSparkLoop{
+    0%{transform:translate(0,0) scale(.1);opacity:0}
+    12%{opacity:1}
+    100%{transform:translate(var(--sx),var(--sy)) scale(1.6);opacity:0}
+}
+@keyframes brainMorphLoop{
+    0%,8%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0);filter:drop-shadow(0 0 28px #9c7cff)}
+    24%{opacity:1;transform:translate(-50%,-50%) scale(1.12) rotate(-5deg);filter:drop-shadow(0 0 38px #c0a9ff)}
+    40%{opacity:.9;transform:translate(-50%,-50%) scale(.72) rotate(12deg);filter:drop-shadow(0 0 45px #e0d6ff)}
+    50%{opacity:.25;transform:translate(-50%,-50%) scale(.18) rotate(80deg);filter:blur(5px) drop-shadow(0 0 55px #fff)}
+    56%,100%{opacity:0;transform:translate(-50%,-50%) scale(.05) rotate(120deg);filter:blur(9px)}
+}
+@keyframes bulbMorphLoop{
+    0%,42%{opacity:0;transform:translate(-50%,-50%) scale(.1) rotate(-25deg)}
+    50%{opacity:.15;transform:translate(-50%,-50%) scale(.28) rotate(-12deg)}
+    60%{opacity:1;transform:translate(-50%,-50%) scale(1.18) rotate(7deg)}
+    70%,86%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}
+    92%,100%{opacity:0;transform:translate(-50%,-50%) scale(.18) rotate(18deg)}
+}
+@keyframes bulbGlowLoop{0%,100%{filter:brightness(.9)}50%{filter:brightness(1.35)}}
+@keyframes bulbRaysLoop{0%,52%{opacity:0;transform:scale(.4) rotate(-20deg)}65%,88%{opacity:1;transform:scale(1) rotate(0)}100%{opacity:0;transform:scale(.7) rotate(12deg)}}
+@keyframes morphRingLoop{0%,43%{opacity:0;transform:translate(-50%,-50%) scale(.1)}54%{opacity:1;transform:translate(-50%,-50%) scale(.7)}75%{opacity:.35;transform:translate(-50%,-50%) scale(2.2)}100%{opacity:0;transform:translate(-50%,-50%) scale(3.8)}}
+@keyframes morphSparkLoop{0%,35%{opacity:0;transform:translate(-50%,-50%) scale(.1)}45%{opacity:1}70%{opacity:1;transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(1.3)}100%{opacity:0;transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(.1)}}
+@keyframes cannonParticleFly{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.3)}10%{opacity:1}68%{opacity:1}100%{opacity:0;transform:translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(.8)}}
+@keyframes cannonSparkFlash{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(.1)}20%{opacity:1;transform:translate(-50%,-50%) scale(1.5)}60%{opacity:0;transform:translate(-50%,-50%) scale(.4)}}
+@keyframes balloonBobLoop{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-12px) rotate(2deg)}
+}
+
+@keyframes balloonPopLoop{
+    0%{transform:scale(1);opacity:1}
+    45%{transform:scale(1.35) rotate(8deg);opacity:1}
+    100%{transform:scale(2.1) rotate(-12deg);opacity:0}
+}
+
+@keyframes popTextLoop{
+    0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+    20%{opacity:1}
+    100%{opacity:0;transform:translate(-50%,-95px) scale(1.25)}
+}
+
+@keyframes cannonFlashLoop{
+    0%,65%,100%{opacity:0;transform:translate(-50%,-50%) scale(0)}
+    69%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+    74%{opacity:0;transform:translate(-50%,-50%) scale(4)}
+}
+
+@keyframes cannonBlastLoop{
+    0%,65%{opacity:0;transform:translate(-50%,-50%) scale(.2)}
+    68%{opacity:1;transform:translate(-50%,-50%) scale(2)}
+    100%{opacity:0;transform:translate(calc(-50% + var(--bx)),calc(-50% + var(--by))) scale(.2)}
+}
+
+
+/* =========================================================
+   CELEBRATION MOTION PACK — ADDITIVE VISUAL UPGRADE
+   Keeps existing effects intact; adds lightweight motion layers.
+   ========================================================= */
+
+.celebration-motion{
+    position:absolute;
+    z-index:2;
+    pointer-events:none;
+    will-change:transform,opacity;
+}
+
+.motion-orb{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff, currentColor 35%,transparent 72%);
+    box-shadow:0 0 18px currentColor,0 0 42px currentColor;
+    animation:motionOrbFloat var(--dur,4s) ease-in-out var(--delay,0s) infinite;
+}
+
+.motion-orbit{
+    left:50%;
+    top:50%;
+    width:150px;
+    height:150px;
+    border:1px solid currentColor;
+    border-radius:50%;
+    opacity:.35;
+    box-shadow:0 0 28px currentColor;
+    animation:motionOrbitSpin var(--dur,7s) linear var(--delay,0s) infinite;
+}
+
+.motion-pulse{
+    left:50%;
+    top:50%;
+    width:70px;
+    height:70px;
+    border:2px solid currentColor;
+    border-radius:50%;
+    transform:translate(-50%,-50%) scale(.2);
+    opacity:0;
+    animation:motionPulseWave var(--dur,2.8s) ease-out var(--delay,0s) infinite;
+}
+
+.motion-streak{
+    height:2px;
+    border-radius:99px;
+    background:linear-gradient(90deg,transparent,currentColor,transparent);
+    box-shadow:0 0 12px currentColor;
+    animation:motionStreakFly var(--dur,3.2s) ease-out var(--delay,0s) infinite;
+}
+
+.motion-square{
+    width:18px;
+    height:18px;
+    border:1px solid currentColor;
+    box-shadow:0 0 12px currentColor;
+    animation:motionSquareFloat var(--dur,4.5s) ease-in-out var(--delay,0s) infinite;
+}
+
+.motion-particle{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:currentColor;
+    box-shadow:0 0 12px currentColor;
+    animation:motionParticleDrift var(--dur,3.8s) ease-in-out var(--delay,0s) infinite;
+}
+
+.terminal-headline{
+    font-size:clamp(15px,2.8vw,27px)!important;
+    left:52.5%!important;
+    top:3.2vh!important;
+    letter-spacing:1.2px!important;
+    color:#69ff9f!important;
+    text-shadow:0 0 8px rgba(72,255,145,.85),0 0 24px rgba(30,255,110,.5),0 3px 16px rgba(0,0,0,.7)!important;
+    animation:terminalHeadlinePulse 2.4s ease-in-out infinite!important;
+}
+.ce-terminal .terminal-box{
+    font-size:10.5px;
+    padding:16px;
+    top:8%;
+    left:52%;
+    width:min(570px,88vw);
+    box-shadow:0 0 34px rgba(30,255,110,.16),inset 0 0 28px rgba(25,255,115,.035);
+    animation:terminalBoxFloat 5s ease-in-out infinite;
+}
+.ce-terminal .terminal-line{
+    text-shadow:0 0 7px rgba(72,255,145,.48);
+}
+
+@keyframes motionOrbFloat{
+    0%,100%{transform:translate3d(0,0,0) scale(.72);opacity:.35}
+    25%{transform:translate3d(var(--mx,18px),var(--my,-28px),0) scale(1);opacity:.9}
+    50%{transform:translate3d(calc(var(--mx,18px)*-1),calc(var(--my,-28px)*.45),0) scale(.82);opacity:.55}
+    75%{transform:translate3d(calc(var(--mx,18px)*.55),calc(var(--my,-28px)*-1),0) scale(1.12);opacity:.85}
+}
+@keyframes motionOrbitSpin{
+    from{transform:translate(-50%,-50%) rotate(0deg) scale(.72)}
+    to{transform:translate(-50%,-50%) rotate(360deg) scale(1.16)}
+}
+@keyframes motionPulseWave{
+    0%{transform:translate(-50%,-50%) scale(.15);opacity:0}
+    18%{opacity:.8}
+    100%{transform:translate(-50%,-50%) scale(4.8);opacity:0}
+}
+@keyframes motionStreakFly{
+    0%{transform:translateX(-25vw) rotate(var(--angle,0deg));opacity:0}
+    15%{opacity:.75}
+    75%{opacity:.45}
+    100%{transform:translateX(125vw) rotate(var(--angle,0deg));opacity:0}
+}
+@keyframes motionSquareFloat{
+    0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(.65);opacity:.25}
+    50%{transform:translate3d(var(--mx,35px),var(--my,-30px),0) rotate(180deg) scale(1.2);opacity:.8}
+}
+@keyframes motionParticleDrift{
+    0%,100%{transform:translate3d(0,0,0) scale(.4);opacity:.15}
+    45%{transform:translate3d(var(--mx,20px),var(--my,-25px),0) scale(1.3);opacity:.95}
+    100%{transform:translate3d(calc(var(--mx,20px)*-1),calc(var(--my,-25px)*.3),0) scale(.2);opacity:0}
+}
+@keyframes terminalHeadlinePulse{
+    0%,100%{opacity:.65;transform:translate(-50%,-50%) translateX(0) scale(.96)}
+    50%{opacity:1;transform:translate(-50%,-50%) translateX(5px) scale(1.035)}
+}
+@keyframes terminalBoxFloat{
+    0%,100%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(4px)}
+}
+
+@media(max-width:600px){
+    .terminal-headline{
+        left:54%!important;
+        top:2.4vh!important;
+        font-size:14px!important;
+    }
+    .ce-terminal .terminal-box{
+        top:6%;
+        left:52%;
+        width:92vw;
+        font-size:9px;
+        padding:13px;
+    }
+}
+
+@media(max-width:600px){
+    .celebration-card{
+        padding:24px 16px 20px;
+        max-height:calc(100vh - 20px);
+    }
+
+    .ce-stats strong{
+        font-size:18px;
+    }
+
+    .effect-text{
+        white-space:normal;
+        width:90%;
+        font-size:32px!important;
+    }
+
+    .terminal-box{
+        top:4%;
+        font-size:10px;
+        width:94vw;
+    }
+
+    .dna-core{
+        transform:translate(-50%,-50%) scale(.75);
+    }
+
+    .brain-orb{
+        font-size:78px;
+    }
+
+    .lightbulb-core{
+        font-size:88px;
+    }
+
+    .balloon-button{
+        transform:scale(.82);
+    }
+}
+
+
+.profile-modal{background:rgba(0,0,0,.72)}
+body.dark .profile-modal-card{background:#171c24;border-color:#333d4b;color:#edf2f7}
+body.dark .profile-modal-head p{color:#aeb8c6}
+body.dark .profile-x-btn{background:#252c35;color:#dbe3ed}
+body.dark .profile-create-box{background:#11171f;border-color:#303846}
+body.dark .profile-create-input{background:#0d1218;color:#eef3f8;border-color:#3a4553}
+body.dark .profile-manager-title{color:#aeb8c6}
+body.dark .profile-list-item{background:#11171f;border-color:#303846}
+body.dark .profile-list-name small{color:#aeb8c6}
+body.dark .profile-small-btn{background:#1b222c;color:#e7edf5;border-color:#394553}
+body.dark .profile-small-btn.delete{color:#ff9c98;border-color:#71312f}
+body.dark .profile-modal-close{color:#e6edf5;border-color:#394553}
+body.dark .celebration-card{background:#171c24;border-color:#3a4553;color:#edf2f7}
+body.dark .celebration-card p{color:#b3bdca}
+body.dark .celebration-stats>div{background:#11171f;border-color:#303846}
+body.dark .celebration-stats span{color:#aeb8c6}
+body.dark .celebration-close.secondary{background:#252d38;color:#e8edf5}
+body.dark .celebration-effect-name{background:#1d2a42;color:#8ab4f8}
+
+@media(max-width:850px){
+    .profile-dashboard-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+    .profile-create-box{flex-direction:column}
+    .profile-create-box .profile-action-btn{width:100%}
+    .profile-problem-row{grid-template-columns:1fr}
+    .profile-problem-row .status-pill{justify-self:start}
+}
+@media(max-width:450px){
+    .profile-dashboard-grid{grid-template-columns:1fr}
+    .profile-nav-name{display:none}
+    .celebration-card{padding:23px 16px}
+    .celebration-stats strong{font-size:18px}
+}
+
+/* GLOBAL MOTION UPGRADE */
+.problem-card,.info-card,.stat,.archive-day,.archive-stat,.archive-toolbar,.profile-panel,.problem-container,.answer-box,.example-box{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.problem-card:hover,.info-card:hover,.stat:hover,.archive-day:hover,.archive-stat:hover,.profile-panel:hover,.example-box:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(15,23,42,.09)}
+.nav-btn,.navigation-btn,.copy-btn,.answer-btn,.profile-action-btn,.profile-small-btn,.profile-modal-close,.filter-select,.search-input{transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease}
+.nav-btn:hover,.navigation-btn:hover,.copy-btn:hover,.answer-btn:hover,.profile-action-btn:hover,.profile-small-btn:hover{transform:translateY(-2px)}
+.hero{animation:pageHeroIn .7s cubic-bezier(.16,1,.3,1) both}.section-heading{animation:sectionReveal .7s ease both}.problem-grid>*{animation:cardReveal .55s ease both}.problem-grid>*:nth-child(2){animation-delay:.08s}.info-grid>*{animation:cardReveal .55s ease both}.info-grid>*:nth-child(2){animation-delay:.08s}.info-grid>*:nth-child(3){animation-delay:.16s}
+@keyframes pageHeroIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}@keyframes sectionReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes cardReveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+body.dark .profile-modal-card,body.dark .profile-create-box,body.dark .profile-create-input,body.dark .profile-list-item{background:#161b22;color:#e6edf3;border-color:#30363d}
+body.dark .profile-modal-head p,body.dark .profile-manager-title,body.dark .profile-list-name small{color:#aab4c3}
+.archive-approval-badge{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 10px;border-radius:999px;font-size:9px;font-weight:950;letter-spacing:.5px;transition:.2s}.archive-approval-badge.approved{background:#e4f6e9;color:#137333;border:1px solid #b7e1c0}.archive-approval-badge.pending{background:#fde8e7;color:#c5221f;border:1px solid #f0c0bd}.archive-problem:hover .archive-approval-badge{transform:translateX(3px)}body.dark .archive-approval-badge.approved{background:#10351d;color:#7bf0a0;border-color:#245d35}body.dark .archive-approval-badge.pending{background:#3a1717;color:#ff9e99;border-color:#66302d}
+
+/* =========================================================
+   V4 STABILITY PATCH — PROFILE GATE + CELEBRATION LAYERS
+   ========================================================= */
+
+.profile-gate{
+    position:fixed;
+    inset:0;
+    z-index:30000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(37,99,235,.18),transparent 34%),
+        radial-gradient(circle at 85% 85%,rgba(124,77,255,.15),transparent 34%),
+        rgba(7,12,20,.78);
+    backdrop-filter:blur(22px) saturate(1.15);
+    -webkit-backdrop-filter:blur(22px) saturate(1.15);
+    overflow:auto;
+}
+.profile-gate.show{display:flex;animation:gateIn .42s cubic-bezier(.16,1,.3,1) both}
+.profile-gate-card{
+    width:min(560px,100%);
+    max-height:calc(100vh - 40px);
+    overflow:auto;
+    padding:30px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:28px;
+    background:rgba(255,255,255,.94);
+    color:#172033;
+    box-shadow:0 35px 120px rgba(0,0,0,.42),0 0 70px rgba(66,133,244,.13);
+}
+.profile-gate-brand{font-size:25px;font-weight:950;letter-spacing:-1px}
+.profile-gate-brand span{color:#2563eb}
+.profile-gate-kicker{margin-top:24px;color:#2563eb;font-size:10px;letter-spacing:2px;font-weight:950}
+.profile-gate-card h2{font-size:32px;line-height:1.15;margin-top:6px}
+.profile-gate-subtitle{margin:8px 0 20px;color:#687386;font-size:13px}
+.profile-gate-list{display:flex;flex-direction:column;gap:9px;margin-bottom:15px}
+.profile-gate-item{
+    display:flex;align-items:center;gap:12px;padding:12px;
+    border:1px solid #e0e6ef;border-radius:16px;background:#f9fbfe;
+    transition:.2s;
+}
+.profile-gate-item:hover{transform:translateY(-1px);border-color:#9bbdf2;box-shadow:0 8px 24px rgba(37,99,235,.09)}
+.profile-gate-avatar{
+    width:46px;height:46px;flex:0 0 46px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#4285f4,#7c4dff);color:#fff;font-size:17px;font-weight:950;
+    box-shadow:0 8px 22px rgba(66,133,244,.2);
+}
+.profile-gate-name{min-width:0;flex:1;font-weight:900}
+.profile-gate-name small{display:block;margin-top:2px;color:#7a8697;font-size:10px;font-weight:700}
+.profile-gate-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.gate-use-btn,.gate-small-btn{
+    border:1px solid #d2dae6;background:#fff;color:#344054;border-radius:9px;
+    padding:8px 10px;cursor:pointer;font-size:10px;font-weight:900;
+}
+.gate-use-btn{background:#1a73e8;color:#fff;border-color:#1a73e8}
+.gate-small-btn.delete{color:#c5221f;border-color:#efb8b5}
+.profile-gate-create{
+    display:flex;gap:8px;padding:12px;border:1px solid #e0e6ef;border-radius:16px;background:#f7f9fc;
+}
+.profile-gate-create input{
+    flex:1;min-width:0;border:1px solid #d3dae4;border-radius:10px;padding:11px 12px;
+    outline:none;background:#fff;color:#172033;
+}
+.profile-gate-create input:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1)}
+.gate-primary-btn{
+    border:1px solid #1a73e8;background:#1a73e8;color:#fff;border-radius:10px;
+    padding:10px 13px;cursor:pointer;font-size:11px;font-weight:900;white-space:nowrap;
+}
+.profile-gate-note{margin-top:14px;text-align:center;color:#7a8697;font-size:10px;font-weight:800}
+.profile-manager-footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.profile-manager-footer-actions .profile-modal-close{margin-top:0}
+.profile-logout-btn{
+    width:100%;padding:10px;border:1px solid #efb8b5;background:#fff7f7;
+    color:#c5221f;border-radius:10px;cursor:pointer;font-weight:900;
+}
+.profile-edit-card{
+    width:min(480px,100%);background:#fff;border:1px solid #e0e5ec;border-radius:24px;
+    padding:24px;box-shadow:0 30px 100px rgba(0,0,0,.22);
+}
+.profile-edit-card .profile-create-input{width:100%;margin-top:8px}
+.profile-edit-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.profile-edit-actions .profile-modal-close{margin-top:0}
+.profile-edit-actions .profile-action-btn{width:100%}
+
+/* Hard layer contract: effects are always behind the card.
+   Only intentional interactive controls can receive pointer events. */
+.celebration-overlay{z-index:15000;isolation:isolate}
+.celebration-stage{
+    z-index:0!important;
+    pointer-events:none!important;
+    isolation:isolate;
+}
+.celebration-stage>*{pointer-events:none}
+.celebration-stage .celebration-interactor{
+    z-index:50!important;
+    pointer-events:auto!important;
+}
+.celebration-stage .balloon-button{
+    z-index:80!important;
+    pointer-events:auto!important;
+}
+.celebration-card{
+    z-index:1000!important;
+    isolation:isolate;
+    contain:layout paint style;
+}
+.celebration-card *{position:relative}
+.effect-text{z-index:5!important;pointer-events:none}
+.balloon-pop-text{z-index:90!important;pointer-events:none}
+.terminal-box{z-index:5!important}
+.dna-core,.brain-orb,.lightbulb-core{z-index:5!important}
+.firework,.firework-dot,.galaxy-star,.galaxy-dust,.confetti-piece,.code-rain,.binary-grid,.dna-spark,.brain-particle,.morph-ring,.cannon-unit{z-index:2!important}
+
+/* No visual headline is allowed in the center card zone. */
+.celebration-stage>.effect-text{
+    top:4vh!important;
+    left:50%!important;
+    max-width:min(82vw,700px);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-shadow:0 3px 18px rgba(0,0,0,.65);
+}
+.celebration-stage .terminal-box{top:2vh!important;max-height:24vh;overflow:hidden}
+.celebration-stage .dna-core{top:50%;opacity:.72}
+.celebration-stage .brain-orb{top:42%}
+
+/* Balloons are deliberately kept around the card perimeter. */
+.balloon-button{transform-origin:center bottom}
+.balloon-button.popping{pointer-events:none}
+.balloon-pop-text{position:fixed!important;transform:translate(-50%,-50%);font-weight:1000;text-shadow:0 3px 16px rgba(0,0,0,.55);animation:balloonPopText .7s ease-out both}
+
+/* Celebration interaction feedback */
+.celebration-interactor{cursor:crosshair!important}
+.celebration-interactor:focus{outline:none}
+
+/* Dark palette: neutral surfaces + restrained blue/violet accents. */
+body.dark{
+    background:#0b0f14;color:#e8edf5;
+}
+body.dark .profile-gate{
+    background:
+        radial-gradient(circle at 18% 12%,rgba(66,133,244,.18),transparent 34%),
+        radial-gradient(circle at 85% 85%,rgba(139,92,246,.15),transparent 34%),
+        rgba(3,7,12,.84);
+}
+body.dark .profile-gate-card{
+    background:rgba(18,24,33,.97);color:#edf2f7;border-color:#303b4b;
+    box-shadow:0 35px 120px rgba(0,0,0,.7),0 0 80px rgba(66,133,244,.08);
+}
+body.dark .profile-gate-subtitle,
+body.dark .profile-gate-name small,
+body.dark .profile-gate-note{color:#aeb8c6}
+body.dark .profile-gate-item{background:#111820;border-color:#303b4b}
+body.dark .profile-gate-item:hover{border-color:#4b6f9e;background:#151e28}
+body.dark .gate-small-btn{background:#1a222d;color:#e7edf5;border-color:#394553}
+body.dark .profile-gate-create{background:#10161e;border-color:#303b4b}
+body.dark .profile-gate-create input{background:#0b1118;color:#eef3f8;border-color:#3a4553}
+body.dark .profile-edit-card{background:#121821;color:#edf2f7;border-color:#303b4b}
+body.dark .profile-logout-btn{background:#251517;color:#ffaaa5;border-color:#71312f}
+body.dark .profile-edit-actions .profile-modal-close{background:#171f29}
+body.dark .profile-modal-card{background:#121821;color:#edf2f7;border-color:#303b4b}
+body.dark .profile-modal-close{background:#171f29;color:#e7edf5;border-color:#394553}
+
+/* Prevent background page scrolling while a full-screen layer is active. */
+body.profile-gate-open,
+body.celebration-open{overflow:hidden}
+@keyframes gateIn{from{opacity:0}.to{opacity:1}}
+@keyframes balloonPopText{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}30%{opacity:1;transform:translate(-50%,-58%) scale(1.08)}100%{opacity:0;transform:translate(-50%,-95%) scale(.78)}}
+
+@media(max-width:600px){
+    .profile-gate-card{padding:23px 17px;border-radius:22px}
+    .profile-gate-card h2{font-size:27px}
+    .profile-gate-create{flex-direction:column}
+    .gate-primary-btn{width:100%}
+    .profile-gate-actions{display:grid;grid-template-columns:1fr 1fr}
+    .profile-manager-footer-actions,.profile-edit-actions{grid-template-columns:1fr}
+    .celebration-stage>.effect-text{top:2.5vh!important;font-size:24px!important}
+    .celebration-stage .terminal-box{top:1vh!important;max-height:18vh}
+}
+
 </style>
 </head>
 
@@ -1411,6 +2782,10 @@ body.dark .archive-empty strong {
                 onclick="toggleDarkMode()"
                 title="Toggle dark mode">
                 🌙
+            </button>
+            <button class="nav-btn profile-nav-btn" id="profileNavButton" type="button" onclick="showProfile()" title="Local Profile">
+                <span class="profile-avatar" id="profileNavAvatar">?</span>
+                <span class="profile-nav-name" id="profileNavName">Profile</span>
             </button>
 
         </div>
@@ -1762,6 +3137,45 @@ body.dark .archive-empty strong {
 </section>
 
 
+
+<section id="profilePage" class="profile-panel">
+    <section class="profile-hero">
+        <div class="profile-hero-top">
+            <div class="profile-identity">
+                <div class="profile-big-avatar" id="profileBigAvatar">?</div>
+                <div>
+                    <h1 id="profilePageName">Profile</h1>
+                    <p id="profilePageSubtitle">Your local CP progress is stored only in this browser.</p>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="profile-action-btn primary" type="button" onclick="openProfileManager()">👤 Manage Profiles</button>
+                <button class="profile-action-btn" type="button" onclick="showHome()">← Practice</button>
+            </div>
+        </div>
+    </section>
+    <section class="profile-dashboard-grid">
+        <div class="profile-stat"><div class="profile-stat-number" id="profileTotalCount">0</div><div class="profile-stat-label">Total Problems</div></div>
+        <div class="profile-stat"><div class="profile-stat-number" id="profileApprovedCount">0</div><div class="profile-stat-label">Approved</div></div>
+        <div class="profile-stat"><div class="profile-stat-number" id="profileNotApprovedCount">0</div><div class="profile-stat-label">Not Approved</div></div>
+        <div class="profile-stat"><div class="profile-stat-number" id="profileApprovedPercent">0%</div><div class="profile-stat-label">Completion</div></div>
+    </section>
+    <section class="profile-progress-box">
+        <div class="profile-progress-title">🏆 Your CP Progress</div>
+        <div id="profileProgressText">0 of 0 problems approved</div>
+        <div class="progress-track"><div class="progress-fill" id="profileProgressFill"></div></div>
+        <div id="profileProgressPercent" style="font-size:12px;color:#64748b;font-weight:800;">0%</div>
+    </section>
+    <section class="profile-history-box">
+        <div class="profile-history-title">📋 Problem History</div>
+        <div class="profile-filter-row">
+            <button class="profile-filter-btn active" id="profileFilterAll" type="button" onclick="setProfileFilter('all')">All</button>
+            <button class="profile-filter-btn" id="profileFilterApproved" type="button" onclick="setProfileFilter('approved')">✅ Approved</button>
+            <button class="profile-filter-btn" id="profileFilterNotApproved" type="button" onclick="setProfileFilter('not-approved')">🔴 Not Approved</button>
+        </div>
+        <div id="profileProblemList" class="profile-problem-list"></div>
+    </section>
+</section>
 <!-- =========================================================
      PROBLEM PAGE
      ========================================================= -->
@@ -1919,7 +3333,20 @@ body.dark .archive-empty strong {
             </a>
 
         </div>
-
+        <div class="problem-status-box" id="problemStatusBox">
+            <div class="problem-status-top">
+                <div>
+                    <div class="problem-status-title">Solution Approval</div>
+                    <div class="problem-status-help" id="problemStatusHelp">Your approval is saved to your active local profile on this browser.</div>
+                </div>
+                <span class="status-pill status-not-approved" id="problemStatusPill">🔴 NOT APPROVED</span>
+            </div>
+            <button class="approval-button" id="problemApprovalButton" type="button" onclick="approveCurrentProblem()">
+                ✓ MARK AS APPROVED
+            </button>
+            <button class="approval-reset-button" id="problemApprovalResetButton" type="button" onclick="resetCurrentProblemApproval()" style="display:none">↺ Reset Approval</button>
+            <div class="problem-approved-time" id="problemApprovedTime"></div>
+        </div>
 
         <!-- PREVIOUS / NEXT -->
 
@@ -1953,6 +3380,78 @@ body.dark .archive-empty strong {
 
 </section>
 
+
+<!-- LOCAL PROFILE MANAGER -->
+<div id="profileModal" class="profile-modal" onclick="handleProfileModalBackground(event)" aria-hidden="true">
+    <div class="profile-modal-card" role="dialog" aria-modal="true" aria-labelledby="profileManagerTitle">
+        <div class="profile-modal-head">
+            <div>
+                <div class="profile-modal-kicker">LOCAL PROFILES</div>
+                <h2 id="profileManagerTitle">Choose your CP profile</h2>
+                <p>Chrome-style profiles. Each profile has its own progress and stays on this browser only.</p>
+            </div>
+            <button class="profile-x-btn" type="button" onclick="closeProfileManager()" aria-label="Close">×</button>
+        </div>
+        <div class="profile-create-box">
+            <input id="profileCreateInput" class="profile-create-input" type="text" maxlength="30" placeholder="Create a new profile..." autocomplete="off">
+            <button class="profile-action-btn primary" type="button" onclick="createProfile()">＋ Create Profile</button>
+        </div>
+        <div class="profile-manager-title">Profiles on this browser</div>
+        <div id="profileList" class="profile-list"></div>
+        <div class="profile-manager-footer-actions">
+            <button class="profile-modal-close" type="button" onclick="closeProfileManager()">Done</button>
+            <button class="profile-logout-btn" type="button" onclick="logoutProfile()">↪ Log out</button>
+        </div>
+    </div>
+</div>
+<!-- APPROVAL CELEBRATION -->
+<div id="celebrationOverlay" class="celebration-overlay" aria-hidden="true">
+    <div id="celebrationStage" class="celebration-stage"></div>
+    <div id="celebrationCard" class="celebration-card"></div>
+</div>
+
+<!-- =========================================================
+     CHROME-STYLE PROFILE PICKER / LOGIN GATE
+     Local-only: no server account or password is required.
+     ========================================================= -->
+<div id="profileGate" class="profile-gate" aria-hidden="true">
+    <div class="profile-gate-card" role="dialog" aria-modal="true" aria-labelledby="profileGateTitle">
+        <div class="profile-gate-brand">Arafat<span>CP</span></div>
+        <div class="profile-gate-kicker">LOCAL PROFILE SIGN-IN</div>
+        <h2 id="profileGateTitle">Who is practicing?</h2>
+        <p class="profile-gate-subtitle">Choose a profile to continue. Every profile keeps its own progress on this browser.</p>
+
+        <div id="profileGateList" class="profile-gate-list"></div>
+
+        <div class="profile-gate-create">
+            <input id="profileGateCreateInput" type="text" maxlength="30"
+                   placeholder="Create a new profile..." autocomplete="off">
+            <button type="button" class="gate-primary-btn" onclick="createProfileFromGate()">＋ Create Profile</button>
+        </div>
+
+        <div class="profile-gate-note">🔒 Local browser storage only • No account is sent to a server</div>
+    </div>
+</div>
+
+<!-- PROFILE RENAME DIALOG -->
+<div id="profileEditModal" class="profile-modal" onclick="handleProfileEditBackground(event)" aria-hidden="true">
+    <div class="profile-edit-card" role="dialog" aria-modal="true" aria-labelledby="profileEditTitle">
+        <div class="profile-modal-head">
+            <div>
+                <div class="profile-modal-kicker">EDIT PROFILE</div>
+                <h2 id="profileEditTitle">Rename profile</h2>
+                <p>Change the local profile name. Progress stays untouched.</p>
+            </div>
+            <button class="profile-x-btn" type="button" onclick="closeProfileEdit()" aria-label="Close">×</button>
+        </div>
+        <input id="profileEditInput" class="profile-create-input" type="text" maxlength="30"
+               autocomplete="off" placeholder="Profile name">
+        <div class="profile-edit-actions">
+            <button class="profile-modal-close" type="button" onclick="closeProfileEdit()">Cancel</button>
+            <button class="profile-action-btn primary" type="button" onclick="saveProfileEdit()">Save Changes</button>
+        </div>
+    </div>
+</div>
 
 </main>
 
@@ -2002,6 +3501,8 @@ body.dark .archive-empty strong {
 
 
 <script>
+
+
 
 /* =========================================================
    IMPORTANT ARCHIVE STRUCTURE
@@ -3551,6 +5052,3147 @@ let currentProblemIndex = 0;
 let previousView = "home";
 
 
+
+let profileFilter = "all";
+
+const PROFILE_STORAGE_KEY = "arafatCP_profiles_v3";
+const ACTIVE_PROFILE_KEY = "arafatCP_activeProfile_v3";
+const CELEBRATION_HISTORY_KEY = "arafatCP_celebrationHistory_v1";
+
+function loadProfiles(){
+    try{
+        let raw=localStorage.getItem(PROFILE_STORAGE_KEY);
+
+        if(!raw){
+            const legacy=localStorage.getItem("arafatCP_profiles_v2") ||
+                         localStorage.getItem("arafatCP_profiles_v1");
+            if(legacy){
+                localStorage.setItem(PROFILE_STORAGE_KEY,legacy);
+                const oldActive=localStorage.getItem("arafatCP_activeProfile_v2") ||
+                                localStorage.getItem("arafatCP_activeProfile_v1");
+                if(oldActive) localStorage.setItem(ACTIVE_PROFILE_KEY,oldActive);
+                raw=legacy;
+            }
+        }
+
+        const data=raw?JSON.parse(raw):[];
+        return Array.isArray(data)?data:[];
+    }catch(e){
+        return [];
+    }
+}
+
+function saveProfiles(profiles){
+    try{
+        localStorage.setItem(PROFILE_STORAGE_KEY,JSON.stringify(profiles));
+    }catch(e){
+        showToast("Could not save profile data.","error");
+    }
+}
+
+function getActiveProfileId(){
+    return localStorage.getItem(ACTIVE_PROFILE_KEY)||"";
+}
+
+function setActiveProfileId(id){
+    if(id) localStorage.setItem(ACTIVE_PROFILE_KEY,id);
+    else localStorage.removeItem(ACTIVE_PROFILE_KEY);
+}
+
+function getActiveProfile(){
+    const id=getActiveProfileId();
+    return loadProfiles().find(p=>p.id===id)||null;
+}
+
+function getInitial(name){
+    return String(name||"?").trim().charAt(0).toUpperCase()||"?";
+}
+
+function createProfileObject(name){
+    return {
+        id:"p_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,9),
+        name:String(name).trim(),
+        createdAt:new Date().toISOString(),
+        progress:{}
+    };
+}
+
+function ensureLocalProfile(){
+    const profile=getActiveProfile();
+    if(!profile) return null;
+
+    if(!profile.progress || typeof profile.progress!=="object"){
+        profile.progress={};
+        updateProfile(profile);
+    }
+
+    return profile;
+}
+
+function updateProfile(profile){
+    if(!profile) return;
+    const profiles=loadProfiles();
+    const index=profiles.findIndex(p=>p.id===profile.id);
+    if(index>=0){
+        profiles[index]=profile;
+        saveProfiles(profiles);
+    }
+}
+
+function showProfileGate(){
+    stopCelebrationRuntime();
+    document.body.classList.add("profile-gate-open");
+
+    const gate=document.getElementById("profileGate");
+    if(!gate) return;
+
+    renderProfileGate();
+    gate.classList.add("show");
+    gate.setAttribute("aria-hidden","false");
+
+    setTimeout(()=>{
+        document.getElementById("profileGateCreateInput")?.focus();
+    },80);
+}
+
+function hideProfileGate(){
+    const gate=document.getElementById("profileGate");
+    if(!gate) return;
+    gate.classList.remove("show");
+    gate.setAttribute("aria-hidden","true");
+    document.body.classList.remove("profile-gate-open");
+}
+
+function renderProfileGate(){
+    const container=document.getElementById("profileGateList");
+    if(!container) return;
+
+    const profiles=loadProfiles();
+    if(!profiles.length){
+        container.innerHTML=`
+            <div class="profile-empty">
+                <strong>Create your first profile</strong>
+                <div style="margin-top:5px">Your progress will be stored separately for this profile.</div>
+            </div>`;
+        return;
+    }
+
+    const activeId=getActiveProfileId();
+
+    container.innerHTML=profiles.map(profile=>{
+        const stats=getProfileStats(profile);
+        return `
+            <div class="profile-gate-item">
+                <div class="profile-gate-avatar">${escapeHTML(getInitial(profile.name))}</div>
+                <div class="profile-gate-name">
+                    ${escapeHTML(profile.name)}
+                    <small>${stats.approved}/${stats.total} approved</small>
+                </div>
+                <div class="profile-gate-actions">
+                    <button class="gate-use-btn" type="button" onclick="selectProfileFromGate('${profile.id}')">
+                        ${profile.id===activeId?"Continue":"Log in"}
+                    </button>
+                    <button class="gate-small-btn" type="button" onclick="editProfile('${profile.id}',true)">Edit</button>
+                    <button class="gate-small-btn delete" type="button" onclick="deleteProfile('${profile.id}',true)">Delete</button>
+                </div>
+            </div>`;
+    }).join("");
+}
+
+function selectProfileFromGate(id){
+    const profile=loadProfiles().find(p=>p.id===id);
+    if(!profile) return;
+
+    setActiveProfileId(id);
+    updateProfileNavbar();
+    updateProblemStatusUI();
+    renderProfilePage();
+    renderArchive();
+    hideProfileGate();
+
+    showToast("✓ Logged in as "+profile.name,"success");
+}
+
+function createProfileFromGate(){
+    const input=document.getElementById("profileGateCreateInput");
+    const name=input?input.value.trim():"";
+    if(!name){
+        showToast("Enter a profile name first.","error");
+        input?.focus();
+        return;
+    }
+    const profiles=loadProfiles();
+    if(profiles.some(p=>String(p.name).trim().toLowerCase()===name.toLowerCase())){
+        showToast("That profile already exists.","error");
+        return;
+    }
+
+    const profile=createProfileObject(name);
+    profiles.push(profile);
+    saveProfiles(profiles);
+    setActiveProfileId(profile.id);
+
+    if(input) input.value="";
+    updateProfileNavbar();
+    updateProblemStatusUI();
+    renderProfilePage();
+    renderArchive();
+    hideProfileGate();
+    showToast("✓ Profile created and logged in as "+profile.name,"success");
+}
+
+function logoutProfile(){
+    closeProfileManager();
+    closeProfileEdit();
+    closeCelebration();
+    setActiveProfileId("");
+
+    ["homePage","archivePage","problemPage","profilePage"].forEach(id=>{
+        const element=document.getElementById(id);
+        if(element){
+            if(id==="profilePage") element.classList.remove("visible");
+            else element.style.display=id==="homePage"?"block":"none";
+        }
+    });
+
+    previousView="home";
+    updateProfileNavbar();
+    showProfileGate();
+}
+
+function openProfileManager(){
+    if(!getActiveProfile()) return showProfileGate();
+
+    renderProfileManager();
+
+    const modal=document.getElementById("profileModal");
+    if(modal){
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden","false");
+        setTimeout(()=>{
+            document.getElementById("profileCreateInput")?.focus();
+        },60);
+    }
+}
+
+function closeProfileManager(){
+    const modal=document.getElementById("profileModal");
+    if(modal){
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden","true");
+    }
+}
+
+function handleProfileModalBackground(event){
+    if(event.target.id==="profileModal") closeProfileManager();
+}
+
+let editingProfileId="";
+
+function editProfile(id,fromGate=false){
+    const profile=loadProfiles().find(p=>p.id===id);
+    if(!profile) return;
+
+    editingProfileId=id;
+    const input=document.getElementById("profileEditInput");
+    if(input) input.value=profile.name;
+
+    const modal=document.getElementById("profileEditModal");
+    if(modal){
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden","false");
+        setTimeout(()=>{
+            input?.focus();
+            input?.select();
+        },50);
+    }
+}
+
+function closeProfileEdit(){
+    const modal=document.getElementById("profileEditModal");
+    if(modal){
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden","true");
+    }
+    editingProfileId="";
+}
+
+function handleProfileEditBackground(event){
+    if(event.target.id==="profileEditModal") closeProfileEdit();
+}
+
+function saveProfileEdit(){
+    const input=document.getElementById("profileEditInput");
+    const name=input?input.value.trim():"";
+    if(!editingProfileId) return;
+    if(!name){
+        showToast("Profile name cannot be empty.","error");
+        return;
+    }
+
+    const profiles=loadProfiles();
+    const profile=profiles.find(p=>p.id===editingProfileId);
+    if(!profile) return;
+
+    if(profiles.some(p=>p.id!==profile.id && String(p.name).trim().toLowerCase()===name.toLowerCase())){
+        showToast("That profile name already exists.","error");
+        return;
+    }
+
+    profile.name=name;
+    saveProfiles(profiles);
+
+    const wasActive=getActiveProfileId()===profile.id;
+    closeProfileEdit();
+
+    if(wasActive) updateProfileNavbar();
+    renderProfileManager();
+    renderProfileGate();
+    renderProfilePage();
+
+    showToast("✓ Profile renamed.","success");
+}
+
+function renderProfileManager(){
+    const container=document.getElementById("profileList");
+    if(!container) return;
+
+    const profiles=loadProfiles();
+    const activeId=getActiveProfileId();
+
+    if(!profiles.length){
+        container.innerHTML='<div class="profile-empty">No local profiles yet. Create your first profile above.</div>';
+        return;
+    }
+
+    container.innerHTML=profiles.map(profile=>{
+        const stats=getProfileStats(profile);
+
+        return `
+            <div class="profile-list-item ${profile.id===activeId?"active":""}">
+                <div class="profile-avatar">${escapeHTML(getInitial(profile.name))}</div>
+                <div class="profile-list-name">
+                    ${escapeHTML(profile.name)}
+                    <small>${stats.approved}/${stats.total} approved • ${stats.notAttempted} not attempted</small>
+                </div>
+                <div class="profile-list-actions">
+                    ${profile.id===activeId
+                        ? '<button class="profile-small-btn" disabled>✓ Active</button>'
+                        : `<button class="profile-small-btn" type="button" onclick="switchProfile('${profile.id}')">Use</button>`}
+                    <button class="profile-small-btn" type="button" onclick="editProfile('${profile.id}')">Edit</button>
+                    <button class="profile-small-btn delete" type="button" onclick="deleteProfile('${profile.id}')">Delete</button>
+                </div>
+            </div>`;
+    }).join("");
+}
+
+function createProfile(){
+    const input=document.getElementById("profileCreateInput");
+    const name=input?input.value.trim():"";
+
+    if(!name){
+        showToast("Enter a profile name first.","error");
+        return;
+    }
+
+    const profiles=loadProfiles();
+
+    if(profiles.some(p=>String(p.name).toLowerCase()===name.toLowerCase())){
+        showToast("That profile already exists.","error");
+        return;
+    }
+
+    const profile=createProfileObject(name);
+    profiles.push(profile);
+    saveProfiles(profiles);
+    setActiveProfileId(profile.id);
+
+    if(input) input.value="";
+
+    updateProfileNavbar();
+    renderProfileManager();
+    renderProfileGate();
+    renderProfilePage();
+    updateProblemStatusUI();
+    showToast("✓ Switched to "+name,"success");
+}
+
+function switchProfile(id){
+    const profile=loadProfiles().find(p=>p.id===id);
+    if(!profile) return;
+
+    setActiveProfileId(id);
+    updateProfileNavbar();
+    renderProfileManager();
+    renderProfileGate();
+    renderProfilePage();
+    updateProblemStatusUI();
+    closeProfileManager();
+    showToast("✓ Switched to "+profile.name,"success");
+}
+
+function deleteProfile(id,fromGate=false){
+    const profiles=loadProfiles();
+    const profile=profiles.find(p=>p.id===id);
+    if(!profile) return;
+
+    if(!confirm('Delete profile "'+profile.name+'" and its local CP progress?')) return;
+
+    const wasActive=getActiveProfileId()===id;
+    const remaining=profiles.filter(p=>p.id!==id);
+    saveProfiles(remaining);
+
+    if(wasActive) setActiveProfileId("");
+
+    updateProfileNavbar();
+    renderProfileManager();
+    renderProfileGate();
+    renderProfilePage();
+    updateProblemStatusUI();
+
+    if(wasActive){
+        closeProfileManager();
+        showProfileGate();
+    }
+
+    showToast("Profile deleted.","success");
+}
+
+function showProfile(){
+    if(!getActiveProfile()) return showProfileGate();
+
+    ["homePage","archivePage","problemPage"].forEach(id=>{
+        const element=document.getElementById(id);
+        if(element) element.style.display="none";
+    });
+
+    const page=document.getElementById("profilePage");
+    if(page) page.classList.add("visible");
+
+    document.getElementById("homeNavButton")?.classList.remove("active");
+    document.getElementById("archiveNavButton")?.classList.remove("active");
+
+    previousView="profile";
+    renderProfilePage();
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function getProblemRecord(id){
+    const profile=getActiveProfile();
+    const record=profile&&profile.progress?profile.progress[id]:null;
+
+    return record&&typeof record==="object"
+        ? {
+            status:record.status||"not-attempted",
+            submittedAt:record.submittedAt||null,
+            approvedAt:record.approvedAt||null
+        }
+        : {
+            status:"not-attempted",
+            submittedAt:null,
+            approvedAt:null
+        };
+}
+
+function formatDateTime(value){
+    if(!value) return "";
+    const date=new Date(value);
+    if(Number.isNaN(date.getTime())) return "";
+
+    return date.toLocaleString(undefined,{
+        year:"numeric",
+        month:"long",
+        day:"numeric",
+        hour:"numeric",
+        minute:"2-digit"
+    });
+}
+
+function getStatusLabel(status){
+    return status==="approved"
+        ? "🟢 APPROVED"
+        : status==="submitted"
+        ? "🟡 WAITING / SUBMITTED"
+        : status==="not-approved"
+        ? "🔴 NOT APPROVED"
+        : "⚪ NOT ATTEMPTED";
+}
+
+function getStatusClass(status){
+    return status==="approved"
+        ? "status-approved"
+        : status==="submitted"
+        ? "status-submitted"
+        : status==="not-approved"
+        ? "status-not-approved"
+        : "status-not-attempted";
+}
+
+function getProfileStats(profile){
+    const stats={
+        total:0,
+        approved:0,
+        submitted:0,
+        notApproved:0,
+        notAttempted:0
+    };
+
+    getAllProblems().forEach(item=>{
+        stats.total++;
+
+        const record=profile.progress&&profile.progress[item.problem.id];
+        const status=record&&record.status?record.status:"not-attempted";
+
+        if(status==="approved") stats.approved++;
+        else stats.notApproved++;
+    });
+
+    return stats;
+}
+
+function updateProfileNavbar(){
+    const profile=getActiveProfile();
+    const avatar=document.getElementById("profileNavAvatar");
+    const name=document.getElementById("profileNavName");
+
+    if(!avatar||!name) return;
+
+    avatar.textContent=profile?getInitial(profile.name):"?";
+    name.textContent=profile?profile.name:"Profile";
+}
+
+function renderProfilePage(){
+    const profile=ensureLocalProfile();
+    if(!profile) return;
+    const stats=getProfileStats(profile);
+    const percent=stats.total?Math.round((stats.approved/stats.total)*1000)/10:0;
+
+    const setText=(id,value)=>{
+        const element=document.getElementById(id);
+        if(element) element.textContent=value;
+    };
+
+    setText("profileBigAvatar",getInitial(profile.name));
+    setText("profilePageName",profile.name);
+    setText("profilePageSubtitle","Chrome-style local profile • "+stats.approved+" of "+stats.total+" problems approved");
+    setText("profileTotalCount",stats.total);
+    setText("profileApprovedCount",stats.approved);
+    setText("profileNotApprovedCount",stats.notApproved);
+    setText("profileApprovedPercent",percent+"%");
+    setText("profileProgressText",stats.approved+" of "+stats.total+" problems approved");
+    setText("profileProgressPercent",percent+"%");
+
+    const fill=document.getElementById("profileProgressFill");
+    if(fill) fill.style.width=percent+"%";
+
+    renderProfileProblemList();
+    updateProfileFilterButtons();
+}
+
+function setProfileFilter(filter){
+    profileFilter=filter;
+    renderProfileProblemList();
+    updateProfileFilterButtons();
+}
+
+function updateProfileFilterButtons(){
+    const ids={
+        all:"profileFilterAll",
+        approved:"profileFilterApproved",
+        "not-approved":"profileFilterNotApproved"
+    };
+
+    Object.entries(ids).forEach(([filter,id])=>{
+        document.getElementById(id)?.classList.toggle("active",profileFilter===filter);
+    });
+}
+
+function renderProfileProblemList(){
+    const container=document.getElementById("profileProblemList");
+    const profile=getActiveProfile();
+
+    if(!container||!profile) return;
+
+    const items=getAllProblems().filter(item=>{
+        const record=profile.progress&&profile.progress[item.problem.id];
+        const rawStatus=record&&record.status?record.status:"not-attempted";
+        const status=rawStatus==="approved"?"approved":"not-approved";
+
+        return profileFilter==="all"||status===profileFilter;
+    });
+
+    if(!items.length){
+        container.innerHTML='<div class="profile-empty">No problems match this filter.</div>';
+        return;
+    }
+
+    container.innerHTML=items.map(item=>{
+        const record=getProblemRecordForProfile(profile,item.problem.id);
+        const status=record.status==="approved"?"approved":"not-approved";
+
+        let timestamp="";
+
+        if(status==="approved"&&record.approvedAt){
+            timestamp="Approved: "+formatDateTime(record.approvedAt);
+        }else if(record.submittedAt){
+            timestamp="Submitted: "+formatDateTime(record.submittedAt);
+        }
+
+        return `
+            <div class="profile-problem-row">
+                <div class="profile-day">DAY ${escapeHTML(item.day.day)}<br>${escapeHTML(item.problem.letter)}</div>
+                <div class="profile-problem-name">
+                    <strong>${escapeHTML(item.problem.title)}</strong>
+                    <span>${escapeHTML(item.problem.id)}${timestamp?" • "+escapeHTML(timestamp):""}</span>
+                </div>
+                <span class="status-pill ${getStatusClass(status)}">${getStatusLabel(status)}</span>
+            </div>
+        `;
+    }).join("");
+}
+
+function getProblemRecordForProfile(profile,id){
+    const record=profile.progress&&profile.progress[id];
+
+    return record&&typeof record==="object"
+        ? {
+            status:record.status||"not-attempted",
+            submittedAt:record.submittedAt||null,
+            approvedAt:record.approvedAt||null
+        }
+        : {
+            status:"not-attempted",
+            submittedAt:null,
+            approvedAt:null
+        };
+}
+
+/* =========================================================
+   APPROVAL — ONLY USER-FACING STATUS CONTROL
+   ========================================================= */
+
+function approveCurrentProblem(){
+    const profile=ensureLocalProfile();
+    const problem=currentDay?.problems?.[currentProblemIndex];
+
+    if(!profile){
+        showProfileGate();
+        return;
+    }
+    if(!problem) return;
+
+    const old=getProblemRecord(problem.id);
+
+    if(old.status==="approved"){
+        updateProblemStatusUI();
+        return;
+    }
+
+    if(!profile.progress) profile.progress={};
+
+    const now=new Date().toISOString();
+
+    profile.progress[problem.id]={
+        status:"approved",
+        submittedAt:old.submittedAt||now,
+        approvedAt:now
+    };
+
+    updateProfile(profile);
+    updateProblemStatusUI();
+    renderProfilePage();
+    updateProfileNavbar();
+
+    showApprovalCelebration(problem);
+}
+
+function updateProblemStatusUI(){
+    const pill=document.getElementById("problemStatusPill");
+    const help=document.getElementById("problemStatusHelp");
+    const time=document.getElementById("problemApprovedTime");
+    const button=document.getElementById("problemApprovalButton");
+    const resetButton=document.getElementById("problemApprovalResetButton");
+
+    if(!pill||!help||!time||!button) return;
+
+    const profile=ensureLocalProfile();
+    const problem=currentDay?.problems?.[currentProblemIndex];
+
+    if(!problem) return;
+
+    if(!profile){
+        pill.className="status-pill status-not-approved";
+        pill.textContent="🔒 LOGIN REQUIRED";
+        button.className="approval-button";
+        button.textContent="LOG IN TO APPROVE";
+        button.disabled=false;
+        if(resetButton)resetButton.style.display="none";
+        help.textContent="Choose a local profile before recording approval.";
+        time.textContent="";
+        return;
+    }
+
+    const record=getProblemRecord(problem.id);
+
+    if(record.status==="approved"){
+        pill.className="status-pill status-approved";
+        pill.textContent="🟢 APPROVED";
+        button.className="approval-button approved";
+        button.textContent="✓ APPROVED";
+        button.disabled=true;
+        if(resetButton)resetButton.style.display="block";
+        help.textContent="Approved for "+profile.name+" and saved locally.";
+        time.textContent=record.approvedAt
+            ?"Approved on "+formatDateTime(record.approvedAt)
+            :"";
+    }else{
+        pill.className="status-pill status-not-approved";
+        pill.textContent="🔴 NOT APPROVED";
+        button.className="approval-button";
+        button.textContent="✓ MARK AS APPROVED";
+        button.disabled=false;
+        if(resetButton)resetButton.style.display="none";
+        help.textContent="Press only after your solution has been checked and you want to record the approval on this profile.";
+        time.textContent="";
+    }
+}
+
+/* =========================================================
+   RANDOMIZED CELEBRATION ENGINE
+   8 COMPLETELY DIFFERENT WORLDS
+   UNIQUE VISUALS + UNIQUE SOUND + UNIQUE INTERACTION
+   ALL EFFECTS LOOP UNTIL USER CHOOSES AN ACTION
+   ========================================================= */
+
+const CELEBRATION_EFFECTS=[
+    {id:"accepted",name:"ACCEPTED CORE",emoji:"✓",theme:"ce-accepted",kicker:"VERDICT // ACCEPTED",badge:"ALL CHECKS CLEARED"},
+    {id:"balloons",name:"BALLOON PARTY",emoji:"🎈",theme:"ce-balloons",kicker:"PARTY MODE UNLOCKED",badge:"BALLOON TAKEOVER"},
+    {id:"confetti",name:"CONFETTI CANNON",emoji:"🎉",theme:"ce-confetti",kicker:"VICTORY CANNON FIRED",badge:"FULL CELEBRATION"},
+    {id:"fireworks",name:"NIGHT FIREWORKS",emoji:"🎆",theme:"ce-fireworks",kicker:"THE SKY SAYS ACCEPTED",badge:"FIREWORK SEQUENCE"},
+    {id:"galaxy",name:"GALAXY EXPANSION",emoji:"🌌",theme:"ce-galaxy",kicker:"NEW SOLUTION DISCOVERED",badge:"COSMIC CLEAR"},
+    {id:"terminal",name:"HACKER VERDICT",emoji:"⌘",theme:"ce-terminal",kicker:"SYSTEM VERDICT",badge:"ALL TESTS PASSED"},
+    {id:"dna",name:"CODE DNA",emoji:"🧬",theme:"ce-dna",kicker:"LOGIC SEQUENCE COMPLETE",badge:"PATTERN VERIFIED"},
+    {id:"brain",name:"EUREKA MODE",emoji:"💡",theme:"ce-brain",kicker:"CONCEPT CONNECTED",badge:"LEARNING MILESTONE"}
+];
+
+const CELEBRATION_RUNTIME={
+    timers:[],
+    audioTimers:[],
+    audioNodes:new Set(),
+    active:false
+};
+
+function loadCelebrationHistory(){
+    try{
+        const raw=localStorage.getItem(CELEBRATION_HISTORY_KEY);
+        const h=raw?JSON.parse(raw):[];
+        return Array.isArray(h)?h:[];
+    }catch(e){
+        return [];
+    }
+}
+
+function saveCelebrationHistory(h){
+    try{
+        localStorage.setItem(
+            CELEBRATION_HISTORY_KEY,
+            JSON.stringify(h)
+        );
+    }catch(e){}
+}
+
+function pickCelebrationEffect(){
+    let h=loadCelebrationHistory().filter(
+        function(id){
+            return CELEBRATION_EFFECTS.some(
+                function(effect){
+                    return effect.id===id;
+                }
+            );
+        }
+    );
+
+    let available=CELEBRATION_EFFECTS.filter(
+        function(effect){
+            return !h.includes(effect.id);
+        }
+    );
+
+    if(!available.length){
+        h=[];
+        available=CELEBRATION_EFFECTS.slice();
+    }
+
+    const chosen=
+        available[
+            Math.floor(
+                Math.random()*available.length
+            )
+        ];
+
+    h.push(chosen.id);
+
+    saveCelebrationHistory(h);
+
+    return chosen;
+}
+
+function createStageElement(tag="div",className=""){
+    const el=document.createElement(tag);
+    el.className=className;
+    return el;
+}
+
+function randomBetween(min,max){
+    return min+Math.random()*(max-min);
+}
+
+/* =========================================================
+   AUDIO ENGINE
+   Browser autoplay protection is handled by starting this
+   from the approval button's user gesture.
+   ========================================================= */
+
+function getAudioContext(){
+    try{
+        const AC=
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(!AC){
+            return null;
+        }
+
+        const ctx=
+            window.__arafatAudioContext ||
+            (window.__arafatAudioContext=new AC());
+
+        if(ctx.state==="suspended"){
+            ctx.resume().catch(function(){});
+        }
+
+        return ctx;
+
+    }catch(e){
+        return null;
+    }
+}
+
+function trackAudioNode(node){
+    if(!CELEBRATION_RUNTIME.active){
+        return node;
+    }
+
+    CELEBRATION_RUNTIME.audioNodes.add(node);
+
+    node.addEventListener(
+        "ended",
+        function(){
+            CELEBRATION_RUNTIME.audioNodes.delete(node);
+        },
+        {once:true}
+    );
+
+    return node;
+}
+
+function tone(
+    freq,
+    duration,
+    type="sine",
+    volume=.04,
+    delay=0,
+    detune=0
+){
+    const ctx=getAudioContext();
+
+    if(!ctx){
+        return;
+    }
+
+    try{
+        const t=
+            ctx.currentTime+
+            Math.max(0,delay);
+
+        const o=
+            ctx.createOscillator();
+
+        const g=
+            ctx.createGain();
+
+        o.type=type;
+
+        o.frequency.setValueAtTime(
+            freq,
+            t
+        );
+
+        o.detune.setValueAtTime(
+            detune,
+            t
+        );
+
+        g.gain.setValueAtTime(
+            .0001,
+            t
+        );
+
+        g.gain.exponentialRampToValueAtTime(
+            Math.max(.0002,volume),
+            t+.012
+        );
+
+        g.gain.exponentialRampToValueAtTime(
+            .0001,
+            t+duration
+        );
+
+        o.connect(g);
+        g.connect(ctx.destination);
+
+        trackAudioNode(o);
+
+        o.start(t);
+        o.stop(
+            t+
+            duration+
+            .04
+        );
+
+    }catch(e){}
+}
+
+function noiseBurst(
+    duration=.16,
+    volume=.03,
+    delay=0
+){
+    const ctx=getAudioContext();
+
+    if(!ctx){
+        return;
+    }
+
+    try{
+        const t=
+            ctx.currentTime+
+            Math.max(0,delay);
+
+        const length=
+            Math.max(
+                1,
+                Math.floor(
+                    ctx.sampleRate*duration
+                )
+            );
+
+        const b=
+            ctx.createBuffer(
+                1,
+                length,
+                ctx.sampleRate
+            );
+
+        const d=
+            b.getChannelData(0);
+
+        for(
+            let i=0;
+            i<d.length;
+            i++
+        ){
+            d[i]=
+                (Math.random()*2-1)*
+                (1-i/d.length);
+        }
+
+        const src=
+            ctx.createBufferSource();
+
+        const f=
+            ctx.createBiquadFilter();
+
+        const g=
+            ctx.createGain();
+
+        src.buffer=b;
+
+        f.type="highpass";
+        f.frequency.value=700;
+
+        g.gain.value=volume;
+
+        src.connect(f);
+        f.connect(g);
+        g.connect(ctx.destination);
+
+        trackAudioNode(src);
+
+        src.start(t);
+
+        src.stop(
+            t+
+            duration
+        );
+
+    }catch(e){}
+}
+
+function clearCelebrationTimers(){
+    CELEBRATION_RUNTIME.timers.forEach(
+        function(timer){
+            clearInterval(timer);
+            clearTimeout(timer);
+        }
+    );
+
+    CELEBRATION_RUNTIME.timers=[];
+
+    CELEBRATION_RUNTIME.audioTimers.forEach(
+        function(timer){
+            clearInterval(timer);
+            clearTimeout(timer);
+        }
+    );
+
+    CELEBRATION_RUNTIME.audioTimers=[];
+}
+
+function stopCelebrationAudio(){
+    CELEBRATION_RUNTIME.audioNodes.forEach(
+        function(node){
+            try{
+                node.stop();
+            }catch(e){}
+
+            try{
+                node.disconnect();
+            }catch(e){}
+        }
+    );
+
+    CELEBRATION_RUNTIME.audioNodes.clear();
+}
+
+function stopCelebrationRuntime(){
+    CELEBRATION_RUNTIME.active=false;
+
+    clearCelebrationTimers();
+
+    stopCelebrationAudio();
+}
+
+/* =========================================================
+   UNIQUE SOUND LOOPS
+   Every celebration has its own sonic identity.
+   ========================================================= */
+
+function playUniqueCelebrationSound(id){
+
+    stopCelebrationAudio();
+
+    CELEBRATION_RUNTIME.active=true;
+
+    let loopSound=function(){};
+
+    if(id==="accepted"){
+        loopSound=function(){
+            [392,523.25,659.25,783.99,1046.5]
+                .forEach(
+                    function(f,i){
+                        tone(
+                            f,
+                            .15,
+                            "sine",
+                            .035,
+                            i*.09
+                        );
+                    }
+                );
+
+            tone(
+                1046.5,
+                .42,
+                "triangle",
+                .026,
+                .48
+            );
+        };
+
+    }else if(id==="balloons"){
+        loopSound=function(){
+            tone(
+                120,
+                .08,
+                "sawtooth",
+                .045
+            );
+
+            tone(
+                90,
+                .13,
+                "triangle",
+                .035,
+                .06
+            );
+
+            [523,659,784,988]
+                .forEach(
+                    function(f,i){
+                        tone(
+                            f,
+                            .12,
+                            "sine",
+                            .03,
+                            .18+i*.07
+                        );
+                    }
+                );
+
+            noiseBurst(
+                .08,
+                .018,
+                .28
+            );
+        };
+
+    }else if(id==="confetti"){
+        loopSound=function(){
+            noiseBurst(
+                .28,
+                .06
+            );
+
+            noiseBurst(
+                .22,
+                .045,
+                .17
+            );
+
+            [330,440,554,659,880]
+                .forEach(
+                    function(f,i){
+                        tone(
+                            f,
+                            .09,
+                            "triangle",
+                            .03,
+                            i*.05
+                        );
+                    }
+                );
+        };
+
+    }else if(id==="fireworks"){
+        loopSound=function(){
+            tone(
+                58,
+                .62,
+                "sawtooth",
+                .05
+            );
+
+            tone(
+                95,
+                .36,
+                "triangle",
+                .026,
+                .22
+            );
+
+            noiseBurst(
+                .34,
+                .058,
+                .38
+            );
+
+            [392,523,659,784]
+                .forEach(
+                    function(f,i){
+                        tone(
+                            f,
+                            .16,
+                            "triangle",
+                            .04,
+                            .58+i*.06
+                        );
+                    }
+                );
+        };
+
+    }else if(id==="galaxy"){
+        loopSound=function(){
+            tone(
+                82,
+                .9,
+                "sine",
+                .025
+            );
+
+            tone(
+                110,
+                .82,
+                "sine",
+                .018,
+                .04,
+                -7
+            );
+
+            [123.47,164.81,220,329.63,493.88]
+                .forEach(
+                    function(f,i){
+                        tone(
+                            f,
+                            .62,
+                            "sine",
+                            .022,
+                            .12+i*.13,
+                            i*5
+                        );
+                    }
+                );
+
+            tone(
+                987.77,
+                .38,
+                "triangle",
+                .018,
+                .74
+            );
+        };
+
+    }else if(id==="terminal"){
+        loopSound=function(){
+            for(
+                let i=0;
+                i<14;
+                i++
+            ){
+                tone(
+                    110+i*39,
+                    .038,
+                    "square",
+                    .018,
+                    i*.045
+                );
+            }
+
+            tone(
+                880,
+                .08,
+                "square",
+                .035,
+                .66
+            );
+
+            tone(
+                1320,
+                .12,
+                "square",
+                .035,
+                .76
+            );
+        };
+
+    }else if(id==="dna"){
+        loopSound=function(){
+            for(
+                let i=0;
+                i<13;
+                i++
+            ){
+                const f=
+                    196+
+                    i*24;
+
+                tone(
+                    f,
+                    .075,
+                    "triangle",
+                    .023,
+                    i*.075
+                );
+
+                tone(
+                    f*1.5,
+                    .055,
+                    "sine",
+                    .013,
+                    i*.075+.028
+                );
+            }
+
+            tone(
+                1046,
+                .24,
+                "sine",
+                .018,
+                1.02
+            );
+        };
+
+    }else if(id==="brain"){
+        loopSound=function(){
+            [196,247,294,370]
+                .forEach(
+                    function(f,i){
+                        tone(
+                            f,
+                            .18,
+                            "sine",
+                            .025,
+                            i*.12
+                        );
+                    }
+                );
+
+            tone(
+                440,
+                .24,
+                "sine",
+                .026,
+                .52
+            );
+
+            tone(
+                659,
+                .28,
+                "sine",
+                .03,
+                .78
+            );
+
+            tone(
+                1046.5,
+                .42,
+                "triangle",
+                .036,
+                1.04
+            );
+        };
+    }
+
+    loopSound();
+
+    const intervalMap={
+        accepted:2200,
+        balloons:2200,
+        confetti:2850,
+        fireworks:3100,
+        galaxy:3000,
+        terminal:3100,
+        dna:5400,
+        brain:4300
+    };
+
+    const interval=
+        setInterval(
+            function(){
+                if(
+                    CELEBRATION_RUNTIME.active
+                ){
+                    loopSound();
+                }
+            },
+            intervalMap[id]||3000
+        );
+
+    CELEBRATION_RUNTIME.audioTimers.push(
+        interval
+    );
+}
+
+function playBalloonPopSound(){
+    noiseBurst(
+        .055,
+        .055
+    );
+
+    tone(
+        190,
+        .05,
+        "square",
+        .045,
+        .01
+    );
+
+    tone(
+        85,
+        .09,
+        "triangle",
+        .028,
+        .045
+    );
+}
+
+/* =========================================================
+   CELEBRATION CARD
+   ========================================================= */
+
+function buildCelebrationCard(
+    effect,
+    problem,
+    profile,
+    stats
+){
+    const card=
+        document.getElementById(
+            "celebrationCard"
+        );
+
+    if(!card){
+        return;
+    }
+
+    const percent=
+        stats.total
+            ?Math.round(
+                stats.approved/
+                stats.total*
+                1000
+            )/10
+            :0;
+
+    card.className=
+        "celebration-card "+
+        effect.theme;
+
+    const common=`
+        <div class="ce-stats">
+            <div>
+                <strong>${stats.approved}</strong>
+                <span>Approved</span>
+            </div>
+            <div>
+                <strong>${percent}%</strong>
+                <span>Progress</span>
+            </div>
+            <div>
+                <strong>${stats.total-stats.approved}</strong>
+                <span>Remaining</span>
+            </div>
+        </div>
+    `;
+
+    const actions=`
+        <div class="celebration-actions">
+            <button
+                class="celebration-close secondary"
+                type="button"
+                onclick="closeCelebration()">
+                Continue Practice
+            </button>
+
+            <button
+                class="celebration-close"
+                type="button"
+                onclick="closeCelebrationAndOpenNext()">
+                Next Problem →
+            </button>
+        </div>
+    `;
+
+    const title=
+        escapeHTML(problem.title);
+
+    const name=
+        escapeHTML(profile.name);
+
+    const content={
+
+        accepted:`
+            <div class="ce-icon">✓</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                ACCEPTED, ${name}.
+            </h2>
+            <p>
+                “${title}” has cleared
+                the approval checkpoint.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                The approval core is continuously pulsing.
+            </div>
+        `,
+
+        balloons:`
+            <div class="ce-icon">🎈</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                PARTY UNLOCKED!
+            </h2>
+            <p>
+                ${name}, “${title}” is approved.
+                Pop the balloons yourself.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                🎈 Every balloon stays until you click it.
+            </div>
+        `,
+
+        confetti:`
+            <div class="ce-icon">🎉</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                CONFETTI CANNON!
+            </h2>
+            <p>
+                The cannon repeatedly reloads
+                and blasts the celebration sky.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                💥 Two cannons keep reloading and firing. Click the sky to fire another blast.
+            </div>
+        `,
+
+        fireworks:`
+            <div class="ce-icon">🎆</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                LIGHT UP THE NIGHT.
+            </h2>
+            <p>
+                ${name}, the “${title}”
+                checkpoint is officially cleared.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                ✨ The night sky keeps firing until you leave.
+            </div>
+        `,
+
+        galaxy:`
+            <div class="ce-icon">🌌</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                GALAXY EXPANSION!
+            </h2>
+            <p>
+                “${title}” has expanded
+                your approved solution universe.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                🌠 Stars orbit continuously around the core.
+            </div>
+        `,
+
+        terminal:`
+            <div class="ce-icon">⌘</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                VERDICT: ACCEPTED_
+            </h2>
+            <p>
+                user=${name}
+                • problem=${title}
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                &gt; Terminal stream is running continuously.
+            </div>
+        `,
+
+        dna:`
+            <div class="ce-icon">🧬</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                CODE DNA COMPLETE!
+            </h2>
+            <p>
+                The logic behind “${title}”
+                is being rebuilt brick by brick.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                🧬 Watch the DNA construct rung-by-rung, then rotate in full 3D and rebuild.
+            </div>
+        `,
+
+        brain:`
+            <div class="ce-icon">💡</div>
+            <div class="ce-kicker">
+                ${effect.kicker}
+            </div>
+            <h2>
+                EUREKA!
+            </h2>
+            <p>
+                ${name}, one more connection is complete:
+                “${title}” is approved.
+            </p>
+            <span class="ce-badge">
+                ${effect.badge}
+            </span>
+            ${common}
+            ${actions}
+            <div class="balloon-hint">
+                🧠 Watch the thought collapse into energy, then physically form into a light bulb.
+            </div>
+        `
+    };
+
+    card.innerHTML=
+        content[effect.id]||
+        content.accepted;
+}
+
+/* =========================================================
+   PARTICLE BUILDERS
+   ========================================================= */
+
+function addConfetti(
+    stage,
+    count=520
+){
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+        const p=
+            createStageElement(
+                "span",
+                "confetti-piece"
+            );
+
+        p.style.left=
+            randomBetween(0,100)+
+            "%";
+
+        p.style.width=
+            randomBetween(4,12)+
+            "px";
+
+        p.style.height=
+            randomBetween(7,19)+
+            "px";
+
+        p.style.animationDuration=
+            randomBetween(2.2,4.8)+
+            "s";
+
+        p.style.animationDelay=
+            randomBetween(-4.8,0)+
+            "s";
+
+        p.style.setProperty(
+            "--drift",
+            randomBetween(-120,120)+
+            "px"
+        );
+
+        p.style.transform=
+            "rotate("+
+            randomBetween(0,360)+
+            "deg)";
+
+        stage.appendChild(p);
+    }
+}
+
+function addStars(
+    stage,
+    count=50
+){
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+        const x=
+            createStageElement(
+                "span",
+                "effect-star"
+            );
+
+        x.textContent=
+            i%3
+                ?"✦"
+                :"✧";
+
+        x.style.left="50%";
+        x.style.top="50%";
+
+        x.style.setProperty(
+            "--tx",
+            randomBetween(-48,48)+
+            "vw"
+        );
+
+        x.style.setProperty(
+            "--ty",
+            randomBetween(-42,42)+
+            "vh"
+        );
+
+        x.style.animationDelay=
+            randomBetween(-2.7,0)+
+            "s";
+
+        stage.appendChild(x);
+    }
+}
+
+function addFirework(
+    stage,
+    x,
+    y,
+    scale=1
+){
+    const f=
+        createStageElement(
+            "div",
+            "firework"
+        );
+
+    f.style.left=x+"%";
+    f.style.top=y+"%";
+
+    f.style.transform=
+        "translate(-50%,-50%) scale("+
+        scale+
+        ")";
+
+    stage.appendChild(f);
+
+    for(
+        let i=0;
+        i<42;
+        i++
+    ){
+        const dot=
+            createStageElement(
+                "span",
+                "firework-dot"
+            );
+
+        const angle=
+            i*
+            (360/42);
+
+        const distance=
+            randomBetween(
+                70,
+                190
+            )*
+            scale;
+
+        const radians=
+            angle*
+            Math.PI/
+            180;
+
+        dot.style.left=
+            x+
+            "%";
+
+        dot.style.top=
+            y+
+            "%";
+
+        dot.style.setProperty(
+            "--fx",
+            Math.cos(radians)*
+            distance+
+            "px"
+        );
+
+        dot.style.setProperty(
+            "--fy",
+            Math.sin(radians)*
+            distance+
+            "px"
+        );
+
+        dot.style.animationDelay=
+            randomBetween(-1.25,0)+
+            "s";
+
+        stage.appendChild(dot);
+    }
+}
+
+function addFireworksLoop(stage){
+
+    const locations=[
+        [14,24],
+        [84,20],
+        [50,14],
+        [27,68],
+        [76,67],
+        [55,80],
+        [92,43],
+        [8,50]
+    ];
+
+    function burst(){
+        const base=
+            locations[
+                Math.floor(
+                    Math.random()*
+                    locations.length
+                )
+            ];
+
+        addFirework(
+            stage,
+            base[0]+randomBetween(-4,4),
+            base[1]+randomBetween(-4,4),
+            randomBetween(.75,1.2)
+        );
+
+        const timer=
+            setTimeout(
+                function(){
+                    const old=
+                        stage.querySelectorAll(
+                            ".firework-dot,.firework"
+                        );
+
+                    if(old.length>220){
+                        for(
+                            let i=0;
+                            i<old.length-80;
+                            i++
+                        ){
+                            old[i].remove();
+                        }
+                    }
+                },
+                1600
+            );
+
+        CELEBRATION_RUNTIME.timers.push(
+            timer
+        );
+    }
+
+    burst();
+
+    const interval=
+        setInterval(
+            function(){
+                if(
+                    CELEBRATION_RUNTIME.active
+                ){
+                    burst();
+                }
+            },
+            520
+        );
+
+    CELEBRATION_RUNTIME.timers.push(
+        interval
+    );
+}
+
+function addBalloons(stage){
+
+    const positions=[
+        [4,82],[8,34],[13,64],[20,13],
+        [80,13],[87,38],[94,72],[96,30],
+        [7,92],[17,83],[83,84],[92,92],
+        [25,8],[75,8]
+    ];
+
+    const balloonColors=[
+        "#ff5b7f",
+        "#ff8a3d",
+        "#ffd447",
+        "#55d66b",
+        "#36c5ff",
+        "#7c6cff",
+        "#d85cff"
+    ];
+
+    positions.forEach(
+        function(v,i){
+
+            const button=
+                createStageElement(
+                    "button",
+                    "balloon-button"
+                );
+
+            button.type="button";
+
+            button.setAttribute(
+                "aria-label",
+                "Pop balloon"
+            );
+
+            button.style.left=
+                v[0]+"%";
+
+            button.style.top=
+                v[1]+"%";
+
+            button.style.animationDelay=
+                randomBetween(-2.4,0)+
+                "s";
+
+            const color=
+                balloonColors[
+                    i%
+                    balloonColors.length
+                ];
+
+            button.style.color=color;
+
+            button.innerHTML=`
+                <span
+                    class="balloon-body"
+                    style="background:${color}">
+                </span>
+
+                <span
+                    class="balloon-knot"
+                    style="color:${color}">
+                </span>
+
+                <span class="balloon-string"></span>
+            `;
+
+            button.onclick=
+                function(event){
+
+                    event.stopPropagation();
+
+                    if(
+                        button.classList.contains(
+                            "popping"
+                        )
+                    ){
+                        return;
+                    }
+
+                    button.classList.add(
+                        "popping"
+                    );
+
+                    playBalloonPopSound();
+
+                    const rect=
+                        button.getBoundingClientRect();
+
+                    const pop=
+                        createStageElement(
+                            "span",
+                            "balloon-pop-text"
+                        );
+
+                    pop.textContent="💥 POP!";
+
+                    pop.style.left=
+                        rect.left+
+                        rect.width/2+
+                        "px";
+
+                    pop.style.top=
+                        rect.top+
+                        rect.height/2+
+                        "px";
+
+                    stage.appendChild(pop);
+
+                    setTimeout(
+                        function(){
+                            pop.remove();
+                        },
+                        700
+                    );
+
+                    setTimeout(
+                        function(){
+                            button.remove();
+                        },
+                        350
+                    );
+                };
+
+            stage.appendChild(
+                button
+            );
+        }
+    );
+}
+
+function addCannonStream(stage,startLoop=true){
+    const colors=["#ff4d6d","#ffd166","#06d6a0","#4cc9f0","#a56cff","#ff8fab","#ffffff"];
+    function cannonBurst(side){
+        const unit=createStageElement("div","cannon-unit "+side);
+        unit.innerHTML='<div class="cannon-body"><span class="cannon-wheel one"></span><span class="cannon-wheel two"></span></div><span class="cannon-muzzle"></span>';
+        stage.appendChild(unit);
+        const originX=side==="left"?10:90;
+        const originY=84;
+        const flash=createStageElement("div","cannon-flash");
+        flash.style.left=originX+"%";flash.style.top=originY+"%";flash.style.animationDelay="0s";stage.appendChild(flash);
+        for(let i=0;i<55;i++){
+            const p=createStageElement("span","cannon-particle");
+            p.style.left=originX+"%";p.style.top=(originY-4)+"%";
+            const spread=side==="left"?randomBetween(-8,12):randomBetween(-12,8);
+            const tx=side==="left"?randomBetween(12,76):randomBetween(-76,-12);
+            const ty=randomBetween(-76,-15);
+            p.style.setProperty("--tx",tx+"vw");p.style.setProperty("--ty",ty+"vh");
+            p.style.setProperty("--rot",randomBetween(-720,720)+"deg");
+            p.style.background=colors[Math.floor(Math.random()*colors.length)];
+            p.style.animationDelay=randomBetween(-1.9,0)+"s";
+            p.style.animationDuration=randomBetween(1.5,2.4)+"s";
+            stage.appendChild(p);
+        }
+        for(let i=0;i<8;i++){
+            const spark=createStageElement("i","cannon-spark");
+            spark.style.left=(originX+randomBetween(-2,2))+"%";spark.style.top=(originY+randomBetween(-3,3))+"%";
+            spark.style.animationDelay=randomBetween(-1.9,0)+"s";stage.appendChild(spark);
+        }
+        const timer=setTimeout(function(){
+            unit.remove();flash.remove();
+            const old=stage.querySelectorAll(".cannon-particle,.cannon-spark");
+            if(old.length>260) for(let i=0;i<old.length-130;i++) old[i].remove();
+        },2600);
+        CELEBRATION_RUNTIME.timers.push(timer);
+    }
+    cannonBurst("left");cannonBurst("right");
+    if(startLoop){
+        const interval=setInterval(function(){if(CELEBRATION_RUNTIME.active){cannonBurst(Math.random()>.5?"left":"right")}},1550);
+        CELEBRATION_RUNTIME.timers.push(interval);
+    }
+}
+
+function addGalaxy(stage){
+
+    const core=
+        createStageElement(
+            "div"
+        );
+
+    core.style.position="absolute";
+    core.style.left="50%";
+    core.style.top="50%";
+    core.style.width="150px";
+    core.style.height="150px";
+    core.style.transform=
+        "translate(-50%,-50%)";
+
+    core.style.borderRadius="50%";
+
+    core.style.background=
+        "radial-gradient(circle,#fff 0,#c8a9ff 7%,#7d45ff 22%,rgba(73,32,145,.35) 48%,transparent 72%)";
+
+    core.style.boxShadow=
+        "0 0 60px 20px rgba(156,107,255,.55)";
+
+    core.style.animation=
+        "galaxyCorePulse 2.6s ease-in-out infinite";
+
+    stage.appendChild(core);
+
+    for(
+        let i=0;
+        i<220;
+        i++
+    ){
+        const star=
+            createStageElement(
+                "span",
+                "galaxy-star"
+            );
+
+        star.style.left="50%";
+        star.style.top="50%";
+
+        star.style.setProperty(
+            "--orbit",
+            randomBetween(45,95)+
+            "vw"
+        );
+
+        star.style.animationDuration=
+            randomBetween(4,9)+
+            "s";
+
+        star.style.animationDelay=
+            randomBetween(-9,0)+
+            "s";
+
+        stage.appendChild(
+            star
+        );
+    }
+
+    for(
+        let i=0;
+        i<120;
+        i++
+    ){
+        const dust=
+            createStageElement(
+                "span",
+                "galaxy-dust"
+            );
+
+        dust.style.left="50%";
+        dust.style.top="50%";
+
+        dust.style.setProperty(
+            "--gx",
+            randomBetween(-55,55)+
+            "vw"
+        );
+
+        dust.style.setProperty(
+            "--gy",
+            randomBetween(-45,45)+
+            "vh"
+        );
+
+        dust.style.animationDelay=
+            randomBetween(-5,0)+
+            "s";
+
+        stage.appendChild(
+            dust
+        );
+    }
+}
+
+function addCodeRain(stage){
+
+    const chars=[
+        "0",
+        "1",
+        "{ }",
+        "< >",
+        ";",
+        "++",
+        "if",
+        "for",
+        "=>",
+        "&&",
+        "||",
+        "[]",
+        "ACCEPT",
+        "PASS",
+        "OK",
+        "sudo",
+        "root",
+        "0101"
+    ];
+
+    for(
+        let i=0;
+        i<110;
+        i++
+    ){
+        const l=
+            createStageElement(
+                "span",
+                "code-rain"
+            );
+
+        l.textContent=
+            chars[
+                Math.floor(
+                    Math.random()*
+                    chars.length
+                )
+            ];
+
+        l.style.left=
+            randomBetween(0,100)+
+            "%";
+
+        l.style.animationDelay=
+            randomBetween(-3.4,0)+
+            "s";
+
+        l.style.animationDuration=
+            randomBetween(1.8,3.8)+
+            "s";
+
+        stage.appendChild(l);
+    }
+}
+
+function addDna(stage){
+
+    const core=
+        createStageElement(
+            "div",
+            "dna-core"
+        );
+
+    for(
+        let i=0;
+        i<15;
+        i++
+    ){
+        const y=
+            5+
+            i*
+            6.45;
+
+        const phase=
+            i*.72;
+
+        const left=
+            50+
+            Math.sin(phase)*
+            27;
+
+        const right=
+            50-
+            Math.sin(phase)*
+            27;
+
+        const n1=
+            createStageElement(
+                "span",
+                "dna-node"
+            );
+
+        const n2=
+            createStageElement(
+                "span",
+                "dna-node"
+            );
+
+        n1.style.left=
+            left+
+            "%";
+
+        n2.style.left=
+            right+
+            "%";
+
+        n1.style.top=
+            y+
+            "%";
+
+        n2.style.top=
+            y+
+            "%";
+
+        n1.style.animationDelay=
+            i*.22+
+            "s";
+
+        n2.style.animationDelay=
+            i*.22+
+            ".11s";
+
+        core.append(
+            n1,
+            n2
+        );
+
+        const bridge=
+            createStageElement(
+                "i",
+                "dna-bridge"
+            );
+
+        bridge.style.left=
+            Math.min(
+                left,
+                right
+            )+
+            "%";
+
+        bridge.style.top=
+            y+
+            "%";
+
+        bridge.style.width=
+            Math.abs(
+                right-left
+            )*
+            1.65+
+            "px";
+
+        bridge.style.transform=
+            "rotate(0deg)";
+
+        bridge.style.animationDelay=
+            i*.22+
+            ".17s";
+
+        core.appendChild(
+            bridge
+        );
+    }
+
+    stage.appendChild(
+        core
+    );
+
+    for(
+        let i=0;
+        i<100;
+        i++
+    ){
+        const p=
+            createStageElement(
+                "i",
+                "dna-spark"
+            );
+
+        p.style.setProperty(
+            "--sx",
+            randomBetween(-48,48)+
+            "vw"
+        );
+
+        p.style.setProperty(
+            "--sy",
+            randomBetween(-44,44)+
+            "vh"
+        );
+
+        p.style.animationDelay=
+            randomBetween(-2.2,0)+
+            "s";
+
+        stage.appendChild(
+            p
+        );
+    }
+}
+
+function addBinaryGrid(stage){
+
+    const grid=
+        createStageElement(
+            "div",
+            "binary-grid"
+        );
+
+    for(
+        let i=0;
+        i<144;
+        i++
+    ){
+        const c=
+            createStageElement(
+                "span",
+                "binary-cell"
+            );
+
+        c.textContent=
+            Math.random()>.5
+                ?"1"
+                :"0";
+
+        c.style.animationDelay=
+            randomBetween(-1.2,0)+
+            "s";
+
+        grid.appendChild(
+            c
+        );
+    }
+
+    stage.appendChild(
+        grid
+    );
+}
+
+function addBrainParticles(stage){
+    const ring=createStageElement("div","morph-ring");stage.appendChild(ring);
+    const bulb=createStageElement("div","lightbulb-core");
+    bulb.innerHTML='<span class="lightbulb-rays"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="lightbulb-glass"></span><span class="lightbulb-base"></span>';
+    stage.appendChild(bulb);
+    for(let i=0;i<34;i++){
+        const p=createStageElement("i","morph-spark");
+        const angle=randomBetween(0,Math.PI*2),radius=randomBetween(70,190);
+        p.style.setProperty("--sx",Math.cos(angle)*radius+"px");p.style.setProperty("--sy",Math.sin(angle)*radius+"px");
+        p.style.animationDelay=randomBetween(0,2.4)+"s";stage.appendChild(p);
+    }
+    for(let i=0;i<120;i++){
+        const p=createStageElement("i","brain-particle");
+        p.style.setProperty("--sx",randomBetween(-48,48)+"vw");
+        p.style.setProperty("--sy",randomBetween(-44,44)+"vh");
+        p.style.animationDelay=randomBetween(-2.4,0)+"s";
+        stage.appendChild(p);
+    }
+}
+
+/* =========================================================
+   UNIQUE USER INTERACTION FOR EACH WORLD
+   ========================================================= */
+
+function addCelebrationInteraction(
+    id,
+    stage
+){
+    const button=
+        createStageElement(
+            "button",
+            "celebration-interactor"
+        );
+
+    button.type="button";
+    button.setAttribute(
+        "aria-label",
+        "Interact with celebration"
+    );
+
+    button.onclick=
+        function(){
+            if(
+                !CELEBRATION_RUNTIME.active
+            ){
+                return;
+            }
+
+            if(id==="accepted"){
+                addRings(stage,3);
+
+                tone(
+                    784,
+                    .12,
+                    "sine",
+                    .035
+                );
+
+                tone(
+                    1046,
+                    .2,
+                    "triangle",
+                    .03,
+                    .08
+                );
+
+                return;
+            }
+
+            if(id==="balloons"){
+                /* Blank-space click creates a tiny party spark.
+                   Actual balloons still use their own pop controls. */
+                addStars(stage,8);
+
+                tone(
+                    660,
+                    .08,
+                    "sine",
+                    .025
+                );
+
+                return;
+            }
+
+            if(id==="confetti"){
+                addCannonStream(stage,false);
+                addConfetti(stage,120);
+                noiseBurst(.22,.055);
+                tone(330,.08,"triangle",.03);
+                tone(660,.12,"triangle",.028,.08);
+                return;
+            }
+
+            if(id==="fireworks"){
+                const x=
+                    randomBetween(
+                        12,
+                        88
+                    );
+
+                const y=
+                    randomBetween(
+                        12,
+                        72
+                    );
+
+                addFirework(
+                    stage,
+                    x,
+                    y,
+                    randomBetween(.75,1.15)
+                );
+
+                noiseBurst(
+                    .28,
+                    .05
+                );
+
+                tone(
+                    880,
+                    .13,
+                    "triangle",
+                    .035,
+                    .16
+                );
+
+                return;
+            }
+
+            if(id==="galaxy"){
+                const pulse=
+                    createStageElement(
+                        "div"
+                    );
+
+                pulse.style.position="absolute";
+                pulse.style.left="50%";
+                pulse.style.top="50%";
+                pulse.style.width="34px";
+                pulse.style.height="34px";
+                pulse.style.border="2px solid #e9ddff";
+                pulse.style.borderRadius="50%";
+                pulse.style.transform=
+                    "translate(-50%,-50%)";
+                pulse.style.boxShadow=
+                    "0 0 30px 8px rgba(197,163,255,.8)";
+                pulse.style.animation=
+                    "ringBurstLoop 1.4s ease-out 1";
+
+                stage.appendChild(
+                    pulse
+                );
+
+                tone(
+                    261.63,
+                    .35,
+                    "sine",
+                    .025
+                );
+
+                tone(
+                    523.25,
+                    .45,
+                    "sine",
+                    .028,
+                    .12
+                );
+
+                return;
+            }
+
+            if(id==="terminal"){
+                const flash=
+                    createStageElement(
+                        "div"
+                    );
+
+                flash.textContent=
+                    "> ACCESS PULSE :: OK";
+
+                flash.style.position="absolute";
+                flash.style.left="50%";
+                flash.style.top="88%";
+                flash.style.transform=
+                    "translate(-50%,-50%)";
+                flash.style.color="#72ffac";
+                flash.style.font=
+                    "700 14px Consolas,monospace";
+                flash.style.textShadow=
+                    "0 0 14px #25ff7b";
+                flash.style.pointerEvents="none";
+                flash.style.animation=
+                    "terminalLineLoop 1.8s ease-in-out 1";
+
+                stage.appendChild(
+                    flash
+                );
+
+                tone(
+                    440,
+                    .055,
+                    "square",
+                    .018
+                );
+
+                tone(
+                    880,
+                    .09,
+                    "square",
+                    .025,
+                    .07
+                );
+
+                return;
+            }
+
+            if(id==="dna"){
+                const sparks=
+                    stage.querySelectorAll(
+                        ".dna-spark"
+                    );
+
+                sparks.forEach(
+                    function(spark){
+                        spark.style.animationDuration=
+                            ".8s";
+                    }
+                );
+
+                tone(
+                    392,
+                    .09,
+                    "triangle",
+                    .025
+                );
+
+                tone(
+                    784,
+                    .14,
+                    "sine",
+                    .024,
+                    .08
+                );
+
+                setTimeout(
+                    function(){
+                        sparks.forEach(
+                            function(spark){
+                                spark.style.animationDuration=
+                                    "2.2s";
+                            }
+                        );
+                    },
+                    900
+                );
+
+                return;
+            }
+
+            if(id==="brain"){
+                const brain=stage.querySelector(".brain-orb");
+                const bulb=stage.querySelector(".lightbulb-core");
+                const ring=stage.querySelector(".morph-ring");
+                [brain,bulb,ring].forEach(function(el){
+                    if(!el)return;
+                    el.style.animation="none";
+                    void el.offsetWidth;
+                    el.style.animation="";
+                });
+                for(let i=0;i<14;i++){
+                    tone(220+i*45,.06,"sine",.018,i*.035);
+                }
+                tone(1046.5,.28,"triangle",.04,.58);
+                return;
+            }
+        };
+
+    stage.appendChild(
+        button
+    );
+}
+
+/* =========================================================
+   RUN ONE WORLD
+   ========================================================= */
+
+function addCelebrationHeadline(stage,textContent,color="#fff"){
+    const t=createStageElement("div","effect-text");
+    t.textContent=textContent;
+    t.style.fontSize="clamp(20px,4vw,42px)";
+    t.style.color=color;
+    t.style.top="4vh";
+    t.style.maxWidth="82vw";
+    stage.appendChild(t);
+    return t;
+}
+
+function addWorldMotion(id,stage){
+    const palettes={
+        accepted:["#58f59a","#b7ffd0"],
+        balloons:["#ff76b7","#8fd7ff"],
+        confetti:["#ffd166","#ff6b8a","#65d8ff"],
+        fireworks:["#8fc7ff","#ffffff","#b79cff"],
+        galaxy:["#d9ccff","#8f72ff","#67e7ff"],
+        terminal:["#48ff91","#8affb2"],
+        dna:["#67efff","#b6ffff"],
+        brain:["#d7c7ff","#ffe76b"]
+    };
+    const colors=palettes[id]||["#ffffff"];
+    const count={
+        accepted:12,balloons:10,confetti:12,fireworks:9,
+        galaxy:14,terminal:12,dna:11,brain:13
+    }[id]||10;
+
+    for(let i=0;i<count;i++){
+        const kind=i%4;
+        const el=createStageElement("span","celebration-motion "+
+            (kind===0?"motion-orb":kind===1?"motion-pulse":kind===2?"motion-square":"motion-particle"));
+        const color=colors[i%colors.length];
+        el.style.color=color;
+        el.style.left=randomBetween(8,92)+"%";
+        el.style.top=randomBetween(12,88)+"%";
+        el.style.setProperty("--dur",randomBetween(2.8,6.8)+"s");
+        el.style.setProperty("--delay",randomBetween(-6,0)+"s");
+        el.style.setProperty("--mx",randomBetween(-65,65)+"px");
+        el.style.setProperty("--my",randomBetween(-55,55)+"px");
+        el.style.transform+=` rotate(${randomBetween(0,360)}deg)`;
+        stage.appendChild(el);
+    }
+
+    if(id==="accepted"||id==="galaxy"||id==="dna"||id==="brain"){
+        for(let i=0;i<3;i++){
+            const orbit=createStageElement("span","celebration-motion motion-orbit");
+            orbit.style.color=colors[i%colors.length];
+            orbit.style.width=randomBetween(150,280)+"px";
+            orbit.style.height=randomBetween(90,210)+"px";
+            orbit.style.setProperty("--dur",randomBetween(6,10)+"s");
+            orbit.style.setProperty("--delay",randomBetween(-8,0)+"s");
+            orbit.style.transform=`translate(-50%,-50%) rotate(${randomBetween(0,360)}deg)`;
+            stage.appendChild(orbit);
+        }
+    }
+
+    if(id==="fireworks"||id==="confetti"||id==="terminal"){
+        for(let i=0;i<4;i++){
+            const streak=createStageElement("span","celebration-motion motion-streak");
+            streak.style.width=randomBetween(70,180)+"px";
+            streak.style.left=randomBetween(-15,65)+"%";
+            streak.style.top=randomBetween(15,80)+"%";
+            streak.style.color=colors[i%colors.length];
+            streak.style.setProperty("--dur",randomBetween(2.6,4.4)+"s");
+            streak.style.setProperty("--delay",randomBetween(-4,0)+"s");
+            streak.style.setProperty("--angle",randomBetween(-12,12)+"deg");
+            stage.appendChild(streak);
+        }
+    }
+}
+
+function runCelebrationEffect(
+    id,
+    stage
+){
+    addCelebrationInteraction(id,stage);
+    addWorldMotion(id,stage);
+
+    if(id==="accepted"){
+
+        addRings(
+            stage,
+            11
+        );
+
+        addStars(
+            stage,
+            90
+        );
+
+        const t=
+            createStageElement(
+                "div",
+                "effect-text"
+            );
+
+        t.innerHTML=
+            "✓ ACCEPTED<br>"+
+            "<small style='font-size:12px;letter-spacing:2px'>"+
+            "VERDICT LOCKED"+
+            "</small>";
+
+        t.style.fontSize=
+            "clamp(38px,8vw,78px)";
+
+        t.style.color="#58f59a";
+
+        stage.appendChild(t);
+
+        return;
+    }
+
+    if(id==="balloons"){
+
+        addBalloons(
+            stage
+        );
+
+        addStars(
+            stage,
+            28
+        );
+
+        addCelebrationHeadline(stage,"BALLOON PARTY!","#d63883");
+
+        return;
+    }
+
+    if(id==="confetti"){
+
+        addConfetti(
+            stage,
+            520
+        );
+
+        addCannonStream(
+            stage
+        );
+
+        addCelebrationHeadline(stage,"CONFETTI CANNON!","#fff");
+
+        return;
+    }
+
+    if(id==="fireworks"){
+
+        addFireworksLoop(
+            stage
+        );
+
+        addCelebrationHeadline(stage,"NIGHT SKY: CLEARED","#fff");
+
+        return;
+    }
+
+    if(id==="galaxy"){
+
+        addGalaxy(
+            stage
+        );
+
+        const t=
+            createStageElement(
+                "div",
+                "effect-text"
+            );
+
+        t.innerHTML=
+            "GALAXY<br>"+
+            "<small style='font-size:.3em;letter-spacing:4px'>"+
+            "EXPANSION COMPLETE"+
+            "</small>";
+
+        t.style.fontSize=
+            "clamp(35px,8vw,76px)";
+
+        t.style.color="#d9ccff";
+
+        stage.appendChild(t);
+
+        return;
+    }
+
+    if(id==="terminal"){
+
+        addCodeRain(
+            stage
+        );
+
+        addBinaryGrid(
+            stage
+        );
+
+        const box=
+            createStageElement(
+                "div",
+                "terminal-box"
+            );
+
+        const lines=[
+            "> ArafatCP :: verifier boot",
+            "> loading approval checkpoint",
+            "> scanning solution signature",
+            "> tests ................ 100%",
+            "> verdict .............. ACCEPTED",
+            "> exit code ............ 0"
+        ];
+
+        lines.forEach(
+            function(line,i){
+
+                const row=
+                    createStageElement(
+                        "div",
+                        "terminal-line"
+                    );
+
+                row.textContent=line;
+
+                row.style.animationDelay=
+                    i*.42+
+                    "s";
+
+                box.appendChild(
+                    row
+                );
+            }
+        );
+
+        stage.appendChild(
+            box
+        );
+
+        const terminalHeadline=addCelebrationHeadline(stage,"SYSTEM VERIFIED","#48ff91");
+        terminalHeadline.classList.add("terminal-headline");
+
+        return;
+    }
+
+    if(id==="dna"){
+
+        addDna(
+            stage
+        );
+
+        const t=
+            createStageElement(
+                "div",
+                "effect-text"
+            );
+
+        t.innerHTML=
+            "CODE DNA<br>"+
+            "<small style='font-size:.32em;letter-spacing:4px'>"+
+            "SEQUENCE VERIFIED"+
+            "</small>";
+
+        t.style.fontSize=
+            "clamp(30px,7vw,68px)";
+
+        t.style.color="#67efff";
+
+        stage.appendChild(t);
+
+        return;
+    }
+
+    if(id==="brain"){
+
+        addBrainParticles(
+            stage
+        );
+
+        addStars(
+            stage,
+            55
+        );
+
+        const brain=
+            createStageElement(
+                "div",
+                "brain-orb"
+            );
+
+        brain.textContent="🧠";
+
+        stage.appendChild(
+            brain
+        );
+
+        addCelebrationHeadline(stage,"THOUGHT → INSIGHT","#fff");
+
+        return;
+    }
+}
+
+function addRings(
+    stage,
+    count=5
+){
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+        const r=
+            createStageElement(
+                "div",
+                "effect-ring"
+            );
+
+        r.style.animationDelay=
+            i*.17+
+            "s";
+
+        r.style.borderWidth=
+            i%2
+                ?2
+                :4;
+
+        stage.appendChild(
+            r
+        );
+    }
+}
+
+/* =========================================================
+   SHOW / CLOSE
+   ========================================================= */
+
+function showApprovalCelebration(
+    problem
+){
+    const overlay=
+        document.getElementById(
+            "celebrationOverlay"
+        );
+
+    const stage=
+        document.getElementById(
+            "celebrationStage"
+        );
+
+    if(
+        !overlay||
+        !stage
+    ){
+        return;
+    }
+
+    stopCelebrationRuntime();
+
+    const profile=
+        ensureLocalProfile();
+
+    const stats=
+        getProfileStats(
+            profile
+        );
+
+    const effect=
+        pickCelebrationEffect();
+
+    buildCelebrationCard(
+        effect,
+        problem,
+        profile,
+        stats
+    );
+
+    stage.innerHTML="";
+
+    CELEBRATION_RUNTIME.active=true;
+
+    runCelebrationEffect(
+        effect.id,
+        stage
+    );
+
+    document.body.classList.add("celebration-open");
+
+    overlay.className=
+        "celebration-overlay show effect-"+
+        effect.id;
+
+    overlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    playUniqueCelebrationSound(
+        effect.id
+    );
+}
+
+function closeCelebration(){
+
+    const overlay=
+        document.getElementById(
+            "celebrationOverlay"
+        );
+
+    const stage=
+        document.getElementById(
+            "celebrationStage"
+        );
+
+    const card=
+        document.getElementById(
+            "celebrationCard"
+        );
+
+    stopCelebrationRuntime();
+
+    if(overlay){
+        overlay.className=
+            "celebration-overlay";
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+    }
+
+    if(stage){
+        stage.innerHTML="";
+    }
+
+    if(card){
+        card.innerHTML="";
+    }
+
+    document.body.classList.remove("celebration-open");
+}
+
+function closeCelebrationAndOpenNext(){
+
+    closeCelebration();
+
+    setTimeout(
+        function(){
+
+            if(
+                currentDay?.problems&&
+                currentProblemIndex<
+                currentDay.problems.length-1
+            ){
+                nextProblem();
+
+            }else{
+                showHome();
+            }
+
+        },
+        120
+    );
+}
+
+function resetCurrentProblemApproval(){const profile=ensureLocalProfile(),problem=currentDay?.problems?.[currentProblemIndex];if(!profile||!problem)return;const record=getProblemRecord(problem.id);if(record.status!=="approved")return;const ok=window.confirm("Reset this approval? The problem will return to NOT APPROVED.");if(!ok)return;if(profile.progress)delete profile.progress[problem.id];updateProfile(profile);updateProblemStatusUI();renderProfilePage();updateProfileNavbar();renderArchive();showToast("Approval reset successfully.","success")}
+document.addEventListener("keydown",event=>{if(event.key==="Escape"){if(document.getElementById("profileModal")?.classList.contains("show"))closeProfileManager();if(document.getElementById("celebrationOverlay")?.classList.contains("show"))closeCelebration()}});
+document.addEventListener("keydown",event=>{if(event.key==="Enter"&&document.activeElement?.id==="profileCreateInput"){event.preventDefault();createProfile()}});
+
 /* =========================================================
    GET ALL PROBLEMS
    ========================================================= */
@@ -3865,6 +8507,10 @@ function openProblem(
 
 
     document.getElementById(
+        "profilePage"
+    ).classList.remove("visible");
+
+    document.getElementById(
         "problemPage"
     ).style.display = "block";
 
@@ -3990,6 +8636,10 @@ function openProblem(
         answerButton.href =
             day.formLink;
 
+        answerButton.onclick = null;
+
+
+
         answerButton.style.display =
             "inline-block";
 
@@ -4009,6 +8659,7 @@ function openProblem(
 
 
     updateNavigation();
+    updateProblemStatusUI();
 
 
     window.scrollTo({
@@ -4220,6 +8871,15 @@ function loadDayFilter() {
 /* =========================================================
    RENDER ARCHIVE
    ========================================================= */
+
+function getArchiveApprovalBadge(problem){
+    const profile=getActiveProfile();
+    const record=profile&&profile.progress?profile.progress[problem.id]:null;
+    const approved=record&&record.status==="approved";
+    return approved
+        ? '<div class="archive-approval-badge approved"><span>✓</span> APPROVED</div>'
+        : '<div class="archive-approval-badge pending"><span>•</span> NOT APPROVED</div>';
+}
 
 function renderArchive() {
 
@@ -4447,6 +9107,8 @@ function renderArchive() {
 
                                     </div>
 
+                                    ${getArchiveApprovalBadge(problem)}
+
                                 </div>
 
                             `;
@@ -4547,6 +9209,10 @@ function showHome() {
 
 
     document.getElementById(
+        "profilePage"
+    ).classList.remove("visible");
+
+    document.getElementById(
         "homePage"
     ).style.display = "block";
 
@@ -4590,6 +9256,10 @@ function showArchive() {
 
 
     document.getElementById(
+        "profilePage"
+    ).classList.remove("visible");
+
+    document.getElementById(
         "archivePage"
     ).style.display = "block";
 
@@ -4628,6 +9298,10 @@ function goBackFromProblem() {
     if (previousView === "archive") {
 
         showArchive();
+
+    } else if (previousView === "profile") {
+
+        showProfile();
 
     } else {
 
@@ -5180,6 +9854,8 @@ if (
    INITIALIZE
    ========================================================= */
 
+updateProfileNavbar();
+
 loadToday();
 
 loadDayFilter();
@@ -5187,6 +9863,36 @@ loadDayFilter();
 updateArchiveStats();
 
 renderArchive();
+
+renderProfilePage();
+
+setTimeout(function(){
+    if(getActiveProfile()){
+        updateProblemStatusUI();
+    }else{
+        showProfileGate();
+    }
+},80);
+
+document.getElementById("profileGateCreateInput")?.addEventListener("keydown",function(event){
+    if(event.key==="Enter"){
+        event.preventDefault();
+        createProfileFromGate();
+    }
+});
+
+document.getElementById("profileEditInput")?.addEventListener("keydown",function(event){
+    if(event.key==="Enter"){
+        event.preventDefault();
+        saveProfileEdit();
+    }
+    if(event.key==="Escape"){
+        event.preventDefault();
+        closeProfileEdit();
+    }
+});
+
+
 
 </script>
 
