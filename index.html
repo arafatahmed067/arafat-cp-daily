@@ -4674,6 +4674,471 @@ n`,
     },
 
 
+
+    /* =====================================================
+       CONTEST 1
+       04 September 2026
+       ===================================================== */
+
+    {
+        day: "C1",
+        archiveLabel: "Contest 1",
+        date: "04 September 2026",
+        time: "9:00 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSe-Wxb9WglO5iUIn_MpZq-i4amJU4xz_KbODgNxTV332DMtsA/viewform?usp=dialog",
+
+        problems: [
+
+            {
+                id: "C1-A",
+                letter: "A",
+                title: "Zoro's Age Calculator",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Zoro wants to know how old a person will be in <b>2026</b>.
+                        Given the year a person was born, calculate their age in 2026.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains a single integer <b>birthyear</b>,
+                        representing the year the person was born.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the person's age in the year <b>2026</b>.
+                    </p>
+                `,
+
+                constraints: `
+                    <p><b>1900 ≤ birthyear ≤ 2026</b></p>
+                `,
+
+                examples: [
+                    {
+                        input: "2005",
+                        output: "21"
+                    },
+                    {
+                        input: "2010",
+                        output: "16"
+                    }
+                ]
+            },
+
+            {
+                id: "C1-B",
+                letter: "B",
+                title: "Help Ichigo at Math",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Ichigo is a student at ABC School. Recently, he learned
+                        how to calculate the multiplication table of a number.
+                        Help Ichigo by writing a program that prints the
+                        multiplication table of a given number from <b>1 to 10</b>.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains a single integer <b>n</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the multiplication table of <b>n</b> from 1 to 10.
+                        Each line should follow this format:
+                    </p>
+                    <p><b>n × i = result</b></p>
+                `,
+
+                constraints: `
+                    <p><b>1 ≤ n ≤ 25</b></p>
+                `,
+
+                examples: [
+                    {
+                        input: "5",
+                        output: `5x1=5
+5x2=10
+5x3=15
+5x4=20
+5x5=25
+5x6=30
+5x7=35
+5x8=40
+5x9=45
+5x10=50`
+                    },
+                    {
+                        input: "12",
+                        output: `12x1=12
+12x2=24
+12x3=36
+12x4=48
+12x5=60
+12x6=72
+12x7=84
+12x8=96
+12x9=108
+12x10=120`
+                    }
+                ]
+            },
+
+            {
+                id: "C1-C",
+                letter: "C",
+                title: "Ichigo's Star Pyramid ⭐",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Ichigo is practicing for loops. His teacher gives him a
+                        simple challenge: print a pattern using stars.
+                        Given an integer <b>n</b>, print n rows of stars.
+                        The first row contains <b>1 star</b>, the second row
+                        contains <b>2 stars</b>, and each following row contains
+                        one more star than the previous row.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains a single integer <b>n</b>.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the required pattern of n rows.
+                        For example, if n = 4, the pattern should be:
+                    </p>
+                    <p>*<br>**<br>***<br>****</p>
+                `,
+
+                constraints: `
+                    <p><b>1 ≤ n ≤ 20</b></p>
+                `,
+
+                examples: [
+                    {
+                        input: "4",
+                        output: `*
+**
+***
+****`
+                    },
+                    {
+                        input: "6",
+                        output: `*
+**
+***
+****
+*****
+******`
+                    }
+                ]
+            },
+
+            {
+                id: "C1-D",
+                letter: "D",
+                title: "Reverse Annoying Technique..! 🧐😼",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Naruto and Sasuke are best friends. Unlike Naruto,
+                        Sasuke is kind of a <b>ragebaiter</b> and has anger issues.
+                    </p>
+
+                    <p>
+                        One day, while making a tour plan
+                        <i>(which will probably get cancelled anyway!)</i>,
+                        Naruto disagreed with Sasuke.
+                        To annoy Naruto, Sasuke started using a strange
+                        messaging technique called the <b>Reverse Annoying Technique</b>.
+                    </p>
+
+                    <p>
+                        Using this technique, Sasuke writes <b>every word in reverse</b>.
+                        For example:
+                    </p>
+
+                    <p>
+                        hi → ih<br>
+                        naruto → oturan<br>
+                        sasuke → ekusas
+                    </p>
+
+                    <p>
+                        Naruto is getting annoyed and needs your help!
+                        Given Sasuke's message, <b>which contains only one word</b>,
+                        restore the original word.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        The input contains a single string representing
+                        Sasuke's reversed word.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the original word by reversing the given string.
+                    </p>
+                `,
+
+                constraints: `
+                    <p><b>1 ≤ |S| ≤ 100</b></p>
+                `,
+
+                examples: [
+                    {
+                        input: "oturan",
+                        output: "naruto"
+                    },
+                    {
+                        input: "olleh",
+                        output: "hello"
+                    }
+                ]
+            },
+
+            {
+                id: "C1-E",
+                letter: "E",
+                title: "Ichigo Learned Psychology (Memory Recall) 🧠",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Ichigo is a Substitute Soul Reaper in the Bleach universe.
+                        <i>(Bleach is an anime that is part of the legendary Big Three.)</i>
+                    </p>
+
+                    <p>
+                        As a newcomer to the Soul Society, Ichigo needs to remember
+                        the captains of all <b>13 Court Guard Squads (Gotei 13)</b>.
+                        However, he was only able to memorize <b>7 of them</b>.
+                    </p>
+
+                    <p>
+                        But Ichigo's forgetting curve is always at its peak.
+                        So, he tries to memorize the captains using a
+                        <b>number and the first 3 letters of each captain's name</b>.
+                    </p>
+
+                    <p>
+                        For example, if he needs to remember <b>Aizen</b>,
+                        whose squad number is 5, his memory key becomes:
+                    </p>
+
+                    <p><b>Aizen = 5aiz</b>.</p>
+
+                    <p>
+                        However, Squad <b>1</b> is special. Its captain is always
+                        considered the <b>Head-Captain</b>, who leads the entire Gotei 13.
+                        To honor the Head-Captain, Ichigo remembers the
+                        <b>first 4 letters</b> of his name instead.
+                    </p>
+
+                    <p><b>Yamamoto = 1yama</b>.</p>
+
+                    <p><b>The 7 Captains Ichigo Memorized:</b></p>
+
+                    <ul>
+                        <li><b>1.</b> Yamamoto</li>
+                        <li><b>4.</b> Unohana</li>
+                        <li><b>5.</b> Aizen</li>
+                        <li><b>8.</b> Shunsui</li>
+                        <li><b>10.</b> Toshiro</li>
+                        <li><b>11.</b> Zaraki</li>
+                        <li><b>13.</b> Ukitake</li>
+                    </ul>
+                `,
+
+                input: `
+                    <p>
+                        You will be given the <b>squad number</b> of one of the
+                        captains Ichigo has memorized.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        Print the <b>memory key</b> for the given squad number,
+                        followed by the captain's <b>full name</b>.
+                    </p>
+                `,
+
+                constraints: `
+                    <p><b>1<=n<=13</b></p>
+                `,
+
+                examples: [
+                    {
+                        input: "1",
+                        output: "1yama Yamamoto"
+                    },
+                    {
+                        input: "5",
+                        output: "5aiz Aizen"
+                    }
+                ]
+            },
+
+            {
+                id: "C1-F",
+                letter: "F",
+                title: "Mission Come Front 🔥",
+                difficulty: "Not specified",
+                points: 0,
+                tags: [],
+
+                statement: `
+                    <p><b>Time:</b> 1 s</p>
+                    <p><b>Memory:</b> 125 MB</p>
+
+                    <p>
+                        Arafat is a student at Metropolitan University in the CSE department.
+                        He is now a 1st-year, 3rd-semester student.
+                    </p>
+
+                    <p>
+                        After getting maximum damage to his CGPA in Semesters 1 and 2,
+                        Arafat finally got a reality check. So, he decided to become
+                        more serious about his character development arc and started
+                        working hard on each course this semester.
+                    </p>
+
+                    <p>Arafat has 4 main courses:</p>
+
+                    <ul>
+                        <li><b>D</b>ata Structures</li>
+                        <li><b>I</b>ntroduction to Sociology</li>
+                        <li><b>B</b>asic Electrical and Electronic Circuits</li>
+                        <li><b>M</b>atrices, Geometry and Vector Analysis</li>
+                    </ul>
+
+                    <p>
+                        He makes a routine where he will study <b>each course for 1 hour every day</b>.
+                        He wants to track his progress throughout the week, so he decides
+                        to create a <b>progress string</b>.
+                    </p>
+
+                    <p>
+                        The concept is simple: he will use the <b>first letter of each course
+                        (bolded in the course name)</b> to represent that course and create
+                        a long string showing which courses he studied each day.
+                    </p>
+
+                    <p>His rule is:</p>
+
+                    <ul>
+                        <li>He will study each course for exactly <b>1 hour</b>.</li>
+                        <li>He will study each course <b>only once per day</b>.</li>
+                    </ul>
+
+                    <p>
+                        Therefore, if he studies properly for one day, his progress string will be:
+                        <b>DIBM</b>
+                    </p>
+
+                    <p>
+                        For the 2nd day, the string will become:
+                        <b>DIBMDIBM</b>
+                    </p>
+
+                    <p>
+                        For the 3rd day:
+                        <b>DIBMDIBMDIBM</b>
+                    </p>
+
+                    <p>And so on.</p>
+
+                    <p>
+                        However, due to some issues, Arafat may be unable to study one or more
+                        courses on a particular day, or he may even be unable to study at all.
+                    </p>
+
+                    <p>
+                        Your task is to determine from the progress string whether Arafat studied
+                        properly for the <b>entire 7-day week</b>.
+                    </p>
+                `,
+
+                input: `
+                    <p>
+                        A single string containing Arafat's progress for the entire 7-day week.
+                    </p>
+                `,
+
+                output: `
+                    <p>
+                        If Arafat studied properly for the entire week, print:
+                    </p>
+                    <p><b>Ekon ar come front tekay k!!</b></p>
+
+                    <p>Otherwise, print:</p>
+                    <p><b>Failure is not an option I will restart and cover the gap</b></p>
+                `,
+
+                constraints: ``,
+
+                examples: [
+                    {
+                        input: "DIBM",
+                        output: "Failure is not an option I will restart and cover the gap"
+                    },
+                    {
+                        input: "DIBMDIBM",
+                        output: "Failure is not an option I will restart and cover the gap"
+                    }
+                ]
+            }
+
+        ]
+    },
+
     /* =====================================================
        DAY 5
        EXACT HISTORICAL SOURCE DATA
@@ -9005,7 +9470,10 @@ function openProblem(
     ).innerHTML = `
 
         <span class="publication-meta">
-            Day ${day.day}
+            ${escapeHTML(
+                day.archiveLabel ||
+                ("Day " + day.day)
+            )}
         </span>
 
         <span class="publication-meta">
@@ -9288,7 +9756,8 @@ function loadDayFilter() {
                 String(day.day);
 
             option.textContent =
-                "Day " + day.day;
+                day.archiveLabel ||
+                ("Day " + day.day);
 
             select.appendChild(
                 option
@@ -9425,7 +9894,10 @@ function renderArchive() {
                     <div class="archive-day-left">
 
                         <div class="archive-day-title">
-                            Day ${day.day}
+                            ${escapeHTML(
+                                day.archiveLabel ||
+                                ("Day " + day.day)
+                            )}
                         </div>
 
                         <div class="archive-day-meta">
@@ -9474,7 +9946,7 @@ function renderArchive() {
                                     class="archive-problem"
                                     onclick="
                                         openProblem(
-                                            ${day.day},
+                                            ${escapeHTML(JSON.stringify(day.day))},
                                             ${originalIndex},
                                             'archive'
                                         )
