@@ -194,6 +194,100 @@ body.dark .footer {
     color: white;
 }
 
+
+
+/* =========================================================
+   LOCAL PROGRESS BACKUP + PER-PROBLEM NOTEPAD
+   Additive feature layer — existing UI/logic remains intact
+   ========================================================= */
+.profile-data-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}
+.profile-data-btn{
+    border:1px solid #d4dae4;
+    background:#fff;
+    color:#344054;
+    padding:9px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:900;
+    transition:.2s;
+}
+.profile-data-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(15,23,42,.08)}
+.profile-data-btn.export{background:#eef6ff;color:#1558b0;border-color:#bfdbfe}
+.profile-data-btn.import{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+.profile-data-note{margin-top:7px;color:#7a8697;font-size:10px;font-weight:700}
+
+.problem-notepad{
+    margin-top:30px;
+    padding:22px;
+    border-radius:18px;
+    border:1px solid #dbe3ef;
+    background:linear-gradient(145deg,#fbfdff,#f4f8fd);
+    box-shadow:0 7px 24px rgba(15,23,42,.045);
+}
+.problem-notepad-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+}
+.problem-notepad-title{font-size:18px;font-weight:900;color:#172033}
+.problem-notepad-subtitle{color:#687386;font-size:11px;margin-top:2px}
+.problem-notepad-actions{display:flex;gap:7px;flex-wrap:wrap}
+.notepad-btn{
+    border:1px solid #d5dbe5;
+    background:#fff;
+    color:#445064;
+    padding:8px 10px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:10px;
+    font-weight:900;
+}
+.notepad-btn:hover{background:#f3f6fa}
+.notepad-btn.clear{color:#b42318;border-color:#f0b8b3}
+.problem-editor-wrap{position:relative}
+.problem-editor{
+    display:block;
+    width:100%;
+    min-height:330px;
+    resize:vertical;
+    padding:16px;
+    border:1px solid #cfd8e5;
+    border-radius:13px;
+    outline:none;
+    background:#0d1117;
+    color:#e6edf3;
+    font:13px/1.65 Consolas,Monaco,"Courier New",monospace;
+    tab-size:4;
+    caret-color:#60a5fa;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.02),0 8px 24px rgba(15,23,42,.08);
+}
+.problem-editor:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.12),inset 0 0 0 1px rgba(255,255,255,.03)}
+.problem-editor-status{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px;color:#718096;font-size:10px;font-weight:800}
+.problem-editor-status .saved{color:#15803d}
+.problem-editor-status .unsaved{color:#b45309}
+body.dark .problem-notepad{background:linear-gradient(145deg,#161b22,#111827);border-color:#30363d}
+body.dark .problem-notepad-title{color:#f0f6fc}
+body.dark .problem-notepad-subtitle{color:#aeb8c6}
+body.dark .notepad-btn{background:#0d1117;color:#d7dee8;border-color:#30363d}
+body.dark .notepad-btn:hover{background:#161b22}
+body.dark .profile-data-btn{background:#0d1117;color:#d7dee8;border-color:#30363d}
+body.dark .profile-data-note{color:#9aa6b5}
+
+@media (max-width:750px){
+    .profile-data-actions{width:100%}
+    .profile-data-btn{flex:1;min-width:135px}
+    .problem-notepad{padding:16px}
+    .problem-editor{min-height:280px}
+}
 /* =========================
    MAIN CONTAINER
    ========================= */
@@ -3150,7 +3244,10 @@ body.celebration-open{overflow:hidden}
             </div>
             <div class="profile-actions">
                 <button class="profile-action-btn primary" type="button" onclick="openProfileManager()">👤 Manage Profiles</button>
+                <button class="profile-action-btn" type="button" onclick="exportCPUserData()">⬇ Export Data</button>
+                <button class="profile-action-btn" type="button" onclick="triggerCPUserDataImport()">⬆ Import Data</button>
                 <button class="profile-action-btn" type="button" onclick="showHome()">← Practice</button>
+                <input id="cpUserDataImportInput" type="file" accept="application/json,.json" style="display:none" onchange="importCPUserData(event)">
             </div>
         </div>
     </section>
@@ -3308,6 +3405,29 @@ body.celebration-open{overflow:hidden}
         </section>
 
 
+
+        <!-- LOCAL PER-PROBLEM NOTEPAD -->
+        <section class="problem-notepad" id="problemNotepadSection">
+            <div class="problem-notepad-head">
+                <div>
+                    <div class="problem-notepad-title">💻 Your Problem Notepad</div>
+                    <div class="problem-notepad-subtitle">Write your solution here. It is saved locally for this profile and this exact problem.</div>
+                </div>
+                <div class="problem-notepad-actions">
+                    <button class="notepad-btn" type="button" onclick="insertEditorTemplate()">Insert C++ Template</button>
+                    <button class="notepad-btn" type="button" onclick="copyProblemEditor()">Copy Code</button>
+                    <button class="notepad-btn clear" type="button" onclick="clearProblemEditor()">Clear</button>
+                </div>
+            </div>
+            <div class="problem-editor-wrap">
+                <textarea id="problemEditor" class="problem-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Start writing your solution here...&#10;&#10;Your code is stored locally and will remain attached to this individual problem and profile."></textarea>
+            </div>
+            <div class="problem-editor-status">
+                <span id="problemEditorStatus" class="saved">✓ Local notepad ready</span>
+                <span id="problemEditorCount">0 characters</span>
+            </div>
+        </section>
+
         <!-- GOOGLE FORM -->
 
         <div class="answer-box">
@@ -3399,6 +3519,11 @@ body.celebration-open{overflow:hidden}
         <div class="profile-manager-title">Profiles on this browser</div>
         <div id="profileList" class="profile-list"></div>
         <div class="profile-manager-footer-actions">
+            <div class="profile-data-actions">
+                <button class="profile-data-btn export" type="button" onclick="exportCPUserData()">⬇ Export All Progress & Notes</button>
+                <button class="profile-data-btn import" type="button" onclick="triggerCPUserDataImport()">⬆ Import Progress & Notes</button>
+            </div>
+            <div class="profile-data-note">Export creates a JSON backup containing your local profiles, approval progress, and every per-problem notepad. Import it on another device to continue where you left off.</div>
             <button class="profile-modal-close" type="button" onclick="closeProfileManager()">Done</button>
             <button class="profile-logout-btn" type="button" onclick="logoutProfile()">↪ Log out</button>
         </div>
@@ -5208,6 +5333,7 @@ function selectProfileFromGate(id){
     updateProblemStatusUI();
     renderProfilePage();
     renderArchive();
+    loadProblemEditor();
     hideProfileGate();
 
     showToast("✓ Logged in as "+profile.name,"success");
@@ -5702,6 +5828,7 @@ function approveCurrentProblem(){
     updateProblemStatusUI();
     renderProfilePage();
     updateProfileNavbar();
+    loadProblemEditor();
 
     showApprovalCelebration(problem);
 }
@@ -5755,6 +5882,309 @@ function updateProblemStatusUI(){
         help.textContent="Press only after your solution has been checked and you want to record the approval on this profile.";
         time.textContent="";
     }
+}
+
+
+/* =========================================================
+   LOCAL USER DATA BACKUP / RESTORE
+   Includes profiles, approval progress and per-problem notes.
+   Uses JSON only; no server/backend is involved.
+   ========================================================= */
+const CP_DATA_BACKUP_VERSION = 2;
+const CP_NOTES_FIELD = "notes";
+let problemEditorSaveTimer = null;
+let problemEditorBoundId = "";
+
+function getProfileNotes(profile){
+    if(!profile) return {};
+    if(!profile[CP_NOTES_FIELD] || typeof profile[CP_NOTES_FIELD] !== "object" || Array.isArray(profile[CP_NOTES_FIELD])){
+        profile[CP_NOTES_FIELD] = {};
+    }
+    return profile[CP_NOTES_FIELD];
+}
+
+function saveProfilesSilently(profiles){
+    try{
+        localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profiles));
+        return true;
+    }catch(e){
+        showToast("Could not save local data. Browser storage may be full.","error");
+        return false;
+    }
+}
+
+function normalizeImportedProfile(profile,index){
+    if(!profile || typeof profile !== "object") return null;
+    const id = typeof profile.id === "string" && profile.id.trim()
+        ? profile.id.trim()
+        : "imported_" + Date.now().toString(36) + "_" + index + "_" + Math.random().toString(36).slice(2,8);
+    const name = String(profile.name || ("Imported Profile " + (index+1))).trim().slice(0,120);
+    const progress = profile.progress && typeof profile.progress === "object" && !Array.isArray(profile.progress)
+        ? profile.progress : {};
+    const notes = profile.notes && typeof profile.notes === "object" && !Array.isArray(profile.notes)
+        ? profile.notes : {};
+    return {
+        id,
+        name: name || ("Imported Profile " + (index+1)),
+        createdAt: profile.createdAt || new Date().toISOString(),
+        progress,
+        notes
+    };
+}
+
+function buildCPUserBackup(){
+    const profiles = loadProfiles();
+    return {
+        app: "Arafat | Daily Practice",
+        backupType: "local-cp-user-data",
+        backupVersion: CP_DATA_BACKUP_VERSION,
+        exportedAt: new Date().toISOString(),
+        activeProfileId: getActiveProfileId(),
+        profiles: profiles.map(function(profile){
+            return {
+                id: profile.id,
+                name: profile.name,
+                createdAt: profile.createdAt,
+                progress: profile.progress || {},
+                notes: profile.notes || {}
+            };
+        })
+    };
+}
+
+function exportCPUserData(){
+    try{
+        const backup = buildCPUserBackup();
+        const json = JSON.stringify(backup, null, 2);
+        const blob = new Blob([json], {type:"application/json;charset=utf-8"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const date = new Date().toISOString().slice(0,10);
+        a.href = url;
+        a.download = "ArafatCP_UserData_" + date + ".json";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function(){URL.revokeObjectURL(url);},1000);
+        showToast("✓ Progress and notepads exported successfully.","success");
+    }catch(e){
+        showToast("Could not export local data.","error");
+    }
+}
+
+function triggerCPUserDataImport(){
+    const input=document.getElementById("cpUserDataImportInput");
+    if(input){
+        input.value="";
+        input.click();
+    }
+}
+
+function importCPUserData(event){
+    const input=event && event.target;
+    const file=input && input.files ? input.files[0] : null;
+    if(!file) return;
+
+    const reader=new FileReader();
+    reader.onload=function(){
+        try{
+            const data=JSON.parse(String(reader.result||""));
+            if(!data || typeof data!=="object" || !Array.isArray(data.profiles)){
+                throw new Error("Invalid backup format");
+            }
+            if(data.backupType && data.backupType!=="local-cp-user-data"){
+                throw new Error("Unsupported backup type");
+            }
+
+            const imported=data.profiles.map(normalizeImportedProfile).filter(Boolean);
+            if(!imported.length){
+                throw new Error("No profiles found");
+            }
+
+            const existing=loadProfiles();
+            const message="Import " + imported.length + " profile" + (imported.length===1?"":"s") +
+                " including approval progress and problem notepads?\n\n" +
+                "OK will replace profiles with matching IDs and add other imported profiles.\n" +
+                "Your current local profiles will remain unless their IDs match an imported profile.";
+            if(!window.confirm(message)){
+                showToast("Import cancelled.","error");
+                return;
+            }
+
+            const byId=new Map(existing.map(function(p){return [p.id,p];}));
+            imported.forEach(function(profile){
+                const old=byId.get(profile.id);
+                if(old){
+                    // Preserve any newer fields the current app may have added in the future.
+                    profile.notes=profile.notes || old.notes || {};
+                    profile.progress=profile.progress || old.progress || {};
+                }
+                byId.set(profile.id,profile);
+            });
+
+            const merged=Array.from(byId.values());
+            if(!saveProfilesSilently(merged)) return;
+
+            if(data.activeProfileId && merged.some(function(p){return p.id===data.activeProfileId;})){
+                setActiveProfileId(data.activeProfileId);
+            }else if(!getActiveProfileId() && merged.length){
+                setActiveProfileId(merged[0].id);
+            }
+
+            updateProfileNavbar();
+            renderProfileGate();
+            renderProfileManager();
+            renderProfilePage();
+            updateProblemStatusUI();
+            renderArchive();
+            loadProblemEditor();
+            showToast("✓ Data imported. Your progress and notepads are restored.","success");
+        }catch(e){
+            showToast("Import failed: this is not a valid ArafatCP backup.","error");
+        }finally{
+            if(input) input.value="";
+        }
+    };
+    reader.onerror=function(){
+        showToast("Could not read the backup file.","error");
+        if(input) input.value="";
+    };
+    reader.readAsText(file);
+}
+
+/* =========================================================
+   PER-PROBLEM LOCAL NOTEPAD
+   Every note is isolated by active profile + problem ID.
+   ========================================================= */
+function getCurrentProblemEditorKey(){
+    const problem=currentDay && currentDay.problems ? currentDay.problems[currentProblemIndex] : null;
+    const profile=getActiveProfile();
+    if(!problem || !profile) return "";
+    return String(problem.id || ("day"+currentDay.day+"_"+problem.letter));
+}
+
+function getProblemNote(profile,problemId){
+    if(!profile || !problemId) return "";
+    const notes=getProfileNotes(profile);
+    return typeof notes[problemId] === "string" ? notes[problemId] : "";
+}
+
+function setProblemNote(profile,problemId,value){
+    if(!profile || !problemId) return false;
+    const notes=getProfileNotes(profile);
+    notes[problemId]=String(value ?? "");
+    return true;
+}
+
+function updateProblemEditorStatus(saved=true){
+    const status=document.getElementById("problemEditorStatus");
+    const count=document.getElementById("problemEditorCount");
+    const editor=document.getElementById("problemEditor");
+    if(count && editor){
+        const n=editor.value.length;
+        count.textContent=n+" character"+(n===1?"":"s");
+    }
+    if(status){
+        status.className=saved?"saved":"unsaved";
+        status.textContent=saved?"✓ Saved locally":"● Saving...";
+    }
+}
+
+function loadProblemEditor(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor) return;
+    const profile=getActiveProfile();
+    const key=getCurrentProblemEditorKey();
+    problemEditorBoundId=key;
+
+    if(!profile || !key){
+        editor.value="";
+        editor.disabled=true;
+        editor.placeholder="Choose a local profile to use your private problem notepad.";
+        updateProblemEditorStatus(true);
+        return;
+    }
+
+    editor.disabled=false;
+    editor.placeholder="Start writing your solution here...\n\nYour code is stored locally and will remain attached to this individual problem and profile.";
+    editor.value=getProblemNote(profile,key);
+    updateProblemEditorStatus(true);
+}
+
+function saveProblemEditorNow(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor || editor.disabled) return;
+    const key=problemEditorBoundId || getCurrentProblemEditorKey();
+    const profile=getActiveProfile();
+    if(!key || !profile) return;
+    setProblemNote(profile,key,editor.value);
+    updateProfile(profile);
+    updateProblemEditorStatus(true);
+}
+
+function scheduleProblemEditorSave(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor || editor.disabled) return;
+    updateProblemEditorStatus(false);
+    clearTimeout(problemEditorSaveTimer);
+    problemEditorSaveTimer=setTimeout(saveProblemEditorNow,300);
+}
+
+function insertEditorTemplate(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor || editor.disabled) return showToast("Choose a profile first.","error");
+    const template=`#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    // Write your solution here\n\n    return 0;\n}`;
+    if(editor.value.trim()){
+        editor.value += "\n\n" + template;
+    }else{
+        editor.value=template;
+    }
+    scheduleProblemEditorSave();
+    editor.focus();
+    updateProblemEditorStatus(false);
+}
+
+function copyProblemEditor(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor || editor.disabled) return showToast("Choose a profile first.","error");
+    if(!editor.value){
+        showToast("Your notepad is empty.","error");
+        return;
+    }
+    copyText(editor.value,null);
+    showToast("✓ Code copied from your notepad.","success");
+}
+
+function clearProblemEditor(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor || editor.disabled) return showToast("Choose a profile first.","error");
+    if(!editor.value) return;
+    if(!window.confirm("Clear the saved notepad for this problem and this profile?")) return;
+    editor.value="";
+    saveProblemEditorNow();
+    showToast("Notepad cleared for this problem.","success");
+}
+
+function bindProblemEditor(){
+    const editor=document.getElementById("problemEditor");
+    if(!editor || editor.dataset.bound==="1") return;
+    editor.dataset.bound="1";
+    editor.addEventListener("input",scheduleProblemEditorSave);
+    editor.addEventListener("keydown",function(event){
+        if(event.key==="Tab"){
+            event.preventDefault();
+            const start=editor.selectionStart;
+            const end=editor.selectionEnd;
+            editor.value=editor.value.slice(0,start)+"    "+editor.value.slice(end);
+            editor.selectionStart=editor.selectionEnd=start+4;
+            scheduleProblemEditorSave();
+        }
+        if((event.ctrlKey||event.metaKey) && event.key.toLowerCase()==="s"){
+            event.preventDefault();
+            saveProblemEditorNow();
+            showToast("✓ Notepad saved locally.","success");
+        }
+    });
 }
 
 /* =========================================================
@@ -8660,6 +9090,8 @@ function openProblem(
 
     updateNavigation();
     updateProblemStatusUI();
+    bindProblemEditor();
+    loadProblemEditor();
 
 
     window.scrollTo({
@@ -9893,6 +10325,14 @@ document.getElementById("profileEditInput")?.addEventListener("keydown",function
 });
 
 
+
+
+/* =========================================================
+   STARTUP HOOK FOR THE LOCAL NOTEPAD
+   ========================================================= */
+document.addEventListener("DOMContentLoaded",function(){
+    bindProblemEditor();
+});
 
 </script>
 
