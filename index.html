@@ -3649,6 +3649,176 @@ body.celebration-open{overflow:hidden}
 
 const ARCHIVE = [
 
+    /* =====================================================
+       DAY 12
+       20 September 2026
+       11:27 PM
+       ===================================================== */
+
+    {
+        day: 12,
+        date: "20 September 2026",
+        time: "11:27 PM",
+
+        formLink:
+            "https://docs.google.com/forms/d/e/1FAIpQLSdSyUkKNkGC8nv52pbXa4QIxh4LCezzIDQ6l39aw5gGebRgWA/viewform?usp=dialog",
+
+        problems: [
+
+            {
+                id: "D12-A",
+                letter: "A",
+                title: "Decrypt the Pattern",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pattern", "Array", "Implementation"],
+
+                statement: `
+                    <p><b>Time Limit:</b> 1 second</p>
+                    <p><b>Memory Limit:</b> 256 MB</p>
+
+                    <p>
+                        Latif, after consistently learning Competitive Programming, finally faces a pattern problem as the very first question of a contest.
+                    </p>
+
+                    <p>
+                        The problem seems simple at first. There is an array of size <b>6</b>, but a secret hidden pattern is used to determine every element after the first one.
+                    </p>
+
+                    <p>
+                        Suppose the array is <b>A</b>. The pattern starts from the value stored in <b>A1</b>. Based on <b>A1</b>, the value of <b>A2</b> is determined. Then, based on the newly obtained value of <b>A2</b>, the value of <b>A3</b> is determined. The same process continues until <b>A6</b>.
+                    </p>
+
+                    <p>
+                        Latif is given only the first number of the array, <b>A1</b>. His task is to figure out the hidden pattern from the examples and generate all the remaining elements of the array.
+                    </p>
+
+                    <p>
+                        For example, consider the following two arrays:
+                    </p>
+
+                    <pre>2 6 14 30 62 126
+
+3 8 18 38 78 158</pre>
+
+                    <p>
+                        From these examples, Latif must extract the secret pattern and use it to generate the complete array for any given value of <b>A1</b>.
+                    </p>
+
+                    <p>
+                        Can Latif figure out the hidden pattern and correctly generate all <b>6 elements</b> of the array?
+                    </p>
+                `,
+
+                input: `
+                    <p>The input contains a single integer <b>A1</b>, representing the first element of the array.</p>
+                `,
+
+                output: `
+                    <p>Print the <b>6 elements</b> of the array in a single line, separated by spaces.</p>
+                    <p>The first element must be the given <b>A1</b>, and the remaining elements must be generated according to the hidden pattern demonstrated by the examples.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 &le; A1 &le; 10</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "2",
+                        output: "2 6 14 30 62 126"
+                    },
+                    {
+                        input: "3",
+                        output: "3 8 18 38 78 158"
+                    }
+                ]
+            },
+
+            {
+                id: "D12-B",
+                letter: "B",
+                title: "Decrypt the Pattern",
+                difficulty: "Easy",
+                points: 0,
+                tags: ["Pattern", "Array", "Implementation"],
+
+                statement: `
+                    <p><b>Time Limit:</b> 1 second</p>
+                    <p><b>Memory Limit:</b> 256 MB</p>
+
+                    <p>
+                        Latif, after consistently learning Competitive Programming, finally faces a pattern problem as the <b>second question</b> of a contest.
+                    </p>
+
+                    <p>
+                        The problem seems simple at first. There is an array of size <b>n</b>, but a secret pattern is used to determine every element after the first one.
+                    </p>
+
+                    <p>
+                        Suppose the array is <b>A</b>. The pattern starts from the value stored in <b>A1</b>. Based on <b>A1</b>, the value of <b>A2</b> is determined. Then, based on the newly obtained value of <b>A2</b>, the value of <b>A3</b> is determined. The same process continues until <b>An</b>.
+                    </p>
+
+                    <p>
+                        Latif is given only the size of the array, <b>n</b>, and the first element, <b>A1</b>. His task is to figure out the hidden pattern from the examples and generate all the remaining elements of the array.
+                    </p>
+
+                    <p>
+                        For example, consider the following arrays:
+                    </p>
+
+                    <pre>5 2
+2 8 26 80 242
+
+4 3
+3 11 35 107</pre>
+
+                    <p>
+                        From these examples, Latif must extract the secret pattern and use it to generate the complete array for any valid values of <b>n</b> and <b>A1</b>.
+                    </p>
+
+                    <p>
+                        Can Latif figure out the hidden pattern and correctly generate all <b>n elements</b> of the array?
+                    </p>
+                `,
+
+                input: `
+                    <p>The input contains two integers:</p>
+                    <ul>
+                        <li><b>n</b> &mdash; the size of the array.</li>
+                        <li><b>A1</b> &mdash; the first element of the array.</li>
+                    </ul>
+                `,
+
+                output: `
+                    <p>Print the <b>n elements</b> of the array in a single line, separated by spaces.</p>
+                    <p>The first element must be the given <b>A1</b>. Each subsequent element must be generated according to the hidden pattern demonstrated by the examples.</p>
+                `,
+
+                constraints: `
+                    <ul>
+                        <li><b>1 &le; n &le; 7</b></li>
+                        <li><b>1 &le; A1 &le; 7</b></li>
+                    </ul>
+                `,
+
+                examples: [
+                    {
+                        input: "5 2",
+                        output: "2 8 26 80 242"
+                    },
+                    {
+                        input: "4 3",
+                        output: "3 11 35 107"
+                    }
+                ]
+            }
+        ]
+    },
+
+
         /* =====================================================
        DAY 11
        ===================================================== */
